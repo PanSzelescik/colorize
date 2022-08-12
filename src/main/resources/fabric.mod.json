@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "bedcolorer",
+  "version": "${version}",
+  "name": "Bed Colorer",
+  "description": "Right click with the dye on the bed to color them!",
+  "authors": [
+    "PanSzelescik"
+  ],
+  "contact": {
+    "website": "https://www.curseforge.com/minecraft/mc-mods/bedcolorer",
+    "repo": "https://github.com/PanSzelescik/bedcolorer",
+    "issues": "https://github.com/PanSzelescik/bedcolorer/issues",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/bedcolorer",
+    "sources": "https://github.com/PanSzelescik/bedcolorer"
+  },
+  "license": "All Right Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "pl.panszelescik.bedcolorer.fabric.BedColorerFabric"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric-api": "*",
+    "minecraft": "1.19.2"
+  }
+}
