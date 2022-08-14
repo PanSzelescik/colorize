@@ -9,4 +9,3 @@ Right click with the dye on some blocks to color them!
 - Banners
 - Shulker Boxes
 - Config
-- One repo using Architectury
