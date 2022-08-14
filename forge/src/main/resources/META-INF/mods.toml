@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "All Rights Reserved"
+issueTrackerURL="https://github.com/PanSzelescik/colorize/issues"
+[[mods]]
+modId = "colorize"
+version = "${version}"
+displayName = "Colorize"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/colorize"
+authors = "PanSzelescik"
+description = '''
+Right click on the dye on some blocks to color them!
+'''
+[[dependencies.colorize]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.colorize]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2,1.20)"
+ordering = "NONE"
+side = "BOTH"
