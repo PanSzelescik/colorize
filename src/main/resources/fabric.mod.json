@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "bedcolorer",
+  "id": "colorize",
   "version": "${version}",
-  "name": "Bed Colorer",
-  "description": "Right click with the dye on the bed to color them!",
+  "name": "Colorize",
+  "description": "Right click with the dye on some blocks to color them!",
   "authors": [
     "PanSzelescik"
   ],
   "contact": {
-    "website": "https://www.curseforge.com/minecraft/mc-mods/bedcolorer",
-    "repo": "https://github.com/PanSzelescik/bedcolorer",
-    "issues": "https://github.com/PanSzelescik/bedcolorer/issues",
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/bedcolorer",
-    "sources": "https://github.com/PanSzelescik/bedcolorer"
+    "website": "https://www.curseforge.com/minecraft/mc-mods/colorize",
+    "repo": "https://github.com/PanSzelescik/colorize",
+    "issues": "https://github.com/PanSzelescik/colorize/issues",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/colorize",
+    "sources": "https://github.com/PanSzelescik/colorize"
   },
   "license": "All Right Reserved",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "pl.panszelescik.bedcolorer.fabric.BedColorerFabric"
+      "pl.panszelescik.colorize.fabric.ColorizeFabric"
     ]
   },
   "depends": {
