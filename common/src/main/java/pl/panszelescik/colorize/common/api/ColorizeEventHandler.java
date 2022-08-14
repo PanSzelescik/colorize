@@ -20,6 +20,7 @@ public class ColorizeEventHandler {
     private final ObjectArrayList<BaseBlockHandler<?>> handlers = new ObjectArrayList<>();
 
     public ColorizeEventHandler() {
+        this.registerHandler(new BannerBlockHandler());
         this.registerHandler(new BedBlockHandler());
         this.registerHandler(new CandleBlockHandler());
         this.registerHandler(new CarpetBlockHandler());
@@ -29,6 +30,7 @@ public class ColorizeEventHandler {
         this.registerHandler(new StainedGlassPaneBlockHandler());
         this.registerHandler(new TerracottaBlockHandler());
         this.registerHandler(new TerracottaGlazedBlockHandler());
+        this.registerHandler(new WallBannerBlockHandler());
         this.registerHandler(new WoolBlockHandler());
     }
 
