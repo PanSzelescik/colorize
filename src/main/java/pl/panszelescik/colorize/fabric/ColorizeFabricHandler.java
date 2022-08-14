@@ -1,5 +1,7 @@
-package pl.panszelescik.bedcolorer.fabric;
+package pl.panszelescik.colorize.fabric;
 
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -7,22 +9,17 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
-import pl.panszelescik.bedcolorer.common.BedColorerBaseHandler;
+import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+public class ColorizeFabricHandler extends ColorizeEventHandler {
 
-public class BedColorerFabricHandler extends BedColorerBaseHandler {
+    private final Object2ObjectOpenHashMap<DyeColor, ObjectArrayList<TagKey<Item>>> tags;
 
-    private final Map<DyeColor, List<TagKey<Item>>> tags;
+    public ColorizeFabricHandler() {
+        tags = new Object2ObjectOpenHashMap<>();
 
-    public BedColorerFabricHandler() {
-        tags = new HashMap<>();
-
-        for (DyeColor color : DyeColor.values()) {
-            var list = new ArrayList<TagKey<Item>>();
+        for (DyeColor color : ColorizeEventHandler.DYE_COLORS) {
+            var list = new ObjectArrayList<TagKey<Item>>(3);
 
             list.add(TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", color.getName() + "_dye")));
             list.add(TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", color.getName() + "_dyes")));
@@ -37,7 +34,7 @@ public class BedColorerFabricHandler extends BedColorerBaseHandler {
         var color = super.getDyeColor(stack);
 
         if (color == null) {
-            for (var entry : tags.entrySet()) {
+            for (var entry : tags.object2ObjectEntrySet()) {
                 for (var tag : entry.getValue()) {
                     if (stack.is(tag)) {
                         return entry.getKey();
