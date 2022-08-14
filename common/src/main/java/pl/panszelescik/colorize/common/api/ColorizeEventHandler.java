@@ -29,7 +29,6 @@ public class ColorizeEventHandler {
         this.registerHandler(new StainedGlassPaneBlockHandler());
         this.registerHandler(new TerracottaBlockHandler());
         this.registerHandler(new TerracottaGlazedBlockHandler());
-        this.registerHandler(new WallBannerBlockHandler());
         this.registerHandler(new WoolBlockHandler());
     }
 
