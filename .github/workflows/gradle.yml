@@ -32,3 +32,13 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
+    - name: Publish Fabric
+      uses: actions/upload-artifact@v3
+      with:
+        name: Fabric
+        path: fabric/build/libs/
+    - name: Publish Forge
+      uses: actions/upload-artifact@v3
+      with:
+        name: Forge
+        path: forge/build/libs/
