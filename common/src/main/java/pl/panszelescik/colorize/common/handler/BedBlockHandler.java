@@ -55,22 +55,24 @@ public class BedBlockHandler extends BaseBlockHandler<BedBlock> {
         return true;
     }
 
-    private static final Object2ObjectOpenHashMap<DyeColor, BedBlock> BEDS = new Object2ObjectOpenHashMap<>(16) {{
-        put(DyeColor.WHITE, (BedBlock) Blocks.WHITE_BED);
-        put(DyeColor.ORANGE, (BedBlock) Blocks.ORANGE_BED);
-        put(DyeColor.MAGENTA, (BedBlock) Blocks.MAGENTA_BED);
-        put(DyeColor.LIGHT_BLUE, (BedBlock) Blocks.LIGHT_BLUE_BED);
-        put(DyeColor.YELLOW, (BedBlock) Blocks.YELLOW_BED);
-        put(DyeColor.LIME, (BedBlock) Blocks.LIME_BED);
-        put(DyeColor.PINK, (BedBlock) Blocks.PINK_BED);
-        put(DyeColor.GRAY, (BedBlock) Blocks.GRAY_BED);
-        put(DyeColor.LIGHT_GRAY, (BedBlock) Blocks.LIGHT_GRAY_BED);
-        put(DyeColor.CYAN, (BedBlock) Blocks.CYAN_BED);
-        put(DyeColor.PURPLE, (BedBlock) Blocks.PURPLE_BED);
-        put(DyeColor.BLUE, (BedBlock) Blocks.BLUE_BED);
-        put(DyeColor.BROWN, (BedBlock) Blocks.BROWN_BED);
-        put(DyeColor.GREEN, (BedBlock) Blocks.GREEN_BED);
-        put(DyeColor.RED, (BedBlock) Blocks.RED_BED);
-        put(DyeColor.BLACK, (BedBlock) Blocks.BLACK_BED);
-    }};
+    private static final Object2ObjectOpenHashMap<DyeColor, BedBlock> BEDS = new Object2ObjectOpenHashMap<>(16);
+
+    static {
+        BEDS.put(DyeColor.WHITE, (BedBlock) Blocks.WHITE_BED);
+        BEDS.put(DyeColor.ORANGE, (BedBlock) Blocks.ORANGE_BED);
+        BEDS.put(DyeColor.MAGENTA, (BedBlock) Blocks.MAGENTA_BED);
+        BEDS.put(DyeColor.LIGHT_BLUE, (BedBlock) Blocks.LIGHT_BLUE_BED);
+        BEDS.put(DyeColor.YELLOW, (BedBlock) Blocks.YELLOW_BED);
+        BEDS.put(DyeColor.LIME, (BedBlock) Blocks.LIME_BED);
+        BEDS.put(DyeColor.PINK, (BedBlock) Blocks.PINK_BED);
+        BEDS.put(DyeColor.GRAY, (BedBlock) Blocks.GRAY_BED);
+        BEDS.put(DyeColor.LIGHT_GRAY, (BedBlock) Blocks.LIGHT_GRAY_BED);
+        BEDS.put(DyeColor.CYAN, (BedBlock) Blocks.CYAN_BED);
+        BEDS.put(DyeColor.PURPLE, (BedBlock) Blocks.PURPLE_BED);
+        BEDS.put(DyeColor.BLUE, (BedBlock) Blocks.BLUE_BED);
+        BEDS.put(DyeColor.BROWN, (BedBlock) Blocks.BROWN_BED);
+        BEDS.put(DyeColor.GREEN, (BedBlock) Blocks.GREEN_BED);
+        BEDS.put(DyeColor.RED, (BedBlock) Blocks.RED_BED);
+        BEDS.put(DyeColor.BLACK, (BedBlock) Blocks.BLACK_BED);
+    }
 }

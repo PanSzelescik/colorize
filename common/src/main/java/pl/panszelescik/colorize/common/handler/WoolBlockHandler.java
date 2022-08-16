@@ -12,22 +12,24 @@ public class WoolBlockHandler extends MaterialBlockHandler {
         super(WOOLS);
     }
 
-    private static final Object2ObjectOpenHashMap<DyeColor, Block> WOOLS = new Object2ObjectOpenHashMap<>(16) {{
-        put(DyeColor.WHITE, Blocks.WHITE_WOOL);
-        put(DyeColor.ORANGE, Blocks.ORANGE_WOOL);
-        put(DyeColor.MAGENTA, Blocks.MAGENTA_WOOL);
-        put(DyeColor.LIGHT_BLUE, Blocks.LIGHT_BLUE_WOOL);
-        put(DyeColor.YELLOW, Blocks.YELLOW_WOOL);
-        put(DyeColor.LIME, Blocks.LIME_WOOL);
-        put(DyeColor.PINK, Blocks.PINK_WOOL);
-        put(DyeColor.GRAY, Blocks.GRAY_WOOL);
-        put(DyeColor.LIGHT_GRAY, Blocks.LIGHT_GRAY_WOOL);
-        put(DyeColor.CYAN, Blocks.CYAN_WOOL);
-        put(DyeColor.PURPLE, Blocks.PURPLE_WOOL);
-        put(DyeColor.BLUE, Blocks.BLUE_WOOL);
-        put(DyeColor.BROWN, Blocks.BROWN_WOOL);
-        put(DyeColor.GREEN, Blocks.GREEN_WOOL);
-        put(DyeColor.RED, Blocks.RED_WOOL);
-        put(DyeColor.BLACK, Blocks.BLACK_WOOL);
-    }};
+    private static final Object2ObjectOpenHashMap<DyeColor, Block> WOOLS = new Object2ObjectOpenHashMap<>(16);
+
+    static {
+        WOOLS.put(DyeColor.WHITE, Blocks.WHITE_WOOL);
+        WOOLS.put(DyeColor.ORANGE, Blocks.ORANGE_WOOL);
+        WOOLS.put(DyeColor.MAGENTA, Blocks.MAGENTA_WOOL);
+        WOOLS.put(DyeColor.LIGHT_BLUE, Blocks.LIGHT_BLUE_WOOL);
+        WOOLS.put(DyeColor.YELLOW, Blocks.YELLOW_WOOL);
+        WOOLS.put(DyeColor.LIME, Blocks.LIME_WOOL);
+        WOOLS.put(DyeColor.PINK, Blocks.PINK_WOOL);
+        WOOLS.put(DyeColor.GRAY, Blocks.GRAY_WOOL);
+        WOOLS.put(DyeColor.LIGHT_GRAY, Blocks.LIGHT_GRAY_WOOL);
+        WOOLS.put(DyeColor.CYAN, Blocks.CYAN_WOOL);
+        WOOLS.put(DyeColor.PURPLE, Blocks.PURPLE_WOOL);
+        WOOLS.put(DyeColor.BLUE, Blocks.BLUE_WOOL);
+        WOOLS.put(DyeColor.BROWN, Blocks.BROWN_WOOL);
+        WOOLS.put(DyeColor.GREEN, Blocks.GREEN_WOOL);
+        WOOLS.put(DyeColor.RED, Blocks.RED_WOOL);
+        WOOLS.put(DyeColor.BLACK, Blocks.BLACK_WOOL);
+    }
 }
