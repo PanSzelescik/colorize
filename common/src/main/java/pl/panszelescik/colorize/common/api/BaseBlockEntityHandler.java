@@ -12,7 +12,7 @@ public abstract class BaseBlockEntityHandler<B extends Block, T extends BlockEnt
 
     private final Class<T> clazz;
 
-    public BaseBlockEntityHandler(Class<T> clazz) {
+    protected BaseBlockEntityHandler(Class<T> clazz) {
         this.clazz = clazz;
     }
 

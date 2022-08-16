@@ -13,12 +13,12 @@ public abstract class MaterialBlockHandler extends BaseBlockHandler<Block> {
     private final Object2ObjectOpenHashMap<DyeColor, Block> blocks;
     private final Int2ObjectOpenHashMap<DyeColor> colors;
 
-    public MaterialBlockHandler(Object2ObjectOpenHashMap<DyeColor, Block> blocks, Int2ObjectOpenHashMap<DyeColor> colors) {
+    protected MaterialBlockHandler(Object2ObjectOpenHashMap<DyeColor, Block> blocks, Int2ObjectOpenHashMap<DyeColor> colors) {
         this.blocks = blocks;
         this.colors = colors;
     }
 
-    public MaterialBlockHandler(Object2ObjectOpenHashMap<DyeColor, Block> blocks) {
+    protected MaterialBlockHandler(Object2ObjectOpenHashMap<DyeColor, Block> blocks) {
         this(blocks, null);
     }
 

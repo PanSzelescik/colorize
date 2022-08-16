@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.entity.BannerBlockEntity;
 
 public abstract class AbstractBannerBlockHandler<B extends AbstractBannerBlock> extends BaseBlockEntityHandler<B, BannerBlockEntity> {
 
-    public AbstractBannerBlockHandler() {
+    protected AbstractBannerBlockHandler() {
         super(BannerBlockEntity.class);
     }
 }

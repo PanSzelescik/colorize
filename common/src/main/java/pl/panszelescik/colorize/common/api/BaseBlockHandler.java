@@ -10,6 +10,9 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class BaseBlockHandler<B extends Block> {
 
+    protected BaseBlockHandler() {
+    }
+
     protected abstract @Nullable B getOldBlock(BlockState state);
 
     protected abstract @Nullable DyeColor getOldColor(BlockState state, B block);
