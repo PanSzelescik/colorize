@@ -11,12 +11,8 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.handler.*;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class ColorizeEventHandler {
 
-    public static final ObjectArrayList<DyeColor> DYE_COLORS = Arrays.stream(DyeColor.values()).collect(Collectors.toCollection(ObjectArrayList::new));
     private final ObjectArrayList<BaseBlockHandler<?>> handlers = new ObjectArrayList<>();
 
     public ColorizeEventHandler() {
@@ -56,9 +52,9 @@ public class ColorizeEventHandler {
         return false;
     }
 
-    protected @Nullable DyeColor getDyeColor(ItemStack stack) {
+    protected @Nullable Colors getDyeColor(ItemStack stack) {
         if (stack.getItem() instanceof DyeItem dyeStack) {
-            return dyeStack.getDyeColor();
+            return Colors.getByDyeColor(dyeStack.getDyeColor());
         }
         return null;
     }

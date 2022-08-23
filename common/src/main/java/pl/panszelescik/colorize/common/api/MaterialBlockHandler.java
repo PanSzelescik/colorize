@@ -1,8 +1,6 @@
 package pl.panszelescik.colorize.common.api;
 
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
@@ -10,16 +8,10 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class MaterialBlockHandler extends BaseBlockHandler<Block> {
 
-    private final Object2ObjectOpenHashMap<DyeColor, Block> blocks;
-    private final Int2ObjectOpenHashMap<DyeColor> colors;
+    private final Object2ObjectOpenHashMap<Colors, Block> blocks;
 
-    protected MaterialBlockHandler(Object2ObjectOpenHashMap<DyeColor, Block> blocks, Int2ObjectOpenHashMap<DyeColor> colors) {
+    protected MaterialBlockHandler(Object2ObjectOpenHashMap<Colors, Block> blocks) {
         this.blocks = blocks;
-        this.colors = colors;
-    }
-
-    protected MaterialBlockHandler(Object2ObjectOpenHashMap<DyeColor, Block> blocks) {
-        this(blocks, null);
     }
 
     @Override
@@ -29,24 +21,16 @@ public abstract class MaterialBlockHandler extends BaseBlockHandler<Block> {
     }
 
     @Override
-    protected @Nullable DyeColor getOldColor(BlockState state, Block block) {
-        return this.getDyeFromMaterial(state.getMapColor(null, null));
+    protected @Nullable Colors getOldColor(BlockState state, Block block) {
+        return this.getColorFromMaterial(state.getMapColor(null, null));
     }
 
     @Override
-    protected Block getNewBlock(DyeColor color) {
+    protected Block getNewBlock(Colors color) {
         return this.blocks.get(color);
     }
 
-    protected @Nullable DyeColor getDyeFromMaterial(MaterialColor materialColor) {
-        if (this.colors == null) {
-            for (DyeColor color : ColorizeEventHandler.DYE_COLORS) {
-                if (color.getMaterialColor() == materialColor) {
-                    return color;
-                }
-            }
-            return null;
-        }
-        return this.colors.get(materialColor.id);
+    protected @Nullable Colors getColorFromMaterial(MaterialColor materialColor) {
+        return Colors.getByMaterialColor(materialColor);
     }
 }

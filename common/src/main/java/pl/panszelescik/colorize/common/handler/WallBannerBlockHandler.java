@@ -1,12 +1,12 @@
 package pl.panszelescik.colorize.common.handler;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.AbstractBannerBlockHandler;
+import pl.panszelescik.colorize.common.api.Colors;
 
 public class WallBannerBlockHandler extends AbstractBannerBlockHandler<WallBannerBlock> {
 
@@ -20,33 +20,33 @@ public class WallBannerBlockHandler extends AbstractBannerBlockHandler<WallBanne
     }
 
     @Override
-    protected @Nullable DyeColor getOldColor(BlockState state, WallBannerBlock block) {
-        return block.getColor();
+    protected @Nullable Colors getOldColor(BlockState state, WallBannerBlock block) {
+        return Colors.getByDyeColor(block.getColor());
     }
 
     @Override
-    protected WallBannerBlock getNewBlock(DyeColor color) {
+    protected WallBannerBlock getNewBlock(Colors color) {
         return WALL_BANNERS.get(color);
     }
 
-    private static final Object2ObjectOpenHashMap<DyeColor, WallBannerBlock> WALL_BANNERS = new Object2ObjectOpenHashMap<>(16);
+    private static final Object2ObjectOpenHashMap<Colors, WallBannerBlock> WALL_BANNERS = new Object2ObjectOpenHashMap<>(16);
 
     static {
-        WALL_BANNERS.put(DyeColor.WHITE, (WallBannerBlock) Blocks.WHITE_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.ORANGE, (WallBannerBlock) Blocks.ORANGE_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.MAGENTA, (WallBannerBlock) Blocks.MAGENTA_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.LIGHT_BLUE, (WallBannerBlock) Blocks.LIGHT_BLUE_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.YELLOW, (WallBannerBlock) Blocks.YELLOW_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.LIME, (WallBannerBlock) Blocks.LIME_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.PINK, (WallBannerBlock) Blocks.PINK_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.GRAY, (WallBannerBlock) Blocks.GRAY_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.LIGHT_GRAY, (WallBannerBlock) Blocks.LIGHT_GRAY_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.CYAN, (WallBannerBlock) Blocks.CYAN_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.PURPLE, (WallBannerBlock) Blocks.PURPLE_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.BLUE, (WallBannerBlock) Blocks.BLUE_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.BROWN, (WallBannerBlock) Blocks.BROWN_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.GREEN, (WallBannerBlock) Blocks.GREEN_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.RED, (WallBannerBlock) Blocks.RED_WALL_BANNER);
-        WALL_BANNERS.put(DyeColor.BLACK, (WallBannerBlock) Blocks.BLACK_WALL_BANNER);
+        WALL_BANNERS.put(Colors.WHITE, (WallBannerBlock) Blocks.WHITE_WALL_BANNER);
+        WALL_BANNERS.put(Colors.ORANGE, (WallBannerBlock) Blocks.ORANGE_WALL_BANNER);
+        WALL_BANNERS.put(Colors.MAGENTA, (WallBannerBlock) Blocks.MAGENTA_WALL_BANNER);
+        WALL_BANNERS.put(Colors.LIGHT_BLUE, (WallBannerBlock) Blocks.LIGHT_BLUE_WALL_BANNER);
+        WALL_BANNERS.put(Colors.YELLOW, (WallBannerBlock) Blocks.YELLOW_WALL_BANNER);
+        WALL_BANNERS.put(Colors.LIME, (WallBannerBlock) Blocks.LIME_WALL_BANNER);
+        WALL_BANNERS.put(Colors.PINK, (WallBannerBlock) Blocks.PINK_WALL_BANNER);
+        WALL_BANNERS.put(Colors.GRAY, (WallBannerBlock) Blocks.GRAY_WALL_BANNER);
+        WALL_BANNERS.put(Colors.LIGHT_GRAY, (WallBannerBlock) Blocks.LIGHT_GRAY_WALL_BANNER);
+        WALL_BANNERS.put(Colors.CYAN, (WallBannerBlock) Blocks.CYAN_WALL_BANNER);
+        WALL_BANNERS.put(Colors.PURPLE, (WallBannerBlock) Blocks.PURPLE_WALL_BANNER);
+        WALL_BANNERS.put(Colors.BLUE, (WallBannerBlock) Blocks.BLUE_WALL_BANNER);
+        WALL_BANNERS.put(Colors.BROWN, (WallBannerBlock) Blocks.BROWN_WALL_BANNER);
+        WALL_BANNERS.put(Colors.GREEN, (WallBannerBlock) Blocks.GREEN_WALL_BANNER);
+        WALL_BANNERS.put(Colors.RED, (WallBannerBlock) Blocks.RED_WALL_BANNER);
+        WALL_BANNERS.put(Colors.BLACK, (WallBannerBlock) Blocks.BLACK_WALL_BANNER);
     }
 }

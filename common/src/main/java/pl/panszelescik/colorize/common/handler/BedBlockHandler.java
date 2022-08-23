@@ -2,7 +2,6 @@ package pl.panszelescik.colorize.common.handler;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BedBlock;
@@ -11,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
+import pl.panszelescik.colorize.common.api.Colors;
 
 public class BedBlockHandler extends BaseBlockHandler<BedBlock> {
 
@@ -24,17 +24,17 @@ public class BedBlockHandler extends BaseBlockHandler<BedBlock> {
     }
 
     @Override
-    public @Nullable DyeColor getOldColor(BlockState state, BedBlock block) {
-        return block.getColor();
+    public @Nullable Colors getOldColor(BlockState state, BedBlock block) {
+        return Colors.getByDyeColor(block.getColor());
     }
 
     @Override
-    public BedBlock getNewBlock(DyeColor color) {
+    public BedBlock getNewBlock(Colors color) {
         return BEDS.get(color);
     }
 
     @Override
-    public boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, DyeColor newColor) {
+    public boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
         var part = state.getValue(BedBlock.PART);
         var direction = state.getValue(BedBlock.FACING);
         var pos2 = pos.relative(part == BedPart.FOOT ? direction : direction.getOpposite());
@@ -55,24 +55,24 @@ public class BedBlockHandler extends BaseBlockHandler<BedBlock> {
         return true;
     }
 
-    private static final Object2ObjectOpenHashMap<DyeColor, BedBlock> BEDS = new Object2ObjectOpenHashMap<>(16);
+    private static final Object2ObjectOpenHashMap<Colors, BedBlock> BEDS = new Object2ObjectOpenHashMap<>(16);
 
     static {
-        BEDS.put(DyeColor.WHITE, (BedBlock) Blocks.WHITE_BED);
-        BEDS.put(DyeColor.ORANGE, (BedBlock) Blocks.ORANGE_BED);
-        BEDS.put(DyeColor.MAGENTA, (BedBlock) Blocks.MAGENTA_BED);
-        BEDS.put(DyeColor.LIGHT_BLUE, (BedBlock) Blocks.LIGHT_BLUE_BED);
-        BEDS.put(DyeColor.YELLOW, (BedBlock) Blocks.YELLOW_BED);
-        BEDS.put(DyeColor.LIME, (BedBlock) Blocks.LIME_BED);
-        BEDS.put(DyeColor.PINK, (BedBlock) Blocks.PINK_BED);
-        BEDS.put(DyeColor.GRAY, (BedBlock) Blocks.GRAY_BED);
-        BEDS.put(DyeColor.LIGHT_GRAY, (BedBlock) Blocks.LIGHT_GRAY_BED);
-        BEDS.put(DyeColor.CYAN, (BedBlock) Blocks.CYAN_BED);
-        BEDS.put(DyeColor.PURPLE, (BedBlock) Blocks.PURPLE_BED);
-        BEDS.put(DyeColor.BLUE, (BedBlock) Blocks.BLUE_BED);
-        BEDS.put(DyeColor.BROWN, (BedBlock) Blocks.BROWN_BED);
-        BEDS.put(DyeColor.GREEN, (BedBlock) Blocks.GREEN_BED);
-        BEDS.put(DyeColor.RED, (BedBlock) Blocks.RED_BED);
-        BEDS.put(DyeColor.BLACK, (BedBlock) Blocks.BLACK_BED);
+        BEDS.put(Colors.WHITE, (BedBlock) Blocks.WHITE_BED);
+        BEDS.put(Colors.ORANGE, (BedBlock) Blocks.ORANGE_BED);
+        BEDS.put(Colors.MAGENTA, (BedBlock) Blocks.MAGENTA_BED);
+        BEDS.put(Colors.LIGHT_BLUE, (BedBlock) Blocks.LIGHT_BLUE_BED);
+        BEDS.put(Colors.YELLOW, (BedBlock) Blocks.YELLOW_BED);
+        BEDS.put(Colors.LIME, (BedBlock) Blocks.LIME_BED);
+        BEDS.put(Colors.PINK, (BedBlock) Blocks.PINK_BED);
+        BEDS.put(Colors.GRAY, (BedBlock) Blocks.GRAY_BED);
+        BEDS.put(Colors.LIGHT_GRAY, (BedBlock) Blocks.LIGHT_GRAY_BED);
+        BEDS.put(Colors.CYAN, (BedBlock) Blocks.CYAN_BED);
+        BEDS.put(Colors.PURPLE, (BedBlock) Blocks.PURPLE_BED);
+        BEDS.put(Colors.BLUE, (BedBlock) Blocks.BLUE_BED);
+        BEDS.put(Colors.BROWN, (BedBlock) Blocks.BROWN_BED);
+        BEDS.put(Colors.GREEN, (BedBlock) Blocks.GREEN_BED);
+        BEDS.put(Colors.RED, (BedBlock) Blocks.RED_BED);
+        BEDS.put(Colors.BLACK, (BedBlock) Blocks.BLACK_BED);
     }
 }

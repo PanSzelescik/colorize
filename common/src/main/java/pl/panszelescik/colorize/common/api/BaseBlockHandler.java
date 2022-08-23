@@ -1,7 +1,6 @@
 package pl.panszelescik.colorize.common.api;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -15,11 +14,11 @@ public abstract class BaseBlockHandler<B extends Block> {
 
     protected abstract @Nullable B getOldBlock(BlockState state);
 
-    protected abstract @Nullable DyeColor getOldColor(BlockState state, B block);
+    protected abstract @Nullable Colors getOldColor(BlockState state, B block);
 
-    protected abstract B getNewBlock(DyeColor color);
+    protected abstract B getNewBlock(Colors color);
 
-    public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack, DyeColor newColor) {
+    public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
         var oldBlock = this.getOldBlock(state);
         if (oldBlock == null) {
             return false;
@@ -38,7 +37,7 @@ public abstract class BaseBlockHandler<B extends Block> {
         return result;
     }
 
-    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, DyeColor newColor) {
+    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
         level.removeBlock(pos, false);
 
         var newBlock = this.getNewBlock(newColor);

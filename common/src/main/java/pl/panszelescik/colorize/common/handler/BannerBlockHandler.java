@@ -1,12 +1,12 @@
 package pl.panszelescik.colorize.common.handler;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.BannerBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.AbstractBannerBlockHandler;
+import pl.panszelescik.colorize.common.api.Colors;
 
 public class BannerBlockHandler extends AbstractBannerBlockHandler<BannerBlock> {
 
@@ -20,33 +20,33 @@ public class BannerBlockHandler extends AbstractBannerBlockHandler<BannerBlock> 
     }
 
     @Override
-    protected @Nullable DyeColor getOldColor(BlockState state, BannerBlock block) {
-        return block.getColor();
+    protected @Nullable Colors getOldColor(BlockState state, BannerBlock block) {
+        return Colors.getByDyeColor(block.getColor());
     }
 
     @Override
-    protected BannerBlock getNewBlock(DyeColor color) {
+    protected BannerBlock getNewBlock(Colors color) {
         return BANNERS.get(color);
     }
 
-    private static final Object2ObjectOpenHashMap<DyeColor, BannerBlock> BANNERS = new Object2ObjectOpenHashMap<>(16);
+    private static final Object2ObjectOpenHashMap<Colors, BannerBlock> BANNERS = new Object2ObjectOpenHashMap<>(16);
 
     static {
-        BANNERS.put(DyeColor.WHITE, (BannerBlock) Blocks.WHITE_BANNER);
-        BANNERS.put(DyeColor.ORANGE, (BannerBlock) Blocks.ORANGE_BANNER);
-        BANNERS.put(DyeColor.MAGENTA, (BannerBlock) Blocks.MAGENTA_BANNER);
-        BANNERS.put(DyeColor.LIGHT_BLUE, (BannerBlock) Blocks.LIGHT_BLUE_BANNER);
-        BANNERS.put(DyeColor.YELLOW, (BannerBlock) Blocks.YELLOW_BANNER);
-        BANNERS.put(DyeColor.LIME, (BannerBlock) Blocks.LIME_BANNER);
-        BANNERS.put(DyeColor.PINK, (BannerBlock) Blocks.PINK_BANNER);
-        BANNERS.put(DyeColor.GRAY, (BannerBlock) Blocks.GRAY_BANNER);
-        BANNERS.put(DyeColor.LIGHT_GRAY, (BannerBlock) Blocks.LIGHT_GRAY_BANNER);
-        BANNERS.put(DyeColor.CYAN, (BannerBlock) Blocks.CYAN_BANNER);
-        BANNERS.put(DyeColor.PURPLE, (BannerBlock) Blocks.PURPLE_BANNER);
-        BANNERS.put(DyeColor.BLUE, (BannerBlock) Blocks.BLUE_BANNER);
-        BANNERS.put(DyeColor.BROWN, (BannerBlock) Blocks.BROWN_BANNER);
-        BANNERS.put(DyeColor.GREEN, (BannerBlock) Blocks.GREEN_BANNER);
-        BANNERS.put(DyeColor.RED, (BannerBlock) Blocks.RED_BANNER);
-        BANNERS.put(DyeColor.BLACK, (BannerBlock) Blocks.BLACK_BANNER);
+        BANNERS.put(Colors.WHITE, (BannerBlock) Blocks.WHITE_BANNER);
+        BANNERS.put(Colors.ORANGE, (BannerBlock) Blocks.ORANGE_BANNER);
+        BANNERS.put(Colors.MAGENTA, (BannerBlock) Blocks.MAGENTA_BANNER);
+        BANNERS.put(Colors.LIGHT_BLUE, (BannerBlock) Blocks.LIGHT_BLUE_BANNER);
+        BANNERS.put(Colors.YELLOW, (BannerBlock) Blocks.YELLOW_BANNER);
+        BANNERS.put(Colors.LIME, (BannerBlock) Blocks.LIME_BANNER);
+        BANNERS.put(Colors.PINK, (BannerBlock) Blocks.PINK_BANNER);
+        BANNERS.put(Colors.GRAY, (BannerBlock) Blocks.GRAY_BANNER);
+        BANNERS.put(Colors.LIGHT_GRAY, (BannerBlock) Blocks.LIGHT_GRAY_BANNER);
+        BANNERS.put(Colors.CYAN, (BannerBlock) Blocks.CYAN_BANNER);
+        BANNERS.put(Colors.PURPLE, (BannerBlock) Blocks.PURPLE_BANNER);
+        BANNERS.put(Colors.BLUE, (BannerBlock) Blocks.BLUE_BANNER);
+        BANNERS.put(Colors.BROWN, (BannerBlock) Blocks.BROWN_BANNER);
+        BANNERS.put(Colors.GREEN, (BannerBlock) Blocks.GREEN_BANNER);
+        BANNERS.put(Colors.RED, (BannerBlock) Blocks.RED_BANNER);
+        BANNERS.put(Colors.BLACK, (BannerBlock) Blocks.BLACK_BANNER);
     }
 }

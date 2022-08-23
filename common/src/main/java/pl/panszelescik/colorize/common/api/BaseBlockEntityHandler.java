@@ -1,7 +1,6 @@
 package pl.panszelescik.colorize.common.api;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -17,7 +16,7 @@ public abstract class BaseBlockEntityHandler<B extends Block, T extends BlockEnt
     }
 
     @Override
-    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, DyeColor newColor) {
+    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
         var blockEntity = level.getBlockEntity(pos);
         if (this.clazz.isInstance(blockEntity)) {
             var tag = blockEntity.saveWithoutMetadata();

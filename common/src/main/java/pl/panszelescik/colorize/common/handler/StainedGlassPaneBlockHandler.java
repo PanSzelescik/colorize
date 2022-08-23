@@ -1,52 +1,54 @@
 package pl.panszelescik.colorize.common.handler;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StainedGlassPaneBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
+import pl.panszelescik.colorize.common.api.Colors;
 
-public class StainedGlassPaneBlockHandler extends BaseBlockHandler<StainedGlassPaneBlock> {
+public class StainedGlassPaneBlockHandler extends BaseBlockHandler<Block> {
 
     @Override
-    protected @Nullable StainedGlassPaneBlock getOldBlock(BlockState state) {
+    protected @Nullable Block getOldBlock(BlockState state) {
         var block = state.getBlock();
-        if (block instanceof StainedGlassPaneBlock paneBlock && STAINED_GLASS_PANES.containsValue(paneBlock)) {
-            return paneBlock;
+        return STAINED_GLASS_PANES.containsValue(block) ? block : null;
+    }
+
+    @Override
+    protected @Nullable Colors getOldColor(BlockState state, Block block) {
+        if (block == Blocks.GLASS_PANE) {
+            return Colors.CLEAR;
         }
-        return null;
+        return block instanceof StainedGlassPaneBlock paneBlock ? Colors.getByDyeColor(paneBlock.getColor()) : null;
     }
 
     @Override
-    protected @Nullable DyeColor getOldColor(BlockState state, StainedGlassPaneBlock block) {
-        return block.getColor();
-    }
-
-    @Override
-    protected StainedGlassPaneBlock getNewBlock(DyeColor color) {
+    protected Block getNewBlock(Colors color) {
         return STAINED_GLASS_PANES.get(color);
     }
 
-    private static final Object2ObjectOpenHashMap<DyeColor, StainedGlassPaneBlock> STAINED_GLASS_PANES = new Object2ObjectOpenHashMap<>(16);
+    private static final Object2ObjectOpenHashMap<Colors, Block> STAINED_GLASS_PANES = new Object2ObjectOpenHashMap<>(16);
 
     static {
-        STAINED_GLASS_PANES.put(DyeColor.WHITE, (StainedGlassPaneBlock) Blocks.WHITE_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.ORANGE, (StainedGlassPaneBlock) Blocks.ORANGE_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.MAGENTA, (StainedGlassPaneBlock) Blocks.MAGENTA_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.LIGHT_BLUE, (StainedGlassPaneBlock) Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.YELLOW, (StainedGlassPaneBlock) Blocks.YELLOW_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.LIME, (StainedGlassPaneBlock) Blocks.LIME_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.PINK, (StainedGlassPaneBlock) Blocks.PINK_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.GRAY, (StainedGlassPaneBlock) Blocks.GRAY_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.LIGHT_GRAY, (StainedGlassPaneBlock) Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.CYAN, (StainedGlassPaneBlock) Blocks.CYAN_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.PURPLE, (StainedGlassPaneBlock) Blocks.PURPLE_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.BLUE, (StainedGlassPaneBlock) Blocks.BLUE_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.BROWN, (StainedGlassPaneBlock) Blocks.BROWN_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.GREEN, (StainedGlassPaneBlock) Blocks.GREEN_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.RED, (StainedGlassPaneBlock) Blocks.RED_STAINED_GLASS_PANE);
-        STAINED_GLASS_PANES.put(DyeColor.BLACK, (StainedGlassPaneBlock) Blocks.BLACK_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.CLEAR, Blocks.GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.WHITE, Blocks.WHITE_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.ORANGE, Blocks.ORANGE_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.MAGENTA, Blocks.MAGENTA_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.LIGHT_BLUE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.YELLOW, Blocks.YELLOW_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.LIME, Blocks.LIME_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.PINK, Blocks.PINK_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.GRAY, Blocks.GRAY_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.LIGHT_GRAY, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.CYAN, Blocks.CYAN_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.PURPLE, Blocks.PURPLE_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.BLUE, Blocks.BLUE_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.BROWN, Blocks.BROWN_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.GREEN, Blocks.GREEN_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.RED, Blocks.RED_STAINED_GLASS_PANE);
+        STAINED_GLASS_PANES.put(Colors.BLACK, Blocks.BLACK_STAINED_GLASS_PANE);
     }
 }
