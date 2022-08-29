@@ -14,7 +14,7 @@
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/colorize",
     "sources": "https://github.com/PanSzelescik/colorize"
   },
-  "license": "All Right Reserved",
+  "license": "MIT License",
   "environment": "*",
   "entrypoints": {
     "main": [
