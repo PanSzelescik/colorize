@@ -3,13 +3,24 @@ package pl.panszelescik.colorize.common.handler;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
 
 public class StainedGlassBlockHandler extends MaterialBlockHandler {
 
-    public StainedGlassBlockHandler() {
-        super(STAINED_GLASSES);
+    public StainedGlassBlockHandler(ColorizeConfig config) {
+        super(config, STAINED_GLASSES);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.stainedGlassHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.stainedGlassSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, Block> STAINED_GLASSES = new Object2ObjectOpenHashMap<>(17);

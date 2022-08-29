@@ -5,12 +5,13 @@ import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.BaseBlockEntityHandler;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 
 public class ShulkerBoxHandler extends BaseBlockEntityHandler<ShulkerBoxBlock, ShulkerBoxBlockEntity> {
 
-    public ShulkerBoxHandler() {
-        super(ShulkerBoxBlockEntity.class);
+    public ShulkerBoxHandler(ColorizeConfig config) {
+        super(config, ShulkerBoxBlockEntity.class);
     }
 
     @Override
@@ -30,5 +31,15 @@ public class ShulkerBoxHandler extends BaseBlockEntityHandler<ShulkerBoxBlock, S
     @Override
     protected ShulkerBoxBlock getNewBlock(Colors color) {
         return ((ShulkerBoxBlock) ShulkerBoxBlock.getBlockByColor(color.getDyeColor()));
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.shulkerBoxHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.shulkerBoxSneaking();
     }
 }

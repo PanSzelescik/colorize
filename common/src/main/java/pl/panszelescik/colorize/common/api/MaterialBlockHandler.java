@@ -10,7 +10,8 @@ public abstract class MaterialBlockHandler extends BaseBlockHandler<Block> {
 
     private final Object2ObjectOpenHashMap<Colors, Block> blocks;
 
-    protected MaterialBlockHandler(Object2ObjectOpenHashMap<Colors, Block> blocks) {
+    protected MaterialBlockHandler(ColorizeConfig config, Object2ObjectOpenHashMap<Colors, Block> blocks) {
+        super(config);
         this.blocks = blocks;
     }
 

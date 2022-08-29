@@ -3,13 +3,24 @@ package pl.panszelescik.colorize.common.handler;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
 
 public class CarpetBlockHandler extends MaterialBlockHandler {
 
-    public CarpetBlockHandler() {
-        super(CARPETS);
+    public CarpetBlockHandler(ColorizeConfig config) {
+        super(config, CARPETS);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.carpetHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.carpetSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, Block> CARPETS = new Object2ObjectOpenHashMap<>(16);

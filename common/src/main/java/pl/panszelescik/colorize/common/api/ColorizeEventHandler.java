@@ -4,31 +4,30 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.handler.*;
 
-public class ColorizeEventHandler {
+public abstract class ColorizeEventHandler {
 
     private final ObjectArrayList<BaseBlockHandler<?>> handlers = new ObjectArrayList<>();
 
-    public ColorizeEventHandler() {
-        this.registerHandler(new BannerBlockHandler());
-        this.registerHandler(new BedBlockHandler());
-        this.registerHandler(new CandleBlockHandler());
-        this.registerHandler(new CarpetBlockHandler());
-        this.registerHandler(new ConcreteBlockHandler());
-        this.registerHandler(new ConcretePowderBlockHandler());
-        this.registerHandler(new ShulkerBoxHandler());
-        this.registerHandler(new StainedGlassBlockHandler());
-        this.registerHandler(new StainedGlassPaneBlockHandler());
-        this.registerHandler(new TerracottaBlockHandler());
-        this.registerHandler(new TerracottaGlazedBlockHandler());
-        this.registerHandler(new WallBannerBlockHandler());
-        this.registerHandler(new WoolBlockHandler());
+    public ColorizeEventHandler(ColorizeConfig config) {
+        this.registerHandler(new BannerBlockHandler(config));
+        this.registerHandler(new BedBlockHandler(config));
+        this.registerHandler(new CandleBlockHandler(config));
+        this.registerHandler(new CarpetBlockHandler(config));
+        this.registerHandler(new ConcreteBlockHandler(config));
+        this.registerHandler(new ConcretePowderBlockHandler(config));
+        this.registerHandler(new GlazedTerracottaBlockHandler(config));
+        this.registerHandler(new ShulkerBoxHandler(config));
+        this.registerHandler(new StainedGlassBlockHandler(config));
+        this.registerHandler(new StainedGlassPaneBlockHandler(config));
+        this.registerHandler(new TerracottaBlockHandler(config));
+        this.registerHandler(new WallBannerBlockHandler(config));
+        this.registerHandler(new WoolBlockHandler(config));
     }
 
     public boolean handle(Player player, Level level, InteractionHand hand, BlockPos pos) {
@@ -44,6 +43,14 @@ public class ColorizeEventHandler {
 
         var state = level.getBlockState(pos);
         for (var handler : handlers) {
+            if (!handler.isEnabled()) {
+                continue;
+            }
+
+            if (handler.requireSneaking() && !player.isShiftKeyDown()) {
+                continue;
+            }
+
             if (handler.handle(level, pos, state, stack, color)) {
                 return true;
             }

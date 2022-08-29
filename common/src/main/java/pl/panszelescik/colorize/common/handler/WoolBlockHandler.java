@@ -3,13 +3,24 @@ package pl.panszelescik.colorize.common.handler;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
 
 public class WoolBlockHandler extends MaterialBlockHandler {
 
-    public WoolBlockHandler() {
-        super(WOOLS);
+    public WoolBlockHandler(ColorizeConfig config) {
+        super(config, WOOLS);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.woolHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.woolSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, Block> WOOLS = new Object2ObjectOpenHashMap<>(16);

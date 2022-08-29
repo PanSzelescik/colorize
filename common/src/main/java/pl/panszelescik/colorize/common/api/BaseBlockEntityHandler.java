@@ -11,7 +11,8 @@ public abstract class BaseBlockEntityHandler<B extends Block, T extends BlockEnt
 
     private final Class<T> clazz;
 
-    protected BaseBlockEntityHandler(Class<T> clazz) {
+    protected BaseBlockEntityHandler(ColorizeConfig config, Class<T> clazz) {
+        super(config);
         this.clazz = clazz;
     }
 

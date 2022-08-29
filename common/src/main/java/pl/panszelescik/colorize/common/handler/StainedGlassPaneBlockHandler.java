@@ -7,9 +7,14 @@ import net.minecraft.world.level.block.StainedGlassPaneBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 
 public class StainedGlassPaneBlockHandler extends BaseBlockHandler<Block> {
+
+    public StainedGlassPaneBlockHandler(ColorizeConfig config) {
+        super(config);
+    }
 
     @Override
     protected @Nullable Block getOldBlock(BlockState state) {
@@ -28,6 +33,16 @@ public class StainedGlassPaneBlockHandler extends BaseBlockHandler<Block> {
     @Override
     protected Block getNewBlock(Colors color) {
         return STAINED_GLASS_PANES.get(color);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.stainedGlassPaneHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.stainedGlassPaneSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, Block> STAINED_GLASS_PANES = new Object2ObjectOpenHashMap<>(16);

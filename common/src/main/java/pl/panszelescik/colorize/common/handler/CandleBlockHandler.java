@@ -3,13 +3,24 @@ package pl.panszelescik.colorize.common.handler;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
 
 public class CandleBlockHandler extends MaterialBlockHandler {
 
-    public CandleBlockHandler() {
-        super(CANDLES);
+    public CandleBlockHandler(ColorizeConfig config) {
+        super(config, CANDLES);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.candleHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.candleSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, Block> CANDLES = new Object2ObjectOpenHashMap<>(16);

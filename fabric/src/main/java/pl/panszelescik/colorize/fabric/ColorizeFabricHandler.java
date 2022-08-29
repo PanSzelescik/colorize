@@ -8,6 +8,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 
@@ -15,8 +16,9 @@ public class ColorizeFabricHandler extends ColorizeEventHandler {
 
     private final Object2ObjectOpenHashMap<Colors, ObjectArrayList<TagKey<Item>>> tags;
 
-    public ColorizeFabricHandler() {
-        tags = new Object2ObjectOpenHashMap<>();
+    public ColorizeFabricHandler(ColorizeConfig config) {
+        super(config);
+        this.tags = new Object2ObjectOpenHashMap<>();
 
         for (Colors c : Colors.VALUES) {
             var dyeColor = c.getDyeColor();
@@ -30,7 +32,7 @@ public class ColorizeFabricHandler extends ColorizeEventHandler {
             list.add(TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", dyeColor.getName() + "_dyes")));
             list.add(TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", "dye_" + dyeColor.getName())));
 
-            tags.put(c, list);
+            this.tags.put(c, list);
         }
     }
 

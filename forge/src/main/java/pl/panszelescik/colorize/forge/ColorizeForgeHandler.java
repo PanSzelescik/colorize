@@ -3,10 +3,15 @@ package pl.panszelescik.colorize.forge;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 
 public class ColorizeForgeHandler extends ColorizeEventHandler {
+
+    public ColorizeForgeHandler(ColorizeConfig config) {
+        super(config);
+    }
 
     @Override
     protected @Nullable Colors getDyeColor(ItemStack stack) {

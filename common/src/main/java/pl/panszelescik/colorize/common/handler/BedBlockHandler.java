@@ -10,9 +10,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 
 public class BedBlockHandler extends BaseBlockHandler<BedBlock> {
+
+    public BedBlockHandler(ColorizeConfig config) {
+        super(config);
+    }
 
     @Override
     protected @Nullable BedBlock getOldBlock(BlockState state) {
@@ -31,6 +36,16 @@ public class BedBlockHandler extends BaseBlockHandler<BedBlock> {
     @Override
     public BedBlock getNewBlock(Colors color) {
         return BEDS.get(color);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.bedHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.bedSneaking();
     }
 
     @Override

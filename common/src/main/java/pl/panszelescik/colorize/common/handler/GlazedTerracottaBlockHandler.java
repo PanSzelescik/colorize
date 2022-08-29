@@ -1,16 +1,26 @@
 package pl.panszelescik.colorize.common.handler;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
 
-public class TerracottaGlazedBlockHandler extends MaterialBlockHandler {
+public class GlazedTerracottaBlockHandler extends MaterialBlockHandler {
 
-    public TerracottaGlazedBlockHandler() {
-        super(GlAZED_TERRACOTTAS);
+    public GlazedTerracottaBlockHandler(ColorizeConfig config) {
+        super(config, GlAZED_TERRACOTTAS);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.glazedTerracottaHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.glazedTerracottaSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, Block> GlAZED_TERRACOTTAS = new Object2ObjectOpenHashMap<>(16);

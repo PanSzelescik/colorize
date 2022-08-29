@@ -6,9 +6,14 @@ import net.minecraft.world.level.block.WallBannerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.AbstractBannerBlockHandler;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 
 public class WallBannerBlockHandler extends AbstractBannerBlockHandler<WallBannerBlock> {
+
+    public WallBannerBlockHandler(ColorizeConfig config) {
+        super(config);
+    }
 
     @Override
     protected @Nullable WallBannerBlock getOldBlock(BlockState state) {
@@ -27,6 +32,16 @@ public class WallBannerBlockHandler extends AbstractBannerBlockHandler<WallBanne
     @Override
     protected WallBannerBlock getNewBlock(Colors color) {
         return WALL_BANNERS.get(color);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.bannerHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.bannerSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, WallBannerBlock> WALL_BANNERS = new Object2ObjectOpenHashMap<>(16);

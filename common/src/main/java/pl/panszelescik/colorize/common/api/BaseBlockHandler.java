@@ -9,7 +9,10 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class BaseBlockHandler<B extends Block> {
 
-    protected BaseBlockHandler() {
+    protected final ColorizeConfig config;
+
+    protected BaseBlockHandler(ColorizeConfig config) {
+        this.config = config;
     }
 
     protected abstract @Nullable B getOldBlock(BlockState state);
@@ -17,6 +20,10 @@ public abstract class BaseBlockHandler<B extends Block> {
     protected abstract @Nullable Colors getOldColor(BlockState state, B block);
 
     protected abstract B getNewBlock(Colors color);
+
+    protected abstract boolean isEnabled();
+
+    protected abstract boolean requireSneaking();
 
     public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
         var oldBlock = this.getOldBlock(state);

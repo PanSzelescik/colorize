@@ -3,13 +3,24 @@ package pl.panszelescik.colorize.common.handler;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
 
 public class TerracottaBlockHandler extends MaterialBlockHandler {
 
-    public TerracottaBlockHandler() {
-        super(TERRACOTTAS);
+    public TerracottaBlockHandler(ColorizeConfig config) {
+        super(config, TERRACOTTAS);
+    }
+
+    @Override
+    protected boolean isEnabled() {
+        return this.config.terracottaHandler();
+    }
+
+    @Override
+    protected boolean requireSneaking() {
+        return this.config.terracottaSneaking();
     }
 
     private static final Object2ObjectOpenHashMap<Colors, Block> TERRACOTTAS = new Object2ObjectOpenHashMap<>(16);
