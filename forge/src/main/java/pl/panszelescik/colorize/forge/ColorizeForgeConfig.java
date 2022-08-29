@@ -8,31 +8,31 @@ import java.util.Locale;
 
 public class ColorizeForgeConfig implements ColorizeConfig {
 
-    public final ForgeConfigSpec.BooleanValue bannerHandler;
-    public final ForgeConfigSpec.BooleanValue bedHandler;
-    public final ForgeConfigSpec.BooleanValue candleHandler;
-    public final ForgeConfigSpec.BooleanValue carpetHandler;
-    public final ForgeConfigSpec.BooleanValue concreteHandler;
-    public final ForgeConfigSpec.BooleanValue concretePowderHandler;
-    public final ForgeConfigSpec.BooleanValue glazedTerracottaHandler;
-    public final ForgeConfigSpec.BooleanValue shulkerBoxHandler;
-    public final ForgeConfigSpec.BooleanValue stainedGlassHandler;
-    public final ForgeConfigSpec.BooleanValue stainedGlassPaneHandler;
-    public final ForgeConfigSpec.BooleanValue terracottaHandler;
-    public final ForgeConfigSpec.BooleanValue woolHandler;
+    private final ForgeConfigSpec.BooleanValue bannerHandler;
+    private final ForgeConfigSpec.BooleanValue bedHandler;
+    private final ForgeConfigSpec.BooleanValue candleHandler;
+    private final ForgeConfigSpec.BooleanValue carpetHandler;
+    private final ForgeConfigSpec.BooleanValue concreteHandler;
+    private final ForgeConfigSpec.BooleanValue concretePowderHandler;
+    private final ForgeConfigSpec.BooleanValue glazedTerracottaHandler;
+    private final ForgeConfigSpec.BooleanValue shulkerBoxHandler;
+    private final ForgeConfigSpec.BooleanValue stainedGlassHandler;
+    private final ForgeConfigSpec.BooleanValue stainedGlassPaneHandler;
+    private final ForgeConfigSpec.BooleanValue terracottaHandler;
+    private final ForgeConfigSpec.BooleanValue woolHandler;
 
-    public final ForgeConfigSpec.BooleanValue bannerSneaking;
-    public final ForgeConfigSpec.BooleanValue bedSneaking;
-    public final ForgeConfigSpec.BooleanValue candleSneaking;
-    public final ForgeConfigSpec.BooleanValue carpetSneaking;
-    public final ForgeConfigSpec.BooleanValue concreteSneaking;
-    public final ForgeConfigSpec.BooleanValue concretePowderSneaking;
-    public final ForgeConfigSpec.BooleanValue glazedTerracottaSneaking;
-    public final ForgeConfigSpec.BooleanValue shulkerBoxSneaking;
-    public final ForgeConfigSpec.BooleanValue stainedGlassSneaking;
-    public final ForgeConfigSpec.BooleanValue stainedGlassPaneSneaking;
-    public final ForgeConfigSpec.BooleanValue terracottaSneaking;
-    public final ForgeConfigSpec.BooleanValue woolSneaking;
+    private final ForgeConfigSpec.BooleanValue bannerSneaking;
+    private final ForgeConfigSpec.BooleanValue bedSneaking;
+    private final ForgeConfigSpec.BooleanValue candleSneaking;
+    private final ForgeConfigSpec.BooleanValue carpetSneaking;
+    private final ForgeConfigSpec.BooleanValue concreteSneaking;
+    private final ForgeConfigSpec.BooleanValue concretePowderSneaking;
+    private final ForgeConfigSpec.BooleanValue glazedTerracottaSneaking;
+    private final ForgeConfigSpec.BooleanValue shulkerBoxSneaking;
+    private final ForgeConfigSpec.BooleanValue stainedGlassSneaking;
+    private final ForgeConfigSpec.BooleanValue stainedGlassPaneSneaking;
+    private final ForgeConfigSpec.BooleanValue terracottaSneaking;
+    private final ForgeConfigSpec.BooleanValue woolSneaking;
 
     public ColorizeForgeConfig(ForgeConfigSpec.Builder builder) {
         builder.comment("Handlers settings");
