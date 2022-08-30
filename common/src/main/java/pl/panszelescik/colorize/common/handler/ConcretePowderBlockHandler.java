@@ -1,29 +1,17 @@
 package pl.panszelescik.colorize.common.handler;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.ColorizeConfig;
+import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
-import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
+import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
-public class ConcretePowderBlockHandler extends MaterialBlockHandler {
+public class ConcretePowderBlockHandler extends BaseBlockHandler {
 
-    public ConcretePowderBlockHandler(ColorizeConfig config) {
-        super(config, CONCRETE_POWDERS);
+    public ConcretePowderBlockHandler() {
+        super("concretePowder", CONCRETE_POWDERS);
     }
 
-    @Override
-    protected boolean isEnabled() {
-        return this.config.concretePowderHandler();
-    }
-
-    @Override
-    protected boolean requireSneaking() {
-        return this.config.concretePowderSneaking();
-    }
-
-    private static final Object2ObjectOpenHashMap<Colors, Block> CONCRETE_POWDERS = new Object2ObjectOpenHashMap<>(16);
+    private static final RightClicker2BlockMap CONCRETE_POWDERS = new RightClicker2BlockMap(16);
 
     static {
         CONCRETE_POWDERS.put(Colors.WHITE, Blocks.WHITE_CONCRETE_POWDER);

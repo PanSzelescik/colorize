@@ -1,32 +1,22 @@
 package pl.panszelescik.colorize.common.handler;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.ColorizeConfig;
+import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
-import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
+import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
-public class StainedGlassBlockHandler extends MaterialBlockHandler {
+public class StainedGlassBlockHandler extends BaseBlockHandler {
 
-    public StainedGlassBlockHandler(ColorizeConfig config) {
-        super(config, STAINED_GLASSES);
+    public StainedGlassBlockHandler() {
+        super("stainedGlass", STAINED_GLASSES);
     }
 
-    @Override
-    protected boolean isEnabled() {
-        return this.config.stainedGlassHandler();
-    }
-
-    @Override
-    protected boolean requireSneaking() {
-        return this.config.stainedGlassSneaking();
-    }
-
-    private static final Object2ObjectOpenHashMap<Colors, Block> STAINED_GLASSES = new Object2ObjectOpenHashMap<>(17);
+    private static final RightClicker2BlockMap STAINED_GLASSES = new RightClicker2BlockMap(18);
 
     static {
         STAINED_GLASSES.put(Colors.CLEAR, Blocks.GLASS);
+
         STAINED_GLASSES.put(Colors.WHITE, Blocks.WHITE_STAINED_GLASS);
         STAINED_GLASSES.put(Colors.ORANGE, Blocks.ORANGE_STAINED_GLASS);
         STAINED_GLASSES.put(Colors.MAGENTA, Blocks.MAGENTA_STAINED_GLASS);
@@ -43,5 +33,7 @@ public class StainedGlassBlockHandler extends MaterialBlockHandler {
         STAINED_GLASSES.put(Colors.GREEN, Blocks.GREEN_STAINED_GLASS);
         STAINED_GLASSES.put(Colors.RED, Blocks.RED_STAINED_GLASS);
         STAINED_GLASSES.put(Colors.BLACK, Blocks.BLACK_STAINED_GLASS);
+
+        STAINED_GLASSES.put(Items.AMETHYST_SHARD, Blocks.TINTED_GLASS);
     }
 }

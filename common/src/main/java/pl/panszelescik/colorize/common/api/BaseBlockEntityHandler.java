@@ -7,24 +7,23 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class BaseBlockEntityHandler<B extends Block, T extends BlockEntity> extends BaseBlockHandler<B> {
+public abstract class BaseBlockEntityHandler<T extends BlockEntity> extends BaseBlockHandler {
 
     private final Class<T> clazz;
 
-    protected BaseBlockEntityHandler(ColorizeConfig config, Class<T> clazz) {
-        super(config);
+    protected BaseBlockEntityHandler(String key, RightClicker2BlockMap blocks, Class<T> clazz) {
+        super(key, blocks);
         this.clazz = clazz;
     }
 
     @Override
-    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
+    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Block newBlock) {
         var blockEntity = level.getBlockEntity(pos);
         if (this.clazz.isInstance(blockEntity)) {
             var tag = blockEntity.saveWithoutMetadata();
 
             level.removeBlock(pos, false);
 
-            var newBlock = this.getNewBlock(newColor);
             level.setBlock(pos, newBlock.withPropertiesOf(state), 0);
 
             var newBlockEntity = level.getBlockEntity(pos);

@@ -1,29 +1,17 @@
 package pl.panszelescik.colorize.common.handler;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.ColorizeConfig;
+import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
-import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
+import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
-public class WoolBlockHandler extends MaterialBlockHandler {
+public class WoolBlockHandler extends BaseBlockHandler {
 
-    public WoolBlockHandler(ColorizeConfig config) {
-        super(config, WOOLS);
+    public WoolBlockHandler() {
+        super("wool", WOOLS);
     }
 
-    @Override
-    protected boolean isEnabled() {
-        return this.config.woolHandler();
-    }
-
-    @Override
-    protected boolean requireSneaking() {
-        return this.config.woolSneaking();
-    }
-
-    private static final Object2ObjectOpenHashMap<Colors, Block> WOOLS = new Object2ObjectOpenHashMap<>(16);
+    private static final RightClicker2BlockMap WOOLS = new RightClicker2BlockMap(16);
 
     static {
         WOOLS.put(Colors.WHITE, Blocks.WHITE_WOOL);
