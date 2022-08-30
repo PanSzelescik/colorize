@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.handler.*;
+import pl.panszelescik.colorize.common.handler.moss.*;
 
 public abstract class ColorizeEventHandler {
 
@@ -33,13 +34,18 @@ public abstract class ColorizeEventHandler {
         this.handlers.add(new TerracottaBlockHandler());
         this.handlers.add(new WallBannerBlockHandler());
         this.handlers.add(new WoolBlockHandler());
+
+        this.handlers.add(new MossyCobblestoneHandler());
+        this.handlers.add(new MossyCobblestoneSlabHandler());
+        this.handlers.add(new MossyCobblestoneStairsHandler());
+        this.handlers.add(new MossyCobblestoneWallHandler());
+        this.handlers.add(new MossyStoneBricksHandler());
+        this.handlers.add(new MossyStoneBrickSlabHandler());
+        this.handlers.add(new MossyStoneBrickStairsHandler());
+        this.handlers.add(new MossyStoneBrickWallHandler());
     }
 
     public boolean handle(Player player, Level level, InteractionHand hand, BlockPos pos) {
-        if (level.isClientSide) {
-            return false;
-        }
-
         var stack = player.getItemInHand(hand);
         var state = level.getBlockState(pos);
         for (var handler : handlers) {

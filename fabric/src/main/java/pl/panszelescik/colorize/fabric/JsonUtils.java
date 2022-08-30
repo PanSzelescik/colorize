@@ -2,7 +2,6 @@ package pl.panszelescik.colorize.fabric;
 
 import com.google.gson.JsonObject;
 
-import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 public class JsonUtils {
@@ -21,13 +20,13 @@ public class JsonUtils {
         return getSafeJsonObject(object, key, JsonObject::new);
     }
 
-    public static boolean getSafeBoolean(JsonObject object, String key, BooleanSupplier ifNotFound) {
+    public static boolean getSafeBoolean(JsonObject object, String key, boolean ifNotFound) {
         if (object.has(key)) {
             var element = object.get(key);
             if (element.isJsonPrimitive() && element.getAsJsonPrimitive().isBoolean()) {
                 return element.getAsBoolean();
             }
         }
-        return ifNotFound.getAsBoolean();
+        return ifNotFound;
     }
 }
