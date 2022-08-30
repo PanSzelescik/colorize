@@ -94,123 +94,35 @@ public class ColorizeForgeConfig implements ColorizeConfig {
     }
 
     @Override
-    public boolean bannerHandler() {
-        return bannerHandler.get();
-    }
+    public boolean getBoolean(String key) {
+        return switch (key) {
+            case "handlers.banner" -> bannerHandler.get();
+            case "handlers.bed" -> bedHandler.get();
+            case "handlers.candle" -> candleHandler.get();
+            case "handlers.carpet" -> carpetHandler.get();
+            case "handlers.concrete" -> concreteHandler.get();
+            case "handlers.concretePowder" -> concretePowderHandler.get();
+            case "handlers.glazedTerracotta" -> glazedTerracottaHandler.get();
+            case "handlers.shulkerBox" -> shulkerBoxHandler.get();
+            case "handlers.stainedGlass" -> stainedGlassHandler.get();
+            case "handlers.stainedGlassPane" -> stainedGlassPaneHandler.get();
+            case "handlers.terracotta" -> terracottaHandler.get();
+            case "handlers.wool" -> woolHandler.get();
 
-    @Override
-    public boolean bedHandler() {
-        return bedHandler.get();
-    }
+            case "sneaking.banner" -> bannerSneaking.get();
+            case "sneaking.bed" -> bedSneaking.get();
+            case "sneaking.candle" -> candleSneaking.get();
+            case "sneaking.carpet" -> carpetSneaking.get();
+            case "sneaking.concrete" -> concreteSneaking.get();
+            case "sneaking.concretePowder" -> concretePowderSneaking.get();
+            case "sneaking.glazedTerracotta" -> glazedTerracottaSneaking.get();
+            case "sneaking.shulkerBox" -> shulkerBoxSneaking.get();
+            case "sneaking.stainedGlass" -> stainedGlassSneaking.get();
+            case "sneaking.stainedGlassPane" -> stainedGlassPaneSneaking.get();
+            case "sneaking.terracotta" -> terracottaSneaking.get();
+            case "sneaking.wool" -> woolSneaking.get();
 
-    @Override
-    public boolean candleHandler() {
-        return candleHandler.get();
-    }
-
-    @Override
-    public boolean carpetHandler() {
-        return carpetHandler.get();
-    }
-
-    @Override
-    public boolean concreteHandler() {
-        return concreteHandler.get();
-    }
-
-    @Override
-    public boolean concretePowderHandler() {
-        return concretePowderHandler.get();
-    }
-
-    @Override
-    public boolean glazedTerracottaHandler() {
-        return glazedTerracottaHandler.get();
-    }
-
-    @Override
-    public boolean shulkerBoxHandler() {
-        return shulkerBoxHandler.get();
-    }
-
-    @Override
-    public boolean stainedGlassHandler() {
-        return stainedGlassHandler.get();
-    }
-
-    @Override
-    public boolean stainedGlassPaneHandler() {
-        return stainedGlassPaneHandler.get();
-    }
-
-    @Override
-    public boolean terracottaHandler() {
-        return terracottaHandler.get();
-    }
-
-    @Override
-    public boolean woolHandler() {
-        return woolHandler.get();
-    }
-
-
-    @Override
-    public boolean bannerSneaking() {
-        return bannerSneaking.get();
-    }
-
-    @Override
-    public boolean bedSneaking() {
-        return bedSneaking.get();
-    }
-
-    @Override
-    public boolean candleSneaking() {
-        return candleSneaking.get();
-    }
-
-    @Override
-    public boolean carpetSneaking() {
-        return carpetSneaking.get();
-    }
-
-    @Override
-    public boolean concreteSneaking() {
-        return concreteSneaking.get();
-    }
-
-    @Override
-    public boolean concretePowderSneaking() {
-        return concretePowderSneaking.get();
-    }
-
-    @Override
-    public boolean glazedTerracottaSneaking() {
-        return glazedTerracottaSneaking.get();
-    }
-
-    @Override
-    public boolean shulkerBoxSneaking() {
-        return shulkerBoxSneaking.get();
-    }
-
-    @Override
-    public boolean stainedGlassSneaking() {
-        return stainedGlassSneaking.get();
-    }
-
-    @Override
-    public boolean stainedGlassPaneSneaking() {
-        return stainedGlassPaneSneaking.get();
-    }
-
-    @Override
-    public boolean terracottaSneaking() {
-        return terracottaSneaking.get();
-    }
-
-    @Override
-    public boolean woolSneaking() {
-        return woolSneaking.get();
+            default -> false;
+        };
     }
 }

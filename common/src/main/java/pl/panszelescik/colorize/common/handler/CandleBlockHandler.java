@@ -1,29 +1,17 @@
 package pl.panszelescik.colorize.common.handler;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.ColorizeConfig;
+import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
-import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
+import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
-public class CandleBlockHandler extends MaterialBlockHandler {
+public class CandleBlockHandler extends BaseBlockHandler {
 
-    public CandleBlockHandler(ColorizeConfig config) {
-        super(config, CANDLES);
+    public CandleBlockHandler() {
+        super("candle", CANDLES);
     }
 
-    @Override
-    protected boolean isEnabled() {
-        return this.config.candleHandler();
-    }
-
-    @Override
-    protected boolean requireSneaking() {
-        return this.config.candleSneaking();
-    }
-
-    private static final Object2ObjectOpenHashMap<Colors, Block> CANDLES = new Object2ObjectOpenHashMap<>(16);
+    private static final RightClicker2BlockMap CANDLES = new RightClicker2BlockMap(16);
 
     static {
         CANDLES.put(Colors.WHITE, Blocks.WHITE_CANDLE);

@@ -1,51 +1,17 @@
 package pl.panszelescik.colorize.common.handler;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.StainedGlassPaneBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
-import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.Colors;
+import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
-public class StainedGlassPaneBlockHandler extends BaseBlockHandler<Block> {
+public class StainedGlassPaneBlockHandler extends BaseBlockHandler {
 
-    public StainedGlassPaneBlockHandler(ColorizeConfig config) {
-        super(config);
+    public StainedGlassPaneBlockHandler() {
+        super("stainedGlassPane", STAINED_GLASS_PANES);
     }
 
-    @Override
-    protected @Nullable Block getOldBlock(BlockState state) {
-        var block = state.getBlock();
-        return STAINED_GLASS_PANES.containsValue(block) ? block : null;
-    }
-
-    @Override
-    protected @Nullable Colors getOldColor(BlockState state, Block block) {
-        if (block == Blocks.GLASS_PANE) {
-            return Colors.CLEAR;
-        }
-        return block instanceof StainedGlassPaneBlock paneBlock ? Colors.getByDyeColor(paneBlock.getColor()) : null;
-    }
-
-    @Override
-    protected Block getNewBlock(Colors color) {
-        return STAINED_GLASS_PANES.get(color);
-    }
-
-    @Override
-    protected boolean isEnabled() {
-        return this.config.stainedGlassPaneHandler();
-    }
-
-    @Override
-    protected boolean requireSneaking() {
-        return this.config.stainedGlassPaneSneaking();
-    }
-
-    private static final Object2ObjectOpenHashMap<Colors, Block> STAINED_GLASS_PANES = new Object2ObjectOpenHashMap<>(16);
+    private static final RightClicker2BlockMap STAINED_GLASS_PANES = new RightClicker2BlockMap(17);
 
     static {
         STAINED_GLASS_PANES.put(Colors.CLEAR, Blocks.GLASS_PANE);

@@ -5,38 +5,58 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
-public abstract class BaseBlockHandler<B extends Block> {
+import java.util.Map;
+import java.util.Optional;
 
-    protected final ColorizeConfig config;
+public abstract class BaseBlockHandler {
 
-    protected BaseBlockHandler(ColorizeConfig config) {
-        this.config = config;
+    private final String key;
+    private final RightClicker2BlockMap blocks;
+
+    protected BaseBlockHandler(String key, RightClicker2BlockMap blocks) {
+        this.key = key;
+        this.blocks = blocks;
     }
 
-    protected abstract @Nullable B getOldBlock(BlockState state);
+    protected Optional<Block> getOldBlock(BlockState state) {
+        var block = state.getBlock();
+        return this.blocks.containsValue(block) ? Optional.of(block) : Optional.empty();
+    }
 
-    protected abstract @Nullable Colors getOldColor(BlockState state, B block);
+    protected Optional<Block> getNewBlock(ItemStack stack) {
+        return this.blocks
+                .object2ObjectEntrySet()
+                .stream()
+                .filter(e -> e.getKey().canUse(stack))
+                .findFirst()
+                .map(Map.Entry::getValue);
+    }
 
-    protected abstract B getNewBlock(Colors color);
+    protected boolean isEnabled() {
+        return ColorizeEventHandler.CONFIG.getBoolean("handlers." + key);
+    }
 
-    protected abstract boolean isEnabled();
+    protected boolean requireSneaking() {
+        return ColorizeEventHandler.CONFIG.getBoolean("sneaking." + key);
+    }
 
-    protected abstract boolean requireSneaking();
-
-    public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
+    public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack) {
         var oldBlock = this.getOldBlock(state);
-        if (oldBlock == null) {
+        if (oldBlock.isEmpty()) {
             return false;
         }
 
-        var oldColor = this.getOldColor(state, oldBlock);
-        if (oldColor == null || oldColor == newColor) {
+        var newBlock = this.getNewBlock(stack);
+        if (newBlock.isEmpty()) {
             return false;
         }
 
-        var result = this.replace(level, pos, state, stack, newColor);
+        if (oldBlock.equals(newBlock)) {
+            return false;
+        }
+
+        var result = this.replace(level, pos, state, stack, newBlock.get());
         if (result) {
             stack.shrink(1);
         }
@@ -44,10 +64,9 @@ public abstract class BaseBlockHandler<B extends Block> {
         return result;
     }
 
-    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Colors newColor) {
+    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Block newBlock) {
         level.removeBlock(pos, false);
 
-        var newBlock = this.getNewBlock(newColor);
         level.setBlock(pos, newBlock.withPropertiesOf(state), 0);
 
         return true;
