@@ -19,7 +19,7 @@ public class ColorizeForge {
     }
 
     private void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (this.handler.handle(event.getEntity(), event.getLevel(), event.getHand(), event.getPos())) {
+        if (this.handler.handle(event.getPlayer(), event.getWorld(), event.getHand(), event.getPos())) {
             event.setCanceled(true);
         }
     }
