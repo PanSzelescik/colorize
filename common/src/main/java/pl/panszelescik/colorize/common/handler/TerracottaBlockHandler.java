@@ -1,29 +1,17 @@
 package pl.panszelescik.colorize.common.handler;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.ColorizeConfig;
+import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
-import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
+import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
-public class TerracottaBlockHandler extends MaterialBlockHandler {
+public class TerracottaBlockHandler extends BaseBlockHandler {
 
-    public TerracottaBlockHandler(ColorizeConfig config) {
-        super(config, TERRACOTTAS);
+    public TerracottaBlockHandler() {
+        super("terracotta", TERRACOTTAS);
     }
 
-    @Override
-    protected boolean isEnabled() {
-        return this.config.terracottaHandler();
-    }
-
-    @Override
-    protected boolean requireSneaking() {
-        return this.config.terracottaSneaking();
-    }
-
-    private static final Object2ObjectOpenHashMap<Colors, Block> TERRACOTTAS = new Object2ObjectOpenHashMap<>(16);
+    private static final RightClicker2BlockMap TERRACOTTAS = new RightClicker2BlockMap(16);
 
     static {
         TERRACOTTAS.put(Colors.WHITE, Blocks.WHITE_TERRACOTTA);

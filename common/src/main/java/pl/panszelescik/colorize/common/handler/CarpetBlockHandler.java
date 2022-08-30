@@ -1,29 +1,17 @@
 package pl.panszelescik.colorize.common.handler;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.ColorizeConfig;
+import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
-import pl.panszelescik.colorize.common.api.MaterialBlockHandler;
+import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
-public class CarpetBlockHandler extends MaterialBlockHandler {
+public class CarpetBlockHandler extends BaseBlockHandler {
 
-    public CarpetBlockHandler(ColorizeConfig config) {
-        super(config, CARPETS);
+    public CarpetBlockHandler() {
+        super("carpet", CARPETS);
     }
 
-    @Override
-    protected boolean isEnabled() {
-        return this.config.carpetHandler();
-    }
-
-    @Override
-    protected boolean requireSneaking() {
-        return this.config.carpetSneaking();
-    }
-
-    private static final Object2ObjectOpenHashMap<Colors, Block> CARPETS = new Object2ObjectOpenHashMap<>(16);
+    private static final RightClicker2BlockMap CARPETS = new RightClicker2BlockMap(16);
 
     static {
         CARPETS.put(Colors.WHITE, Blocks.WHITE_CARPET);
