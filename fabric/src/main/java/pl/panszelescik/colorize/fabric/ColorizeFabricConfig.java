@@ -39,7 +39,29 @@ public class ColorizeFabricConfig implements ColorizeConfig {
     }
 
     private void loadFromJson(JsonObject json) {
-        var blocksKeys = new String[] {
+        var handlersKeys = new String[] {
+                "banner",
+                "bed",
+                "candle",
+                "carpet",
+                "concrete",
+                "concretePowder",
+                "glazedTerracotta",
+                "shulkerBox",
+                "stainedGlass",
+                "stainedGlassPane",
+                "terracotta",
+                "wool",
+                "mossyCobblestone",
+                "mossyCobblestoneSlab",
+                "mossyCobblestoneStairs",
+                "mossyCobblestoneWall",
+                "mossyStoneBricks",
+                "mossyStoneBrickSlab",
+                "mossyStoneBrickStairs",
+                "mossyStoneBrickWall"
+        };
+        var sneakingFalseKeys = new String[] {
                 "banner",
                 "bed",
                 "candle",
@@ -53,15 +75,28 @@ public class ColorizeFabricConfig implements ColorizeConfig {
                 "terracotta",
                 "wool"
         };
+        var sneakingTrueKeys = new String[] {
+                "mossyCobblestone",
+                "mossyCobblestoneSlab",
+                "mossyCobblestoneStairs",
+                "mossyCobblestoneWall",
+                "mossyStoneBricks",
+                "mossyStoneBrickSlab",
+                "mossyStoneBrickStairs",
+                "mossyStoneBrickWall"
+        };
 
         var handlers = JsonUtils.getSafeJsonObject(json, "handlers");
-        for (var key : blocksKeys) {
-            booleans.put("handlers." + key, JsonUtils.getSafeBoolean(handlers, key, () -> true));
+        for (var key : handlersKeys) {
+            booleans.put("handlers." + key, JsonUtils.getSafeBoolean(handlers, key, true));
         }
 
         var sneaking = JsonUtils.getSafeJsonObject(json, "sneaking");
-        for (var key : blocksKeys) {
-            booleans.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, () -> false));
+        for (var key : sneakingFalseKeys) {
+            booleans.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, false));
+        }
+        for (var key : sneakingTrueKeys) {
+            booleans.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, true));
         }
     }
 
