@@ -39,63 +39,20 @@ public class ColorizeFabricConfig implements ColorizeConfig {
     }
 
     private void loadFromJson(JsonObject json) {
-        var handlersKeys = new String[] {
-                "banner",
-                "bed",
-                "candle",
-                "carpet",
-                "concrete",
-                "concretePowder",
-                "glazedTerracotta",
-                "shulkerBox",
-                "stainedGlass",
-                "stainedGlassPane",
-                "terracotta",
-                "wool",
-                "mossyCobblestone",
-                "mossyCobblestoneSlab",
-                "mossyCobblestoneStairs",
-                "mossyCobblestoneWall",
-                "mossyStoneBricks",
-                "mossyStoneBrickSlab",
-                "mossyStoneBrickStairs",
-                "mossyStoneBrickWall"
-        };
-        var sneakingFalseKeys = new String[] {
-                "banner",
-                "bed",
-                "candle",
-                "carpet",
-                "concrete",
-                "concretePowder",
-                "glazedTerracotta",
-                "shulkerBox",
-                "stainedGlass",
-                "stainedGlassPane",
-                "terracotta",
-                "wool"
-        };
-        var sneakingTrueKeys = new String[] {
-                "mossyCobblestone",
-                "mossyCobblestoneSlab",
-                "mossyCobblestoneStairs",
-                "mossyCobblestoneWall",
-                "mossyStoneBricks",
-                "mossyStoneBrickSlab",
-                "mossyStoneBrickStairs",
-                "mossyStoneBrickWall"
-        };
-
         var handlers = JsonUtils.getSafeJsonObject(json, "handlers");
-        for (var key : handlersKeys) {
+        for (var name : this.handlersNames) {
+            var key = ColorizeConfig.formatPath(name);
             booleans.put("handlers." + key, JsonUtils.getSafeBoolean(handlers, key, true));
+            booleans.put("consume." + key, JsonUtils.getSafeBoolean(handlers, key, true));
         }
 
         var sneaking = JsonUtils.getSafeJsonObject(json, "sneaking");
-        for (var key : sneakingFalseKeys) {
+        for (var name : this.sneakingFalseKeys) {
+            var key = ColorizeConfig.formatPath(name);
             booleans.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, false));
         }
-        for (var key : sneakingTrueKeys) {
+        for (var name : this.sneakingTrueKeys) {
+            var key = ColorizeConfig.formatPath(name);
             booleans.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, true));
         }
     }

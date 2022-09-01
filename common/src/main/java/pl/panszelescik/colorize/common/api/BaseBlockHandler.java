@@ -41,6 +41,10 @@ public abstract class BaseBlockHandler {
         return ColorizeEventHandler.CONFIG.getBoolean("sneaking." + key);
     }
 
+    protected boolean consumeItem() {
+        return ColorizeEventHandler.CONFIG.getBoolean("consume." + key);
+    }
+
     public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack) {
         var oldBlock = this.getOldBlock(state);
         if (oldBlock.isEmpty()) {
@@ -57,7 +61,7 @@ public abstract class BaseBlockHandler {
         }
 
         var result = this.replace(level, pos, state, stack, newBlock.get());
-        if (result) {
+        if (result && this.consumeItem()) {
             stack.shrink(1);
         }
 
