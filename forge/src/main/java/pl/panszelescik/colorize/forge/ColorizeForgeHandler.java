@@ -18,4 +18,9 @@ public class ColorizeForgeHandler extends ColorizeEventHandler {
         var color = DyeColor.getColor(stack);
         return color == null ? null : Colors.getByDyeColor(color);
     }
+
+    @Override
+    public boolean isForge() {
+        return true;
+    }
 }

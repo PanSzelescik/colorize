@@ -46,6 +46,10 @@ public abstract class ColorizeEventHandler {
     }
 
     public boolean handle(Player player, Level level, InteractionHand hand, BlockPos pos) {
+        if (this.isForge() && level.isClientSide()) {
+            return false;
+        }
+
         var stack = player.getItemInHand(hand);
         var state = level.getBlockState(pos);
         for (var handler : handlers) {
@@ -70,5 +74,9 @@ public abstract class ColorizeEventHandler {
             return Colors.getByDyeColor(dyeStack.getDyeColor());
         }
         return null;
+    }
+
+    public boolean isForge() {
+        return false;
     }
 }
