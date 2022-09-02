@@ -1,6 +1,9 @@
 package pl.panszelescik.colorize.common.api;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -41,6 +44,14 @@ public abstract class BaseBlockHandler {
         return ColorizeEventHandler.CONFIG.getBoolean("sneaking." + key);
     }
 
+    protected boolean consumeItem() {
+        return ColorizeEventHandler.CONFIG.getBoolean("consume." + key);
+    }
+
+    protected SoundEvent getSound() {
+        return SoundEvents.STONE_HIT;
+    }
+
     public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack) {
         var oldBlock = this.getOldBlock(state);
         if (oldBlock.isEmpty()) {
@@ -58,7 +69,12 @@ public abstract class BaseBlockHandler {
 
         var result = this.replace(level, pos, state, stack, newBlock.get());
         if (result) {
-            stack.shrink(1);
+            if (this.consumeItem()) {
+                stack.shrink(1);
+            }
+            if (!level.isClientSide) {
+                level.playSound(null, pos, this.getSound(), SoundSource.BLOCKS, 1f, 1f);
+            }
         }
 
         return result;
