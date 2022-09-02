@@ -7,6 +7,8 @@ architectury {
     fabric()
 }
 
+archivesBaseName = rootProject.archives_base_name + "-" + rootProject.minecraft_version + "-fabric"
+
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 }
