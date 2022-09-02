@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build
-      uses: .github/workflows/build.yml
+      uses: PanSzelescik/colorize/.github/workflows/build.yml@1.19.2
     - name: Publish Forge to CurseForge and Modrinth
       uses: Kir-Antipov/mc-publish@v3.2
       with:
