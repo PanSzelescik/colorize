@@ -34,7 +34,7 @@ jobs:
       - name: Publish Forge to CurseForge and Modrinth
         uses: Kir-Antipov/mc-publish@v3.2
         with:
-          modrinth-id: colorize
+          modrinth-id: 4sQDl6he
           modrinth-featured: true
           modrinth-unfeature-mode: subset
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
@@ -64,7 +64,7 @@ jobs:
       - name: Publish Fabric to CurseForge and Modrinth
         uses: Kir-Antipov/mc-publish@v3.2
         with:
-          modrinth-id: colorize
+          modrinth-id: 4sQDl6he
           modrinth-featured: true
           modrinth-unfeature-mode: subset
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
@@ -77,6 +77,9 @@ jobs:
 
           name: ""
           version-type: release
+
+          dependencies: |
+            fabric-api | depends | *
 
           loaders: |
             fabric
