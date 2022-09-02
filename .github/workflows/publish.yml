@@ -14,9 +14,11 @@ permissions:
   contents: read
 
 jobs:
+  build:
+    uses: PanSzelescik/colorize/.github/workflows/build.yml@1.19.2
   publish:
     runs-on: ubuntu-latest
-    uses: PanSzelescik/colorize/.github/workflows/build.yml@1.19.2
+    needs: build
     steps:
     - name: Publish Forge to CurseForge and Modrinth
       uses: Kir-Antipov/mc-publish@v3.2
