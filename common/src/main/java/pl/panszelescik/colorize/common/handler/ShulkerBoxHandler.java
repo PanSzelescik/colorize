@@ -2,7 +2,7 @@ package pl.panszelescik.colorize.common.handler;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
-import pl.panszelescik.colorize.common.api.BaseBlockEntityHandler;
+import pl.panszelescik.colorize.common.api.handler.BaseBlockEntityHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 

@@ -2,11 +2,11 @@ package pl.panszelescik.colorize.common.handler.moss;
 
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
+import pl.panszelescik.colorize.common.api.handler.MossyBlockHandler;
 
-public class MossyCobblestoneWallHandler extends BaseBlockHandler {
+public class MossyCobblestoneWallHandler extends MossyBlockHandler {
 
     public MossyCobblestoneWallHandler() {
         super("mossyCobblestoneWall", MOSSY_COBBLESTONE_WALLS);

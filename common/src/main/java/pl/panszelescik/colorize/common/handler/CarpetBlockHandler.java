@@ -1,11 +1,11 @@
 package pl.panszelescik.colorize.common.handler;
 
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
+import pl.panszelescik.colorize.common.api.handler.WoollyBlockHandler;
 
-public class CarpetBlockHandler extends BaseBlockHandler {
+public class CarpetBlockHandler extends WoollyBlockHandler {
 
     public CarpetBlockHandler() {
         super("carpet", CARPETS);

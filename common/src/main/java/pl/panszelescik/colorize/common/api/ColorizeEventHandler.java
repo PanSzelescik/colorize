@@ -46,7 +46,7 @@ public abstract class ColorizeEventHandler {
     }
 
     public boolean handle(Player player, Level level, InteractionHand hand, BlockPos pos) {
-        if (this.isForge() && level.isClientSide()) {
+        if (this.isForge() && level.isClientSide) {
             return false;
         }
 

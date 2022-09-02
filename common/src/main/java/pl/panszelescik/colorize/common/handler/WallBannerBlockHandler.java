@@ -1,8 +1,10 @@
 package pl.panszelescik.colorize.common.handler;
 
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BannerBlockEntity;
-import pl.panszelescik.colorize.common.api.BaseBlockEntityHandler;
+import pl.panszelescik.colorize.common.api.handler.BaseBlockEntityHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 
@@ -10,6 +12,11 @@ public class WallBannerBlockHandler extends BaseBlockEntityHandler<BannerBlockEn
 
     public WallBannerBlockHandler() {
         super("banner", WALL_BANNERS, BannerBlockEntity.class);
+    }
+
+    @Override
+    protected SoundEvent getSound() {
+        return SoundEvents.WOOL_HIT;
     }
 
     private static final RightClicker2BlockMap WALL_BANNERS = new RightClicker2BlockMap(16);

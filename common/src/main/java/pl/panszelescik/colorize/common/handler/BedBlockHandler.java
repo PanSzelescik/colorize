@@ -8,11 +8,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
-import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
+import pl.panszelescik.colorize.common.api.handler.WoollyBlockHandler;
 
-public class BedBlockHandler extends BaseBlockHandler {
+public class BedBlockHandler extends WoollyBlockHandler {
 
     public BedBlockHandler() {
         super("bed", BEDS);

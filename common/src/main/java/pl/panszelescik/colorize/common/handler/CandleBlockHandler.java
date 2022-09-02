@@ -1,5 +1,7 @@
 package pl.panszelescik.colorize.common.handler;
 
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Blocks;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
@@ -9,6 +11,11 @@ public class CandleBlockHandler extends BaseBlockHandler {
 
     public CandleBlockHandler() {
         super("candle", CANDLES);
+    }
+
+    @Override
+    protected SoundEvent getSound() {
+        return SoundEvents.CANDLE_HIT;
     }
 
     private static final RightClicker2BlockMap CANDLES = new RightClicker2BlockMap(16);

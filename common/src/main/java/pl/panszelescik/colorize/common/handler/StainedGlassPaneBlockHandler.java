@@ -1,11 +1,11 @@
 package pl.panszelescik.colorize.common.handler;
 
 import net.minecraft.world.level.block.Blocks;
-import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
+import pl.panszelescik.colorize.common.api.handler.GlassBlockHandler;
 
-public class StainedGlassPaneBlockHandler extends BaseBlockHandler {
+public class StainedGlassPaneBlockHandler extends GlassBlockHandler {
 
     public StainedGlassPaneBlockHandler() {
         super("stainedGlassPane", STAINED_GLASS_PANES);
