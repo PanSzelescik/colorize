@@ -36,7 +36,7 @@ jobs:
         with:
           modrinth-id: 4sQDl6he
           modrinth-featured: true
-          modrinth-unfeature-mode: subset
+          modrinth-unfeature-mode: intersection
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
           curseforge-id: 658780
@@ -66,7 +66,7 @@ jobs:
         with:
           modrinth-id: 4sQDl6he
           modrinth-featured: true
-          modrinth-unfeature-mode: subset
+          modrinth-unfeature-mode: intersection
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
           curseforge-id: 658780
