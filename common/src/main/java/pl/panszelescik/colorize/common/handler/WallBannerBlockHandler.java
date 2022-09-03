@@ -7,6 +7,9 @@ import net.minecraft.world.level.block.entity.BannerBlockEntity;
 import pl.panszelescik.colorize.common.api.handler.BaseBlockEntityHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
+import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
+
+import java.util.stream.Stream;
 
 public class WallBannerBlockHandler extends BaseBlockEntityHandler<BannerBlockEntity> {
 
@@ -17,6 +20,11 @@ public class WallBannerBlockHandler extends BaseBlockEntityHandler<BannerBlockEn
     @Override
     protected SoundEvent getSound() {
         return SoundEvents.WOOL_HIT;
+    }
+
+    @Override
+    public Stream<ColorizeRecipe> getRecipes() {
+        return Stream.empty(); // Don't duplicate recipes
     }
 
     private static final RightClicker2BlockMap WALL_BANNERS = new RightClicker2BlockMap(16);

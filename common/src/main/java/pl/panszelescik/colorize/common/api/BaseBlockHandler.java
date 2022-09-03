@@ -5,12 +5,15 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public abstract class BaseBlockHandler {
 
@@ -86,5 +89,25 @@ public abstract class BaseBlockHandler {
         level.setBlock(pos, newBlock.withPropertiesOf(state), 0);
 
         return true;
+    }
+
+    public Stream<ColorizeRecipe> getRecipes() {
+        return !this.isEnabled() ? Stream.empty() : this.blocks
+                .object2ObjectEntrySet()
+                .stream()
+                .filter(e -> !e.getKey().isEmpty())
+                .map(entry -> {
+                    var block = entry.getValue();
+                    var result = new ItemStack(block);
+                    var item = entry.getKey().asIngredient();
+                    var validBlocks = Ingredient.of(this.blocks
+                            .object2ObjectEntrySet()
+                            .stream()
+                            .filter(e -> e.getValue() != block)
+                            .map(Map.Entry::getValue)
+                            .map(ItemStack::new));
+
+                    return new ColorizeRecipe(validBlocks, item, result);
+                });
     }
 }

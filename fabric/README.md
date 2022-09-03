@@ -1,1 +1,0 @@
-# Version 1.18.2 is the same as 1.19.2, you will find it [here](https://github.com/PanSzelescik/colorize/tree/1.19.2/fabric)

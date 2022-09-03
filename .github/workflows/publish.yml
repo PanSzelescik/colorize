@@ -48,6 +48,12 @@ jobs:
           name: ""
           version-type: release
 
+          modrinth-dependencies: |
+            roughly-enough-items | suggests
+          curseforge-dependencies: |
+            jei | suggests
+            roughly-enough-items | suggests
+
           loaders: |
             forge
           game-versions: |
@@ -58,6 +64,43 @@ jobs:
             18
             17
 
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
+      - name: Publish Fabric to CurseForge and Modrinth
+        uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          modrinth-id: 4sQDl6he
+          modrinth-featured: true
+          modrinth-unfeature-mode: intersection
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 658780
+          curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
+
+          files-primary: fabric/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
+          files-secondary: fabric/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
+
+          name: ""
+          version-type: release
+
+          modrinth-dependencies: |
+            fabric-api | depends
+            roughly-enough-items | suggests
+          curseforge-dependencies: |
+            fabric-api | depends
+            jei | suggests
+            roughly-enough-items | suggests
+          loaders: |
+            fabric
+            quilt
+          game-versions: |
+            1.18.2
+            1.18.1
+            1.18
+          java: |
+            18
+            17
           retry-attempts: 2
           retry-delay: 10000
           fail-mode: fail

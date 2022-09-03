@@ -3,6 +3,7 @@ package pl.panszelescik.colorize.common.api;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 
 public class RightClicker {
@@ -46,5 +47,25 @@ public class RightClicker {
         }
 
         return false;
+    }
+
+    public boolean isEmpty() {
+        return this.item == null && this.tag == null && (this.color == null || this.color == Colors.CLEAR);
+    }
+
+    public Ingredient asIngredient() {
+        if (this.item != null) {
+            return Ingredient.of(new ItemStack(this.item));
+        }
+
+        if (this.tag != null) {
+            return Ingredient.of(this.tag);
+        }
+
+        if (this.color != null) {
+            return ColorizeEventHandler.INSTANCE.getColorIngredient(this.color);
+        }
+
+        return Ingredient.EMPTY;
     }
 }
