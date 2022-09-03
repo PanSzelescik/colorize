@@ -48,8 +48,11 @@ jobs:
           name: ""
           version-type: release
 
+          modrinth-dependencies: |
+            roughly-enough-items | suggests
           curseforge-dependencies: |
             jei | suggests
+            roughly-enough-items | suggests
 
           loaders: |
             forge
@@ -83,9 +86,11 @@ jobs:
 
           modrinth-dependencies: |
             fabric-api | depends
+            roughly-enough-items | suggests
           curseforge-dependencies: |
             fabric-api | depends
             jei | suggests
+            roughly-enough-items | suggests
 
           loaders: |
             fabric
