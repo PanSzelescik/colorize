@@ -48,6 +48,9 @@ jobs:
           name: ""
           version-type: release
 
+          curseforge-dependencies: |
+            jei | suggests
+
           loaders: |
             forge
           game-versions: |
@@ -78,8 +81,11 @@ jobs:
           name: ""
           version-type: release
 
-          dependencies: |
-            fabric-api | depends | *
+          modrinth-dependencies: |
+            fabric-api | depends
+          curseforge-dependencies: |
+            fabric-api | depends
+            jei | suggests
 
           loaders: |
             fabric

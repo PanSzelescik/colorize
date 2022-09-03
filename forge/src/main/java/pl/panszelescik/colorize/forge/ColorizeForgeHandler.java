@@ -2,6 +2,7 @@ package pl.panszelescik.colorize.forge;
 
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
@@ -22,5 +23,9 @@ public class ColorizeForgeHandler extends ColorizeEventHandler {
     @Override
     public boolean isForge() {
         return true;
+    }
+
+    public Ingredient getColorIngredient(Colors color) {
+        return Ingredient.of(color.getDyeColor().getTag());
     }
 }

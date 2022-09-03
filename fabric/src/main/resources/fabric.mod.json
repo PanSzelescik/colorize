@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "pl.panszelescik.colorize.fabric.ColorizeFabric"
+    ],
+    "jei_mod_plugin": [
+      "pl.panszelescik.colorize.common.jei.ColorizeJEIPlugin"
     ]
   },
   "depends": {

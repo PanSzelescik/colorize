@@ -6,10 +6,15 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.handler.*;
 import pl.panszelescik.colorize.common.handler.moss.*;
+import pl.panszelescik.colorize.common.jei.ColorizeRecipe;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class ColorizeEventHandler {
 
@@ -74,6 +79,15 @@ public abstract class ColorizeEventHandler {
             return Colors.getByDyeColor(dyeStack.getDyeColor());
         }
         return null;
+    }
+
+    public abstract Ingredient getColorIngredient(Colors color);
+
+    public List<ColorizeRecipe> getRecipes() {
+        return this.handlers
+                .stream()
+                .flatMap(BaseBlockHandler::getRecipes)
+                .collect(Collectors.toCollection(ObjectArrayList::new));
     }
 
     public boolean isForge() {
