@@ -26,10 +26,17 @@ configurations {
     developmentForge.extendsFrom common
 }
 
+repositories {
+    maven { url "https://dvs1.progwml6.com/files/maven/" }
+    maven { url "https://modmaven.dev" }
+}
+
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
     // Remove the next line if you don't want to depend on the API
     //modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
+
+    modRuntimeOnly("mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
