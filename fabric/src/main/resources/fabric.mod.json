@@ -21,13 +21,16 @@
       "pl.panszelescik.colorize.fabric.ColorizeFabric"
     ],
     "jei_mod_plugin": [
-      "pl.panszelescik.colorize.common.jei.ColorizeJEIPlugin"
+      "pl.panszelescik.colorize.common.recipes.jei.ColorizeJEIPlugin"
     ]
   },
   "depends": {
     "fabricloader": ">=0.14",
     "fabric": "*",
-    "minecraft": ">=1.18",
+    "minecraft": ">=1.19",
     "java": ">=17"
+  },
+  "suggests": {
+    "jei": ">=11"
   }
 }

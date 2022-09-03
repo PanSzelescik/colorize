@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.entity.BannerBlockEntity;
 import pl.panszelescik.colorize.common.api.handler.BaseBlockEntityHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
-import pl.panszelescik.colorize.common.jei.ColorizeRecipe;
+import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 import java.util.stream.Stream;
 

@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.handler.*;
 import pl.panszelescik.colorize.common.handler.moss.*;
-import pl.panszelescik.colorize.common.jei.ColorizeRecipe;
+import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 import java.util.List;
 import java.util.stream.Collectors;

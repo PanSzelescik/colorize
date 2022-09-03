@@ -9,7 +9,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import pl.panszelescik.colorize.common.jei.ColorizeRecipe;
+import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 import java.util.Map;
 import java.util.Optional;

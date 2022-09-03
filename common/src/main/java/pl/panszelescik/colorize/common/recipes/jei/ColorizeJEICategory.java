@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.common.jei;
+package pl.panszelescik.colorize.common.recipes.jei;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -12,6 +12,7 @@ import mezz.jei.common.Constants;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 public class ColorizeJEICategory implements IRecipeCategory<ColorizeRecipe> {
 

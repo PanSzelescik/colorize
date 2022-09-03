@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.common.jei;
+package pl.panszelescik.colorize.common.recipes.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
