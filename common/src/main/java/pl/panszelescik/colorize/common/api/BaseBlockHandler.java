@@ -107,7 +107,7 @@ public abstract class BaseBlockHandler {
                             .map(Map.Entry::getValue)
                             .map(ItemStack::new));
 
-                    return new ColorizeRecipe(validBlocks, item, result);
+                    return new ColorizeRecipe(validBlocks, item, result, this.requireSneaking(), this.consumeItem());
                 });
     }
 }
