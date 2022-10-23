@@ -73,7 +73,7 @@ public abstract class BaseBlockHandler {
             return false;
         }
 
-        var result = this.replace(level, pos, state, stack, newBlock.get().defaultBlockState(), player);
+        var result = this.replace(level, pos, state, stack, newBlock.get().withPropertiesOf(state), player);
         if (result) {
             if (this.consumeItem()) {
                 stack.shrink(1);
