@@ -4,11 +4,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 import java.util.Map;
@@ -55,7 +58,7 @@ public abstract class BaseBlockHandler {
         return SoundEvents.STONE_HIT;
     }
 
-    public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack) {
+    public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack, Player player) {
         var oldBlock = this.getOldBlock(state);
         if (oldBlock.isEmpty()) {
             return false;
@@ -70,7 +73,7 @@ public abstract class BaseBlockHandler {
             return false;
         }
 
-        var result = this.replace(level, pos, state, stack, newBlock.get());
+        var result = this.replace(level, pos, state, stack, newBlock.get().defaultBlockState(), player);
         if (result) {
             if (this.consumeItem()) {
                 stack.shrink(1);
@@ -83,10 +86,11 @@ public abstract class BaseBlockHandler {
         return result;
     }
 
-    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, Block newBlock) {
-        level.removeBlock(pos, false);
+    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, BlockState newState, Player player) {
+        level.setBlockAndUpdate(pos, newState);
+        level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
 
-        level.setBlock(pos, newBlock.withPropertiesOf(state), 0);
+        player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
 
         return true;
     }
