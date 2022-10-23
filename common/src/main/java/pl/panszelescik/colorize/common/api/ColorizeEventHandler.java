@@ -66,7 +66,7 @@ public abstract class ColorizeEventHandler {
                 continue;
             }
 
-            if (handler.handle(level, pos, state, stack)) {
+            if (handler.handle(level, pos, state, stack, player)) {
                 return true;
             }
         }
