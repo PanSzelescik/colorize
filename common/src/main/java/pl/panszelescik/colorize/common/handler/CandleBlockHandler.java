@@ -18,9 +18,10 @@ public class CandleBlockHandler extends BaseBlockHandler {
         return SoundEvents.CANDLE_HIT;
     }
 
-    private static final RightClicker2BlockMap CANDLES = new RightClicker2BlockMap(16);
+    private static final RightClicker2BlockMap CANDLES = new RightClicker2BlockMap(17);
 
     static {
+        CANDLES.put(Colors.CLEAR, Blocks.CANDLE);
         CANDLES.put(Colors.WHITE, Blocks.WHITE_CANDLE);
         CANDLES.put(Colors.ORANGE, Blocks.ORANGE_CANDLE);
         CANDLES.put(Colors.MAGENTA, Blocks.MAGENTA_CANDLE);
