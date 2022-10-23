@@ -29,6 +29,7 @@ public abstract class ColorizeEventHandler {
         this.handlers.add(new BannerBlockHandler());
         this.handlers.add(new BedBlockHandler());
         this.handlers.add(new CandleBlockHandler());
+        this.handlers.add(new CandleCakeBlockHandler());
         this.handlers.add(new CarpetBlockHandler());
         this.handlers.add(new ConcreteBlockHandler());
         this.handlers.add(new ConcretePowderBlockHandler());
