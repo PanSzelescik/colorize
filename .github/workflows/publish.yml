@@ -57,9 +57,7 @@ jobs:
           loaders: |
             forge
           game-versions: |
-            1.19.2
-            1.19.1
-            1.19
+            1.19.3
           java: |
             18
             17
@@ -95,15 +93,8 @@ jobs:
           loaders: |
             fabric
             quilt
-          curseforge-game-versions: |
+          game-versions: |
             1.19.3
-            1.19.2
-            1.19.1
-            1.19
-          modrinth-game-versions: |
-            1.19.2
-            1.19.1
-            1.19
           java: |
             18
             17
