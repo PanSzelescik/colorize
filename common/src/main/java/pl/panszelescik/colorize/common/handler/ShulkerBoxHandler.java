@@ -12,9 +12,10 @@ public class ShulkerBoxHandler extends BaseBlockEntityHandler<ShulkerBoxBlockEnt
         super("shulkerBox", SHULKER_BOXES, ShulkerBoxBlockEntity.class);
     }
 
-    private static final RightClicker2BlockMap SHULKER_BOXES = new RightClicker2BlockMap(16);
+    private static final RightClicker2BlockMap SHULKER_BOXES = new RightClicker2BlockMap(17);
 
     static {
+        SHULKER_BOXES.put(Colors.CLEAR, Blocks.SHULKER_BOX);
         SHULKER_BOXES.put(Colors.WHITE, Blocks.WHITE_SHULKER_BOX);
         SHULKER_BOXES.put(Colors.ORANGE, Blocks.ORANGE_SHULKER_BOX);
         SHULKER_BOXES.put(Colors.MAGENTA, Blocks.MAGENTA_SHULKER_BOX);
