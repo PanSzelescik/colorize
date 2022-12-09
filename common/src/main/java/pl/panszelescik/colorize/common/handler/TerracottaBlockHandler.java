@@ -11,9 +11,10 @@ public class TerracottaBlockHandler extends BaseBlockHandler {
         super("terracotta", TERRACOTTAS);
     }
 
-    private static final RightClicker2BlockMap TERRACOTTAS = new RightClicker2BlockMap(16);
+    private static final RightClicker2BlockMap TERRACOTTAS = new RightClicker2BlockMap(17);
 
     static {
+        TERRACOTTAS.put(Colors.CLEAR, Blocks.TERRACOTTA);
         TERRACOTTAS.put(Colors.WHITE, Blocks.WHITE_TERRACOTTA);
         TERRACOTTAS.put(Colors.ORANGE, Blocks.ORANGE_TERRACOTTA);
         TERRACOTTAS.put(Colors.MAGENTA, Blocks.MAGENTA_TERRACOTTA);
