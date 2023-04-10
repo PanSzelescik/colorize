@@ -50,7 +50,7 @@ jobs:
 
           modrinth-dependencies: |
             jei | suggests
-            roughly-enough-items | suggests
+            rei | suggests
           curseforge-dependencies: |
             jei | suggests
             roughly-enough-items | suggests
@@ -87,7 +87,7 @@ jobs:
           modrinth-dependencies: |
             fabric-api | depends
             jei | suggests
-            roughly-enough-items | suggests
+            rei | suggests
           curseforge-dependencies: |
             fabric-api | depends
             jei | suggests
