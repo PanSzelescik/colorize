@@ -1,5 +1,7 @@
 package pl.panszelescik.colorize.forge;
 
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
@@ -7,18 +9,20 @@ import pl.panszelescik.colorize.common.api.ColorizeConfig;
 
 public class ColorizeForgeConfig implements ColorizeConfig {
 
-    private final Object2ObjectOpenHashMap<String, ForgeConfigSpec.BooleanValue> booleans = new Object2ObjectOpenHashMap<>();
+    private final Object2ObjectMap<String, ForgeConfigSpec.BooleanValue> booleans;
 
     public ColorizeForgeConfig(ForgeConfigSpec.Builder builder) {
+        var map =  new Object2ObjectOpenHashMap<String, ForgeConfigSpec.BooleanValue>();
+
         builder.comment("Handlers settings");
         builder.push("handlers");
         for (var name : this.sneakingFalseKeys) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("handlers." + key, handler(builder, key, name));
+            map.put("handlers." + key, handler(builder, key, name));
         }
         for (var name : this.sneakingTrueKeys) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("handlers." + key, handlerMossy(builder, key, name));
+            map.put("handlers." + key, handlerMossy(builder, key, name));
         }
         builder.pop();
 
@@ -26,11 +30,11 @@ public class ColorizeForgeConfig implements ColorizeConfig {
         builder.push("sneaking");
         for (var name : this.sneakingFalseKeys) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("sneaking." + key, sneaking(builder, key, name, false));
+            map.put("sneaking." + key, sneaking(builder, key, name, false));
         }
         for (var name : this.sneakingTrueKeys) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("sneaking." + key, sneaking(builder, key, name, true));
+            map.put("sneaking." + key, sneaking(builder, key, name, true));
         }
         builder.pop();
 
@@ -38,9 +42,11 @@ public class ColorizeForgeConfig implements ColorizeConfig {
         builder.push("consume");
         for (var name : this.handlersNames) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("consume." + key, consume(builder, key, name));
+            map.put("consume." + key, consume(builder, key, name));
         }
         builder.pop();
+
+        this.booleans = Object2ObjectMaps.unmodifiable(map);
     }
 
     private static ForgeConfigSpec.BooleanValue handler(ForgeConfigSpec.Builder builder, String key, String name) {

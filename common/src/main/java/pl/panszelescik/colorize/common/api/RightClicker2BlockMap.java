@@ -1,5 +1,7 @@
 package pl.panszelescik.colorize.common.api;
 
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -26,5 +28,9 @@ public class RightClicker2BlockMap extends Object2ObjectOpenHashMap<RightClicker
 
     public Block put(Colors color, Block block) {
         return super.put(RightClicker.of(color), block);
+    }
+
+    public Object2ObjectMap<RightClicker, Block> freeze() {
+        return Object2ObjectMaps.unmodifiable(this);
     }
 }

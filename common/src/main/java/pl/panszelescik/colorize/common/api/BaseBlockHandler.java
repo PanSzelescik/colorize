@@ -1,5 +1,6 @@
 package pl.panszelescik.colorize.common.api;
 
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -21,9 +22,9 @@ import java.util.stream.Stream;
 public abstract class BaseBlockHandler {
 
     private final String key;
-    private final RightClicker2BlockMap blocks;
+    private final Object2ObjectMap<RightClicker, Block> blocks;
 
-    protected BaseBlockHandler(String key, RightClicker2BlockMap blocks) {
+    protected BaseBlockHandler(String key, Object2ObjectMap<RightClicker, Block> blocks) {
         this.key = key;
         this.blocks = blocks;
     }
@@ -42,8 +43,8 @@ public abstract class BaseBlockHandler {
                 .map(Map.Entry::getValue);
     }
 
-    protected boolean isEnabled() {
-        return ColorizeEventHandler.CONFIG.getBoolean("handlers." + key);
+    protected boolean isDisabled() {
+        return !ColorizeEventHandler.CONFIG.getBoolean("handlers." + key);
     }
 
     protected boolean requireSneaking() {
@@ -96,7 +97,7 @@ public abstract class BaseBlockHandler {
     }
 
     public Stream<ColorizeRecipe> getRecipes() {
-        return !this.isEnabled() ? Stream.empty() : this.blocks
+        return this.isDisabled() ? Stream.empty() : this.blocks
                 .object2ObjectEntrySet()
                 .stream()
                 .filter(e -> !e.getKey().isEmpty())

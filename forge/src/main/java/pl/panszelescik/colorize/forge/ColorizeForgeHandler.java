@@ -3,10 +3,11 @@ package pl.panszelescik.colorize.forge;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 import pl.panszelescik.colorize.common.api.Colors;
+
+import java.util.Optional;
 
 public class ColorizeForgeHandler extends ColorizeEventHandler {
 
@@ -15,9 +16,10 @@ public class ColorizeForgeHandler extends ColorizeEventHandler {
     }
 
     @Override
-    protected @Nullable Colors getDyeColor(ItemStack stack) {
-        var color = DyeColor.getColor(stack);
-        return color == null ? null : Colors.getByDyeColor(color);
+    protected Optional<Colors> getDyeColor(ItemStack stack) {
+        return Optional
+                .ofNullable(DyeColor.getColor(stack))
+                .map(Colors::getByDyeColor);
     }
 
     @Override

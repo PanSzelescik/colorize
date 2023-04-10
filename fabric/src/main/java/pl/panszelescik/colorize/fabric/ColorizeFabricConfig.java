@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import it.unimi.dsi.fastutil.objects.Object2BooleanMap;
+import it.unimi.dsi.fastutil.objects.Object2BooleanMaps;
 import it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap;
 import org.apache.commons.io.FileUtils;
 import pl.panszelescik.colorize.common.api.ColorizeConfig;
@@ -16,51 +18,54 @@ public class ColorizeFabricConfig implements ColorizeConfig {
 
     public static final String MODID = "colorize";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private final Object2BooleanOpenHashMap<String> booleans = new Object2BooleanOpenHashMap<>();
+    private final Object2BooleanMap<String> booleans;
 
-    public void loadConfig(File configDir) throws IOException {
-        booleans.defaultReturnValue(false);
-
+    public ColorizeFabricConfig(File configDir) throws IOException {
         var file = new File(configDir, MODID + ".json");
 
         if (file.exists()) {
-            loadConfigFile(file);
+            this.booleans = loadConfigFile(file);
         } else {
-            loadFromJson(new JsonObject());
+            this.booleans = loadFromJson(new JsonObject());
         }
 
         saveConfig(file);
     }
 
-    private void loadConfigFile(File configFile) throws IOException {
+    private Object2BooleanMap<String> loadConfigFile(File configFile) throws IOException {
         var string = FileUtils.readFileToString(configFile, StandardCharsets.UTF_8);
         var json = JsonParser.parseString(string).getAsJsonObject();
-        loadFromJson(json);
+        return loadFromJson(json);
     }
 
-    private void loadFromJson(JsonObject json) {
+    private Object2BooleanMap<String> loadFromJson(JsonObject json) {
+        var map = new Object2BooleanOpenHashMap<String>();
+        map.defaultReturnValue(false);
+
         var handlers = JsonUtils.getSafeJsonObject(json, "handlers");
         for (var name : this.handlersNames) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("handlers." + key, JsonUtils.getSafeBoolean(handlers, key, true));
-            booleans.put("consume." + key, JsonUtils.getSafeBoolean(handlers, key, true));
+            map.put("handlers." + key, JsonUtils.getSafeBoolean(handlers, key, true));
+            map.put("consume." + key, JsonUtils.getSafeBoolean(handlers, key, true));
         }
 
         var sneaking = JsonUtils.getSafeJsonObject(json, "sneaking");
         for (var name : this.sneakingFalseKeys) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, false));
+            map.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, false));
         }
         for (var name : this.sneakingTrueKeys) {
             var key = ColorizeConfig.formatPath(name);
-            booleans.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, true));
+            map.put("sneaking." + key, JsonUtils.getSafeBoolean(sneaking, key, true));
         }
+
+        return Object2BooleanMaps.unmodifiable(map);
     }
 
     private void saveConfig(File configFile) throws IOException {
         var json = new JsonObject();
 
-        for (var entry : booleans.object2BooleanEntrySet()) {
+        for (var entry : this.booleans.object2BooleanEntrySet()) {
             var object = json;
             var splitted = entry.getKey().split("\\.");
 
@@ -87,6 +92,6 @@ public class ColorizeFabricConfig implements ColorizeConfig {
 
     @Override
     public boolean getBoolean(String key) {
-        return booleans.getBoolean(key);
+        return this.booleans.getBoolean(key);
     }
 }

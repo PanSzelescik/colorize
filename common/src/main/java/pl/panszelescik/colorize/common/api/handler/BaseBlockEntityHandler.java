@@ -1,19 +1,21 @@
 package pl.panszelescik.colorize.common.api.handler;
 
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
-import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
+import pl.panszelescik.colorize.common.api.RightClicker;
 
 public abstract class BaseBlockEntityHandler<T extends BlockEntity> extends BaseBlockHandler {
 
     private final Class<T> clazz;
 
-    protected BaseBlockEntityHandler(String key, RightClicker2BlockMap blocks, Class<T> clazz) {
+    protected BaseBlockEntityHandler(String key, Object2ObjectMap<RightClicker, Block> blocks, Class<T> clazz) {
         super(key, blocks);
         this.clazz = clazz;
     }

@@ -1,8 +1,11 @@
 package pl.panszelescik.colorize.common.handler.moss;
 
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import pl.panszelescik.colorize.common.api.Colors;
+import pl.panszelescik.colorize.common.api.RightClicker;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
 import pl.panszelescik.colorize.common.api.handler.MossyBlockHandler;
 
@@ -12,10 +15,14 @@ public class MossyCobblestoneWallHandler extends MossyBlockHandler {
         super("mossyCobblestoneWall", MOSSY_COBBLESTONE_WALLS);
     }
 
-    private static final RightClicker2BlockMap MOSSY_COBBLESTONE_WALLS = new RightClicker2BlockMap(2);
+    private static final Object2ObjectMap<RightClicker, Block> MOSSY_COBBLESTONE_WALLS;
 
     static {
-        MOSSY_COBBLESTONE_WALLS.put(Colors.CLEAR, Blocks.COBBLESTONE_WALL);
-        MOSSY_COBBLESTONE_WALLS.put(Items.VINE, Blocks.MOSSY_COBBLESTONE_WALL);
+        var map = new RightClicker2BlockMap(2);
+
+        map.put(Colors.CLEAR, Blocks.COBBLESTONE_WALL);
+        map.put(Items.VINE, Blocks.MOSSY_COBBLESTONE_WALL);
+
+        MOSSY_COBBLESTONE_WALLS = map.freeze();
     }
 }

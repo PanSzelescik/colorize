@@ -1,12 +1,9 @@
 package pl.panszelescik.colorize.common.api;
 
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.material.MaterialColor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public enum Colors {
 
@@ -29,7 +26,6 @@ public enum Colors {
     BLACK(DyeColor.BLACK),
     ;
 
-    public static final ObjectArrayList<Colors> VALUES = Arrays.stream(Colors.values()).collect(Collectors.toCollection(ObjectArrayList::new));
     private final @Nullable DyeColor dyeColor;
 
     Colors(@Nullable DyeColor dyeColor) {
@@ -40,26 +36,11 @@ public enum Colors {
         return this.dyeColor;
     }
 
-    public @Nullable MaterialColor getMaterialColor() {
-        var dyeColor = this.getDyeColor();
-        return dyeColor == null ? null : dyeColor.getMaterialColor();
-    }
-
     public static Colors getByDyeColor(DyeColor dyeColor) {
-        for (Colors color : VALUES) {
-            if (color.getDyeColor() == dyeColor) {
-                return color;
-            }
-        }
-        return Colors.CLEAR;
-    }
-
-    public static Colors getByMaterialColor(MaterialColor materialColor) {
-        for (Colors color : VALUES) {
-            if (color.getMaterialColor() == materialColor) {
-                return color;
-            }
-        }
-        return Colors.CLEAR;
+        return Arrays
+                .stream(Colors.values())
+                .filter(x -> x.getDyeColor() == dyeColor)
+                .findFirst()
+                .orElse(Colors.CLEAR);
     }
 }

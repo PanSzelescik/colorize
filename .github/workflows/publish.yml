@@ -49,6 +49,7 @@ jobs:
           version-type: release
 
           modrinth-dependencies: |
+            jei | suggests
             roughly-enough-items | suggests
           curseforge-dependencies: |
             jei | suggests
@@ -85,6 +86,7 @@ jobs:
 
           modrinth-dependencies: |
             fabric-api | depends
+            jei | suggests
             roughly-enough-items | suggests
           curseforge-dependencies: |
             fabric-api | depends
@@ -95,21 +97,14 @@ jobs:
             fabric
             quilt
           modrinth-game-versions: |
+            23w14a
+            23w13a_or_b
+            23w13a
+            23w12a
             1.19.4
-            1.19.4-rc3
-            1.19.4-rc2
-            1.19.4-rc1
-            1.19.4-pre4
-            1.19.4-pre3
-            1.19.4-pre2
-            1.19.4-pre1
-            23w07a
-            23w06a
-            23w05a
-            23w04a
-            23w03a
             1.19.3
           curseforge-game-versions: |
+            1.20-Snapshot
             1.19.4
             1.19.3
           java: |

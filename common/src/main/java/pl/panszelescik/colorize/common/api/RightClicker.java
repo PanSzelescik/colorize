@@ -42,8 +42,11 @@ public class RightClicker {
             return true;
         }
 
-        if (this.color != null && ColorizeEventHandler.INSTANCE.getDyeColor(stack) == this.color) {
-            return true;
+        if (this.color != null) {
+            var optional = ColorizeEventHandler.INSTANCE.getDyeColor(stack);
+            if (optional.isPresent() && optional.get() == this.color) {
+                return true;
+            }
         }
 
         return false;

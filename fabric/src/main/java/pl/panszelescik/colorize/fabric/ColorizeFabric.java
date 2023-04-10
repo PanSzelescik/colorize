@@ -11,9 +11,9 @@ public class ColorizeFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        var config = new ColorizeFabricConfig();
+        ColorizeFabricConfig config;
         try {
-            config.loadConfig(FabricLoader.getInstance().getConfigDir().toFile());
+            config = new ColorizeFabricConfig(FabricLoader.getInstance().getConfigDir().toFile());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
