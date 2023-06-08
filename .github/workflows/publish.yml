@@ -57,7 +57,12 @@ jobs:
 
           loaders: |
             forge
-          game-versions: |
+          modrinth-game-versions: |
+            1.20
+            1.19.4
+            1.19.3
+          curseforge-game-versions: |
+            1.20
             1.19.4
             1.19.3
           java: |
@@ -97,14 +102,11 @@ jobs:
             fabric
             quilt
           modrinth-game-versions: |
-            23w14a
-            23w13a_or_b
-            23w13a
-            23w12a
+            1.20
             1.19.4
             1.19.3
           curseforge-game-versions: |
-            1.20-Snapshot
+            1.20
             1.19.4
             1.19.3
           java: |
