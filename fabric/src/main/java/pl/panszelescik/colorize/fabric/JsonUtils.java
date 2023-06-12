@@ -1,32 +1,29 @@
 package pl.panszelescik.colorize.fabric;
 
 import com.google.gson.JsonObject;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
+import java.util.Optional;
 
 public class JsonUtils {
 
-    public static JsonObject getSafeJsonObject(JsonObject object, String key, Supplier<JsonObject> ifNotFound) {
+    public static @NotNull Optional<JsonObject> getJsonObject(@NotNull JsonObject object, @NotNull String key) {
         if (object.has(key)) {
             var element = object.get(key);
             if (element.isJsonObject()) {
-                return element.getAsJsonObject();
+                return Optional.of(element.getAsJsonObject());
             }
         }
-        return ifNotFound.get();
+        return Optional.empty();
     }
 
-    public static JsonObject getSafeJsonObject(JsonObject object, String key) {
-        return getSafeJsonObject(object, key, JsonObject::new);
-    }
-
-    public static boolean getSafeBoolean(JsonObject object, String key, boolean ifNotFound) {
+    public static Optional<Boolean> getBoolean(@NotNull JsonObject object, @NotNull String key) {
         if (object.has(key)) {
             var element = object.get(key);
             if (element.isJsonPrimitive() && element.getAsJsonPrimitive().isBoolean()) {
-                return element.getAsBoolean();
+                return Optional.of(element.getAsBoolean());
             }
         }
-        return ifNotFound;
+        return Optional.empty();
     }
 }

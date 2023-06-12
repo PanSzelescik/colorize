@@ -1,6 +1,7 @@
 package pl.panszelescik.colorize.common.api;
 
 import net.minecraft.world.item.DyeColor;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public enum Colors {
         return this.dyeColor;
     }
 
-    public static Colors getByDyeColor(DyeColor dyeColor) {
+    public static @NotNull Colors getByDyeColor(@Nullable DyeColor dyeColor) {
         return Arrays
                 .stream(Colors.values())
                 .filter(x -> x.getDyeColor() == dyeColor)

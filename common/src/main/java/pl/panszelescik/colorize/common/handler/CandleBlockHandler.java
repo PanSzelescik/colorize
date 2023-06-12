@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker;
@@ -17,7 +18,7 @@ public class CandleBlockHandler extends BaseBlockHandler {
     }
 
     @Override
-    protected SoundEvent getSound() {
+    protected @NotNull SoundEvent getSound() {
         return SoundEvents.CANDLE_HIT;
     }
 

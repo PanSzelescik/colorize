@@ -4,6 +4,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class RightClicker {
@@ -15,25 +16,25 @@ public class RightClicker {
     private RightClicker() {
     }
 
-    public static RightClicker of(Item item) {
+    public static @NotNull RightClicker of(@NotNull Item item) {
         var rightClicker = new RightClicker();
         rightClicker.item = item;
         return rightClicker;
     }
 
-    public static RightClicker of(TagKey<Item> tag) {
+    public static @NotNull RightClicker of(@NotNull TagKey<Item> tag) {
         var rightClicker = new RightClicker();
         rightClicker.tag = tag;
         return rightClicker;
     }
 
-    public static RightClicker of(Colors color) {
+    public static @NotNull RightClicker of(@NotNull Colors color) {
         var rightClicker = new RightClicker();
         rightClicker.color = color;
         return rightClicker;
     }
 
-    public boolean canUse(ItemStack stack) {
+    public boolean canUse(@NotNull ItemStack stack) {
         if (this.item != null && stack.is(this.item)) {
             return true;
         }
@@ -44,9 +45,7 @@ public class RightClicker {
 
         if (this.color != null) {
             var optional = ColorizeEventHandler.INSTANCE.getDyeColor(stack);
-            if (optional.isPresent() && optional.get() == this.color) {
-                return true;
-            }
+            return optional.isPresent() && optional.get() == this.color;
         }
 
         return false;
@@ -56,7 +55,7 @@ public class RightClicker {
         return this.item == null && this.tag == null && (this.color == null || this.color == Colors.CLEAR);
     }
 
-    public Ingredient asIngredient() {
+    public @NotNull Ingredient asIngredient() {
         if (this.item != null) {
             return Ingredient.of(new ItemStack(this.item));
         }

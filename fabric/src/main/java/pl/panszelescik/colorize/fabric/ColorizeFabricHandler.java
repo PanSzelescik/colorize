@@ -10,6 +10,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 import pl.panszelescik.colorize.common.api.Colors;
@@ -22,7 +23,7 @@ public class ColorizeFabricHandler extends ColorizeEventHandler {
 
     private final Object2ObjectMap<Colors, ObjectImmutableList<TagKey<Item>>> tags;
 
-    public ColorizeFabricHandler(ColorizeConfig config) {
+    public ColorizeFabricHandler(@NotNull ColorizeConfig config) {
         super(config);
         var map = new Object2ObjectOpenHashMap<Colors, ObjectImmutableList<TagKey<Item>>>();
 
@@ -45,7 +46,7 @@ public class ColorizeFabricHandler extends ColorizeEventHandler {
     }
 
     @Override
-    protected Optional<Colors> getDyeColor(ItemStack stack) {
+    protected @NotNull Optional<Colors> getDyeColor(@NotNull ItemStack stack) {
         var optional = super.getDyeColor(stack);
         if (optional.isPresent()) {
             return optional;
@@ -62,7 +63,7 @@ public class ColorizeFabricHandler extends ColorizeEventHandler {
                 .map(Map.Entry::getKey);
     }
 
-    public Ingredient getColorIngredient(Colors color) {
+    public @NotNull Ingredient getColorIngredient(@NotNull Colors color) {
         return Ingredient.of(this.tags
                 .object2ObjectEntrySet()
                 .stream()

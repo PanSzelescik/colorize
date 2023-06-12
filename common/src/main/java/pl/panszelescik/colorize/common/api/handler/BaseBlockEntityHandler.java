@@ -8,20 +8,21 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.api.BaseBlockHandler;
 import pl.panszelescik.colorize.common.api.RightClicker;
 
 public abstract class BaseBlockEntityHandler<T extends BlockEntity> extends BaseBlockHandler {
 
-    private final Class<T> clazz;
+    private final @NotNull Class<T> clazz;
 
-    protected BaseBlockEntityHandler(String key, Object2ObjectMap<RightClicker, Block> blocks, Class<T> clazz) {
+    protected BaseBlockEntityHandler(@NotNull String key, @NotNull Object2ObjectMap<RightClicker, Block> blocks, @NotNull Class<T> clazz) {
         super(key, blocks);
         this.clazz = clazz;
     }
 
     @Override
-    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, BlockState newState, Player player) {
+    protected boolean replace(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull ItemStack stack, @NotNull BlockState newState, @NotNull Player player) {
         var blockEntity = level.getBlockEntity(pos);
         if (this.clazz.isInstance(blockEntity)) {
             var tag = blockEntity.saveWithoutMetadata();

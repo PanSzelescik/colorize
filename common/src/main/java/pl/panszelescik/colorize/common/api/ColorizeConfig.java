@@ -1,13 +1,15 @@
 package pl.panszelescik.colorize.common.api;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Locale;
 import java.util.stream.Stream;
 
 public interface ColorizeConfig {
 
-    boolean getBoolean(String key);
+    boolean getBoolean(@NotNull String key);
 
-    static String formatPath(String name) {
+    static @NotNull String formatPath(@NotNull String name) {
         return String.valueOf(name.charAt(0)).toLowerCase(Locale.ROOT) + name.substring(1).replace(" ", "");
     }
 

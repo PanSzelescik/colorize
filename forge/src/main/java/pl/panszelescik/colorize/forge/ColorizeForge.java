@@ -5,6 +5,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import org.jetbrains.annotations.NotNull;
 
 @Mod(ColorizeForge.MODID)
 public class ColorizeForge {
@@ -18,7 +19,7 @@ public class ColorizeForge {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ColorizeForgeConfig.SPEC);
     }
 
-    private void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+    private void onRightClickBlock(@NotNull PlayerInteractEvent.RightClickBlock event) {
         if (this.handler.handle(event.getEntity(), event.getLevel(), event.getHand(), event.getPos())) {
             event.setCanceled(true);
         }

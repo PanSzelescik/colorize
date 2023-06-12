@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.api.Colors;
 import pl.panszelescik.colorize.common.api.RightClicker;
 import pl.panszelescik.colorize.common.api.RightClicker2BlockMap;
@@ -24,7 +25,7 @@ public class BedBlockHandler extends WoollyBlockHandler {
     }
 
     @Override
-    public boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, BlockState newState, Player player) {
+    public boolean replace(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull ItemStack stack, @NotNull BlockState newState, @NotNull Player player) {
         var part = state.getValue(BedBlock.PART);
         var direction = state.getValue(BedBlock.FACING);
         var pos2 = pos.relative(part == BedPart.FOOT ? direction : direction.getOpposite());

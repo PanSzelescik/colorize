@@ -8,6 +8,7 @@ import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.handler.*;
 import pl.panszelescik.colorize.common.handler.moss.*;
 import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
@@ -21,7 +22,7 @@ public abstract class ColorizeEventHandler {
     public static ColorizeConfig CONFIG;
     private final ObjectImmutableList<BaseBlockHandler> handlers;
 
-    public ColorizeEventHandler(ColorizeConfig config) {
+    public ColorizeEventHandler(@NotNull ColorizeConfig config) {
         INSTANCE = this;
         CONFIG = config;
 
@@ -52,7 +53,7 @@ public abstract class ColorizeEventHandler {
         );
     }
 
-    public boolean handle(Player player, Level level, InteractionHand hand, BlockPos pos) {
+    public boolean handle(@NotNull Player player, @NotNull Level level, @NotNull InteractionHand hand, @NotNull BlockPos pos) {
         if (this.isForge() && level.isClientSide) {
             return false;
         }
@@ -76,16 +77,16 @@ public abstract class ColorizeEventHandler {
         return false;
     }
 
-    protected Optional<Colors> getDyeColor(ItemStack stack) {
+    protected @NotNull Optional<Colors> getDyeColor(@NotNull ItemStack stack) {
         if (stack.getItem() instanceof DyeItem dyeStack) {
             return Optional.of(Colors.getByDyeColor(dyeStack.getDyeColor()));
         }
         return Optional.empty();
     }
 
-    public abstract Ingredient getColorIngredient(Colors color);
+    public abstract @NotNull Ingredient getColorIngredient(@NotNull Colors color);
 
-    public List<ColorizeRecipe> getRecipes() {
+    public @NotNull List<ColorizeRecipe> getRecipes() {
         return this.handlers
                 .stream()
                 .flatMap(BaseBlockHandler::getRecipes)

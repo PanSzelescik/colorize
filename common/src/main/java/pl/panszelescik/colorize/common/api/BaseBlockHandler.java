@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 import java.util.Map;
@@ -24,17 +25,17 @@ public abstract class BaseBlockHandler {
     private final String key;
     private final Object2ObjectMap<RightClicker, Block> blocks;
 
-    protected BaseBlockHandler(String key, Object2ObjectMap<RightClicker, Block> blocks) {
+    protected BaseBlockHandler(@NotNull String key, @NotNull Object2ObjectMap<RightClicker, Block> blocks) {
         this.key = key;
         this.blocks = blocks;
     }
 
-    protected Optional<Block> getOldBlock(BlockState state) {
+    protected @NotNull Optional<Block> getOldBlock(@NotNull BlockState state) {
         var block = state.getBlock();
         return this.blocks.containsValue(block) ? Optional.of(block) : Optional.empty();
     }
 
-    protected Optional<Block> getNewBlock(ItemStack stack) {
+    protected @NotNull Optional<Block> getNewBlock(@NotNull ItemStack stack) {
         return this.blocks
                 .object2ObjectEntrySet()
                 .stream()
@@ -55,11 +56,11 @@ public abstract class BaseBlockHandler {
         return ColorizeEventHandler.CONFIG.getBoolean("consume." + key);
     }
 
-    protected SoundEvent getSound() {
+    protected @NotNull SoundEvent getSound() {
         return SoundEvents.STONE_HIT;
     }
 
-    public boolean handle(Level level, BlockPos pos, BlockState state, ItemStack stack, Player player) {
+    public boolean handle(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull ItemStack stack, @NotNull Player player) {
         var oldBlock = this.getOldBlock(state);
         if (oldBlock.isEmpty()) {
             return false;
@@ -87,7 +88,7 @@ public abstract class BaseBlockHandler {
         return result;
     }
 
-    protected boolean replace(Level level, BlockPos pos, BlockState state, ItemStack stack, BlockState newState, Player player) {
+    protected boolean replace(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull ItemStack stack, @NotNull BlockState newState, @NotNull Player player) {
         level.setBlockAndUpdate(pos, newState);
         level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
 
@@ -96,7 +97,7 @@ public abstract class BaseBlockHandler {
         return true;
     }
 
-    public Stream<ColorizeRecipe> getRecipes() {
+    public @NotNull Stream<ColorizeRecipe> getRecipes() {
         return this.isDisabled() ? Stream.empty() : this.blocks
                 .object2ObjectEntrySet()
                 .stream()
