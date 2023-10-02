@@ -59,11 +59,13 @@ jobs:
             forge
             neoforge
           modrinth-game-versions: |
+            1.20.2
             1.20.1
             1.20
             1.19.4
             1.19.3
           curseforge-game-versions: |
+            1.20.2
             1.20.1
             1.20
             1.19.4
@@ -105,12 +107,13 @@ jobs:
             fabric
             quilt
           modrinth-game-versions: |
+            1.20.2
             1.20.1
             1.20
             1.19.4
             1.19.3
           curseforge-game-versions: |
-            1.20.2-Snapshot
+            1.20.2
             1.20.1
             1.20
             1.19.4
