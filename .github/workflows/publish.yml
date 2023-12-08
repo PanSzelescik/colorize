@@ -105,7 +105,7 @@ jobs:
             roughly-enough-items | suggests
 
           loaders: |
-            neoforged
+            neoforge
           modrinth-game-versions: |
             1.20.4
             1.20.3
