@@ -57,19 +57,63 @@ jobs:
 
           loaders: |
             forge
-            neoforge
           modrinth-game-versions: |
+            1.20.4
+            1.20.3
             1.20.2
             1.20.1
             1.20
             1.19.4
             1.19.3
           curseforge-game-versions: |
+            1.20.4
+            1.20.3
             1.20.2
             1.20.1
             1.20
             1.19.4
             1.19.3
+          java: |
+            18
+            17
+
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
+      - name: Publish NeoForge to CurseForge and Modrinth
+        uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          modrinth-id: 4sQDl6he
+          modrinth-featured: true
+          modrinth-unfeature-mode: intersection
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 658780
+          curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
+
+          files-primary: neoforged/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
+          files-secondary: neoforged/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
+
+          name: ""
+          version-type: release
+
+          modrinth-dependencies: |
+            jei | suggests
+            rei | suggests
+          curseforge-dependencies: |
+            jei | suggests
+            roughly-enough-items | suggests
+
+          loaders: |
+            neoforged
+          modrinth-game-versions: |
+            1.20.4
+            1.20.3
+            1.20.2
+          curseforge-game-versions: |
+            1.20.4
+            1.20.3
+            1.20.2
           java: |
             18
             17
@@ -107,12 +151,16 @@ jobs:
             fabric
             quilt
           modrinth-game-versions: |
+            1.20.4
+            1.20.3
             1.20.2
             1.20.1
             1.20
             1.19.4
             1.19.3
           curseforge-game-versions: |
+            1.20.4
+            1.20.3
             1.20.2
             1.20.1
             1.20

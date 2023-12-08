@@ -41,3 +41,8 @@ jobs:
       with:
         name: Forge
         path: forge/build/libs/
+    - name: Publish NeoForge
+      uses: actions/upload-artifact@v3
+      with:
+        name: Forge
+        path: neoforged/build/libs/
