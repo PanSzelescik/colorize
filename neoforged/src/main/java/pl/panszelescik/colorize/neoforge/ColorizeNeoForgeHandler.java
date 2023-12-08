@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.forge;
+package pl.panszelescik.colorize.neoforge;
 
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -10,9 +10,9 @@ import pl.panszelescik.colorize.common.api.Colors;
 
 import java.util.Optional;
 
-public class ColorizeForgeHandler extends ColorizeEventHandler {
+public class ColorizeNeoForgeHandler extends ColorizeEventHandler {
 
-    public ColorizeForgeHandler(@NotNull ColorizeConfig config) {
+    public ColorizeNeoForgeHandler(@NotNull ColorizeConfig config) {
         super(config);
     }
 

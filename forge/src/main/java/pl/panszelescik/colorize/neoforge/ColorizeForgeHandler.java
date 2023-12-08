@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.forge;
+package pl.panszelescik.colorize.neoforge;
 
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;

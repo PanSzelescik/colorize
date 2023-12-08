@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.forge;
+package pl.panszelescik.colorize.neoforge;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
@@ -7,16 +7,16 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.NotNull;
 
-@Mod(ColorizeForge.MODID)
-public class ColorizeForge {
+@Mod(ColorizeNeoForge.MODID)
+public class ColorizeNeoForge {
 
     public static final String MODID = "colorize";
-    private final ColorizeForgeHandler handler = new ColorizeForgeHandler(ColorizeForgeConfig.CONFIG);
+    private final ColorizeNeoForgeHandler handler = new ColorizeNeoForgeHandler(ColorizeNeoForgeConfig.CONFIG);
 
-    public ColorizeForge(IEventBus modEventBus) {
+    public ColorizeNeoForge(IEventBus modEventBus) {
         modEventBus.addListener(this::onRightClickBlock);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ColorizeForgeConfig.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ColorizeNeoForgeConfig.SPEC);
     }
 
     private void onRightClickBlock(@NotNull PlayerInteractEvent.RightClickBlock event) {

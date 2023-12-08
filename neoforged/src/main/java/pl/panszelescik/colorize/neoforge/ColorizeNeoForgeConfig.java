@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.forge;
+package pl.panszelescik.colorize.neoforge;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
@@ -8,11 +8,11 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.api.ColorizeConfig;
 
-public class ColorizeForgeConfig implements ColorizeConfig {
+public class ColorizeNeoForgeConfig implements ColorizeConfig {
 
     private final Object2ObjectMap<String, ModConfigSpec.BooleanValue> booleans;
 
-    public ColorizeForgeConfig(@NotNull ModConfigSpec.Builder builder) {
+    public ColorizeNeoForgeConfig(@NotNull ModConfigSpec.Builder builder) {
         var map =  new Object2ObjectOpenHashMap<String, ModConfigSpec.BooleanValue>();
 
         builder.comment("Handlers settings");
@@ -74,11 +74,11 @@ public class ColorizeForgeConfig implements ColorizeConfig {
                 .define(key, true);
     }
 
-    public static final ColorizeForgeConfig CONFIG;
+    public static final ColorizeNeoForgeConfig CONFIG;
     public static final ModConfigSpec SPEC;
 
     static {
-        final Pair<ColorizeForgeConfig, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(ColorizeForgeConfig::new);
+        final Pair<ColorizeNeoForgeConfig, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(ColorizeNeoForgeConfig::new);
         SPEC = specPair.getRight();
         CONFIG = specPair.getLeft();
     }

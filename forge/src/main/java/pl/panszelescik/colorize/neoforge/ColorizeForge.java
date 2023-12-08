@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.forge;
+package pl.panszelescik.colorize.neoforge;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
