@@ -147,22 +147,9 @@ jobs:
             fabric
             quilt
           modrinth-game-versions: |
-            1.20.4
-            1.20.3
-            1.20.2
-            1.20.1
-            1.20
-            1.19.4
-            1.19.3
+            >=1.19.3
           curseforge-game-versions: |
-            1.20.5-Snapshot
-            1.20.4
-            1.20.3
-            1.20.2
-            1.20.1
-            1.20
-            1.19.4
-            1.19.3
+            >=1.19.3
           java: |
             18
             17
