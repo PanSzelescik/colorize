@@ -6,7 +6,7 @@
     "version": "${version}",
     "metadata": {
       "name": "Colorize",
-      "description": "A short description of your mod.",
+      "description": "Right click with the dye on some blocks to color them!",
       "contributors": {
         "PanSzelescik": "Owner"
       },
