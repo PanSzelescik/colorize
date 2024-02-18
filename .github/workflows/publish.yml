@@ -42,18 +42,16 @@ jobs:
           curseforge-id: 658780
           curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
 
-          files-primary: forge/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
-          files-secondary: forge/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
+          files: |
+            forge/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
+            forge/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
 
           name: ""
           version-type: release
 
-          modrinth-dependencies: |
-            jei | suggests
-            rei | suggests
-          curseforge-dependencies: |
-            jei | suggests
-            roughly-enough-items | suggests
+          dependencies: |
+            jei(optional){modrinth:jei}{curseforge:238222}
+            rei(optional){modrinth:rei}{curseforge:310111}
 
           loaders: |
             forge
@@ -91,18 +89,16 @@ jobs:
           curseforge-id: 658780
           curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
 
-          files-primary: neoforged/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
-          files-secondary: neoforged/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
+          files: |
+            neoforged/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
+            neoforged/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
 
           name: ""
           version-type: release
 
-          modrinth-dependencies: |
-            jei | suggests
-            rei | suggests
-          curseforge-dependencies: |
-            jei | suggests
-            roughly-enough-items | suggests
+          dependencies: |
+            jei(optional){modrinth:jei}{curseforge:238222}
+            rei(optional){modrinth:rei}{curseforge:310111}
 
           loaders: |
             neoforge
@@ -128,20 +124,17 @@ jobs:
           curseforge-id: 658780
           curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
 
-          files-primary: fabric/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
-          files-secondary: fabric/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
+          files: |
+            fabric/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
+            fabric/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
 
           name: ""
           version-type: release
 
-          modrinth-dependencies: |
-            fabric-api | depends
-            jei | suggests
-            rei | suggests
-          curseforge-dependencies: |
-            fabric-api | depends
-            jei | suggests
-            roughly-enough-items | suggests
+          dependencies: |
+            fabric-api(required){modrinth:fabric-api}{curseforge:306612}
+            jei(optional){modrinth:jei}{curseforge:238222}
+            rei(optional){modrinth:rei}{curseforge:310111}
 
           loaders: |
             fabric
