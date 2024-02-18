@@ -138,6 +138,41 @@ jobs:
 
           loaders: |
             fabric
+          modrinth-game-versions: |
+            >=1.19.3
+          curseforge-game-versions: |
+            >=1.19.3
+          java: |
+            18
+            17
+
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
+      - name: Publish Quilt to CurseForge and Modrinth
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: 4sQDl6he
+          modrinth-featured: true
+          modrinth-unfeature-mode: intersection
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 658780
+          curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
+
+          files: |
+            quilt/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
+            quilt/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
+
+          name: ""
+          version-type: release
+
+          dependencies: |
+            qsl(required){modrinth:qsl}{curseforge:634179}
+            jei(optional){modrinth:jei}{curseforge:238222}
+            rei(optional){modrinth:rei}{curseforge:310111}
+
+          loaders: |
             quilt
           modrinth-game-versions: |
             >=1.19.3

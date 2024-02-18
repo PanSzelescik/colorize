@@ -46,3 +46,8 @@ jobs:
       with:
         name: NeoForge
         path: neoforged/build/libs/
+    - name: Publish Quilt
+      uses: actions/upload-artifact@v3
+      with:
+        name: Quilt
+        path: quilt/build/libs/

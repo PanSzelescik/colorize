@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "colorize",
+    "version": "${version}",
+    "metadata": {
+      "name": "Colorize",
+      "description": "A short description of your mod.",
+      "contributors": {
+        "PanSzelescik": "Owner"
+      },
+      "contact": {
+        "website": "https://www.curseforge.com/minecraft/mc-mods/colorize",
+        "repo": "https://github.com/PanSzelescik/colorize",
+        "issues": "https://github.com/PanSzelescik/colorize/issues",
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/colorize",
+        "sources": "https://github.com/PanSzelescik/colorize"
+      }
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": [
+        "pl.panszelescik.colorize.quilt.ColorizeQuilt"
+      ],
+      "jei_mod_plugin": [
+        "pl.panszelescik.colorize.common.recipes.jei.ColorizeJEIPlugin"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilted_fabric_api",
+        "versions": "*"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.19.3"
+      }
+    ]
+  },
+  "minecraft": {
+    "environment": "*"
+  }
+}

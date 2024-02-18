@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.fabric;
+package pl.panszelescik.colorize.common.api.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -16,13 +16,13 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-public class ColorizeFabricConfig implements ColorizeConfig {
+public class BasicConfig implements ColorizeConfig {
 
     public static final String MODID = "colorize";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private final Object2BooleanMap<String> booleans;
 
-    public ColorizeFabricConfig(@NotNull File configDir) throws IOException {
+    public BasicConfig(@NotNull File configDir) throws IOException {
         var file = new File(configDir, MODID + ".json");
 
         if (file.exists()) {

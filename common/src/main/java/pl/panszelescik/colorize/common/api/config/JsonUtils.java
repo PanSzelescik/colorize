@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.fabric;
+package pl.panszelescik.colorize.common.api.config;
 
 import com.google.gson.JsonObject;
 import org.jetbrains.annotations.NotNull;
