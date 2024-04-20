@@ -21,7 +21,7 @@ public class ColorizeCommonTagEventHandler extends ColorizeEventHandler {
         super(config);
         var map = new Object2ObjectOpenHashMap<Colors, TagKey<Item>>();
 
-        for (Colors c : Colors.values()) {
+        for (var c : Colors.values()) {
             var tag = c.getCommonTag();
             if (tag == null) {
                 continue;
