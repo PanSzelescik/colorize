@@ -1,6 +1,10 @@
 package pl.panszelescik.colorize.common.api;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,6 +39,14 @@ public enum Colors {
 
     public @Nullable DyeColor getDyeColor() {
         return this.dyeColor;
+    }
+
+    public @Nullable TagKey<Item> getCommonTag() {
+        var dyeColor = this.getDyeColor();
+        if (dyeColor == null) {
+            return null;
+        }
+        return TagKey.create(Registries.ITEM, new ResourceLocation("c", "dyes/" + dyeColor.getName()));
     }
 
     public static @NotNull Colors getByDyeColor(@Nullable DyeColor dyeColor) {

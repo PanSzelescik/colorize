@@ -26,10 +26,10 @@
   },
   "depends": {
     "fabric-api": "*",
-    "minecraft": ">=1.19.3",
-    "java": ">=17"
+    "minecraft": ">1.20.4",
+    "java": ">=21"
   },
   "suggests": {
-    "jei": ">=11"
+    "jei": ">=18"
   }
 }

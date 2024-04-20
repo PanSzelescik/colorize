@@ -14,18 +14,18 @@ Right click on the dye on some blocks to color them!
 [[dependencies.colorize]]
 modId = "neoforge"
 type = "required"
-versionRange = "[20.4,)"
+versionRange = "[20.5,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.20.4,)"
+versionRange = "[1.20.5,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]
 modId = "jei"
 type = "optional"
-versionRange = "[12,)"
+versionRange = "[18,)"
 ordering = "NONE"
 side = "BOTH"

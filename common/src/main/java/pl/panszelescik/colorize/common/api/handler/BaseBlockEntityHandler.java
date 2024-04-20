@@ -25,13 +25,13 @@ public abstract class BaseBlockEntityHandler<T extends BlockEntity> extends Base
     protected boolean replace(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull ItemStack stack, @NotNull BlockState newState, @NotNull Player player) {
         var blockEntity = level.getBlockEntity(pos);
         if (this.clazz.isInstance(blockEntity)) {
-            var tag = blockEntity.saveWithoutMetadata();
+            var tag = blockEntity.saveWithoutMetadata(level.registryAccess());
 
             super.replace(level, pos, state, stack, newState.getBlock().withPropertiesOf(state), player);
 
             var newBlockEntity = level.getBlockEntity(pos);
             if (this.clazz.isInstance(newBlockEntity)) {
-                newBlockEntity.load(tag);
+                newBlockEntity.loadWithComponents(tag, level.registryAccess());
                 newBlockEntity.setChanged();
                 return true;
             }
