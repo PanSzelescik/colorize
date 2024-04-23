@@ -11,8 +11,8 @@ pluginManagement {
 
 include("common")
 include("fabric")
-include("forge")
-include("neoforged")
-include("quilt")
+//include("forge")
+//include("neoforged")
+//include("quilt")
 
 rootProject.name = "colorize"
