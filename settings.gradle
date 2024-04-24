@@ -12,7 +12,7 @@ pluginManagement {
 include("common")
 include("fabric")
 //include("forge")
-//include("neoforged")
+include("neoforged")
 //include("quilt")
 
 rootProject.name = "colorize"

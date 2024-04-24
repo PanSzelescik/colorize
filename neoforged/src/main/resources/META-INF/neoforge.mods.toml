@@ -14,7 +14,7 @@ Right click on the dye on some blocks to color them!
 [[dependencies.colorize]]
 modId = "neoforge"
 type = "required"
-versionRange = "[20.5,)"
+versionRange = "[20.5.0-beta,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]
