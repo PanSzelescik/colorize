@@ -65,40 +65,42 @@ jobs:
 #          retry-attempts: 2
 #          retry-delay: 10000
 #          fail-mode: fail
-#      - name: Publish NeoForge to CurseForge and Modrinth
-#        uses: Kir-Antipov/mc-publish@v3.3
-#        with:
-#          modrinth-id: 4sQDl6he
-#          modrinth-featured: true
-#          modrinth-unfeature-mode: intersection
-#          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-#
-#          curseforge-id: 658780
-#          curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
-#
-#          files: |
-#            neoforged/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
-#            neoforged/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
-#
-#          name: ""
-#          version-type: release
-#
-#          dependencies: |
-#            jei(optional){modrinth:jei}{curseforge:238222}
-#            rei(optional){modrinth:rei}{curseforge:310111}
-#
-#          loaders: |
-#            neoforge
-#          modrinth-game-versions: |
-#            1.20.5
-#          curseforge-game-versions: |
-#            1.20.5
-#          java: |
-#            21
-#
-#          retry-attempts: 2
-#          retry-delay: 10000
-#          fail-mode: fail
+      - name: Publish NeoForge to CurseForge and Modrinth
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: 4sQDl6he
+          modrinth-featured: true
+          modrinth-unfeature-mode: intersection
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 658780
+          curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
+
+          files: |
+            neoforged/build/libs/!(*-@(dev|dev-shadow|sources|javadoc)).jar
+            neoforged/build/libs/*-@(dev|dev-shadow|sources|javadoc).jar
+
+          name: ""
+          version-type: release
+
+          dependencies: |
+            jei(optional){modrinth:jei}{curseforge:238222}
+            rei(optional){modrinth:rei}{curseforge:310111}
+
+          loaders: |
+            neoforge
+          modrinth-game-versions: |
+            1.20.6
+            1.20.5
+          curseforge-game-versions: |
+            1.20.6
+            1.20.5
+          java: |
+            21
+
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
       - name: Publish Fabric to CurseForge and Modrinth
         uses: Kir-Antipov/mc-publish@v3.3
         with:
