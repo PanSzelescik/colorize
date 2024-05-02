@@ -36,16 +36,16 @@ jobs:
       with:
         name: Fabric
         path: fabric/build/libs/
-#    - name: Publish Forge
-#      uses: actions/upload-artifact@v3
-#      with:
-#        name: Forge
-#        path: forge/build/libs/
-#    - name: Publish NeoForge
-#      uses: actions/upload-artifact@v3
-#      with:
-#        name: NeoForge
-#        path: neoforged/build/libs/
+    - name: Publish Forge
+      uses: actions/upload-artifact@v3
+      with:
+        name: Forge
+        path: forge/build/libs/
+    - name: Publish NeoForge
+      uses: actions/upload-artifact@v3
+      with:
+        name: NeoForge
+        path: neoforged/build/libs/
 #    - name: Publish Quilt
 #      uses: actions/upload-artifact@v3
 #      with:

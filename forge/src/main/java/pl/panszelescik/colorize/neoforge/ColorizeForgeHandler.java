@@ -29,6 +29,7 @@ public class ColorizeForgeHandler extends ColorizeEventHandler {
     }
 
     public @NotNull Ingredient getColorIngredient(@NotNull Colors color) {
-        return Ingredient.of(color.getDyeColor().getTag());
+        var dyeColor = color.getDyeColor();
+        return dyeColor == null ? Ingredient.EMPTY : Ingredient.of(dyeColor.getTag());
     }
 }

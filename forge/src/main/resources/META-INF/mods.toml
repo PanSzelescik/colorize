@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[44,)"
+loaderVersion = "[50,)"
 license = "All Rights Reserved"
 issueTrackerURL="https://github.com/PanSzelescik/colorize/issues"
 [[mods]]
@@ -20,7 +20,7 @@ side = "BOTH"
 [[dependencies.colorize]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.5,)"
+versionRange = "[1.20.6,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]
