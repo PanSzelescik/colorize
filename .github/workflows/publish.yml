@@ -56,8 +56,10 @@ jobs:
           loaders: |
             forge
           modrinth-game-versions: |
+            1.21
             1.20.6
           curseforge-game-versions: |
+            1.21
             1.20.6
           java: |
             21
@@ -90,9 +92,11 @@ jobs:
           loaders: |
             neoforge
           modrinth-game-versions: |
+            1.21
             1.20.6
             1.20.5
           curseforge-game-versions: |
+            1.21
             1.20.6
             1.20.5
           java: |
