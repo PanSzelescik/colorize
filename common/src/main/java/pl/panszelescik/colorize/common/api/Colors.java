@@ -46,7 +46,7 @@ public enum Colors {
         if (dyeColor == null) {
             return null;
         }
-        return TagKey.create(Registries.ITEM, new ResourceLocation("c", "dyes/" + dyeColor.getName()));
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "dyes/" + dyeColor.getName()));
     }
 
     public static @NotNull Colors getByDyeColor(@Nullable DyeColor dyeColor) {

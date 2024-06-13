@@ -28,7 +28,7 @@ public class ColorizeJEICategory implements IRecipeCategory<ColorizeRecipe> {
 
     private static final String TEXTURE_GUI_PATH = "textures/jei/gui/";
     private static final String TEXTURE_GUI_VANILLA = TEXTURE_GUI_PATH + "gui_vanilla.png";
-    private static final ResourceLocation RECIPE_GUI_VANILLA = new ResourceLocation(ModIds.JEI_ID, TEXTURE_GUI_VANILLA);
+    private static final ResourceLocation RECIPE_GUI_VANILLA = ResourceLocation.fromNamespaceAndPath(ModIds.JEI_ID, TEXTURE_GUI_VANILLA);
 
     private final IDrawableStatic background;
     private final IDrawable icon;

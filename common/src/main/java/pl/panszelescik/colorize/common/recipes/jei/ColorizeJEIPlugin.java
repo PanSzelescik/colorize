@@ -11,7 +11,7 @@ import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 @JeiPlugin
 public class ColorizeJEIPlugin implements IModPlugin {
 
-    private static final ResourceLocation ID = new ResourceLocation("colorize", "jei");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath("colorize", "jei");
 
     @Override
     public ResourceLocation getPluginUid() {
