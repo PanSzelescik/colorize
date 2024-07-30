@@ -60,6 +60,7 @@ jobs:
 #          curseforge-game-versions: |
 #            1.21
 #          java: |
+#            22
 #            21
 #
 #          retry-attempts: 2
@@ -94,6 +95,7 @@ jobs:
           curseforge-game-versions: |
             1.21
           java: |
+            22
             21
 
           retry-attempts: 2
@@ -129,6 +131,7 @@ jobs:
           curseforge-game-versions: |
             >=1.21
           java: |
+            22
             21
 
           retry-attempts: 2
@@ -164,6 +167,7 @@ jobs:
 #          curseforge-game-versions: |
 #            >=1.21
 #          java: |
+#            22
 #            21
 #
 #          retry-attempts: 2
