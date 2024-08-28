@@ -2,6 +2,7 @@ modLoader = "javafml"
 loaderVersion = "[51,)"
 license = "All Rights Reserved"
 issueTrackerURL="https://github.com/PanSzelescik/colorize/issues"
+updateJSONURL="https://raw.githubusercontent.com/PanSzelescik/colorize/main/forge.json"
 [[mods]]
 modId = "colorize"
 version = "${version}"
