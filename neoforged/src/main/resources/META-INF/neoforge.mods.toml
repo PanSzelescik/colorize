@@ -2,6 +2,7 @@ modLoader = "javafml"
 loaderVersion = "[1,)"
 license = "All Rights Reserved"
 issueTrackerURL="https://github.com/PanSzelescik/colorize/issues"
+updateJSONURL="https://raw.githubusercontent.com/PanSzelescik/colorize/main/neoforge.json"
 [[mods]]
 modId = "colorize"
 version = "${version}"
