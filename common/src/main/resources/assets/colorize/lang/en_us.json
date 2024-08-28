@@ -1,5 +1,30 @@
 {
   "gui.colorize.jei.name": "Colorize",
   "gui.colorize.jei.sneaking": "Requires sneaking",
-  "gui.colorize.jei.consume": "Consumes this item"
+  "gui.colorize.jei.consume": "Consumes this item",
+
+  "colorize.configuration.handlers": "Handlers settings",
+  "colorize.configuration.sneaking": "Sneaking settings",
+  "colorize.configuration.consume": "Consume item settings",
+
+  "colorize.configuration.banner": "Banner",
+  "colorize.configuration.bed": "Bed",
+  "colorize.configuration.candle": "Candle",
+  "colorize.configuration.carpet": "Carpet",
+  "colorize.configuration.concrete": "Concrete",
+  "colorize.configuration.concretePowder": "Concrete Powder",
+  "colorize.configuration.glazedTerracotta": "Glazed Terracotta",
+  "colorize.configuration.shulkerBox": "Shulker Box",
+  "colorize.configuration.stainedGlass": "Stained Glass",
+  "colorize.configuration.stainedGlassPane": "Stained Glass Pane",
+  "colorize.configuration.terracotta": "Terracotta",
+  "colorize.configuration.wool": "Wool",
+  "colorize.configuration.mossyCobblestone": "Mossy Cobblestone",
+  "colorize.configuration.mossyCobblestoneSlab": "Mossy Cobblestone Slab",
+  "colorize.configuration.mossyCobblestoneStairs": "Mossy Cobblestone Stairs",
+  "colorize.configuration.mossyCobblestoneWall": "Mossy Cobblestone Wall",
+  "colorize.configuration.mossyStoneBricks": "Mossy Stone Bricks",
+  "colorize.configuration.mossyStoneBrickSlab": "Mossy Stone Brick Slab",
+  "colorize.configuration.mossyStoneBrickStairs": "Mossy Stone Brick Stairs",
+  "colorize.configuration.mossyStoneBrickWall": "Mossy Stone Brick Wall"
 }

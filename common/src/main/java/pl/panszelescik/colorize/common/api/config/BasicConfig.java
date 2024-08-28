@@ -10,6 +10,7 @@ import it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap;
 import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
+import pl.panszelescik.colorize.common.Colorize;
 import pl.panszelescik.colorize.common.api.ColorizeConfig;
 
 import java.io.File;
@@ -18,12 +19,11 @@ import java.nio.charset.StandardCharsets;
 
 public class BasicConfig implements ColorizeConfig {
 
-    public static final String MODID = "colorize";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private final Object2BooleanMap<String> booleans;
 
     public BasicConfig(@NotNull File configDir) throws IOException {
-        var file = new File(configDir, MODID + ".json");
+        var file = new File(configDir, Colorize.MODID + ".json");
 
         if (file.exists()) {
             this.booleans = loadConfigFile(file);

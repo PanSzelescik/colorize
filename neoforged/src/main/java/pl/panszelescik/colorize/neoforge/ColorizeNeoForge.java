@@ -6,11 +6,11 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.NotNull;
+import pl.panszelescik.colorize.common.Colorize;
 
-@Mod(ColorizeNeoForge.MODID)
+@Mod(Colorize.MODID)
 public class ColorizeNeoForge {
 
-    public static final String MODID = "colorize";
     private final ColorizeNeoForgeHandler handler = new ColorizeNeoForgeHandler(ColorizeNeoForgeConfig.CONFIG);
 
     public ColorizeNeoForge(ModContainer modContainer) {

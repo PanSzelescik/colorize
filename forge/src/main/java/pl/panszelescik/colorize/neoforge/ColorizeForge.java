@@ -6,17 +6,17 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import org.jetbrains.annotations.NotNull;
+import pl.panszelescik.colorize.common.Colorize;
 
-@Mod(ColorizeForge.MODID)
+@Mod(Colorize.MODID)
 public class ColorizeForge {
 
-    public static final String MODID = "colorize";
     private final ColorizeForgeHandler handler = new ColorizeForgeHandler(ColorizeForgeConfig.CONFIG);
 
-    public ColorizeForge() {
+    public ColorizeForge(ModLoadingContext modLoadingContext) {
         MinecraftForge.EVENT_BUS.addListener(this::onRightClickBlock);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ColorizeForgeConfig.SPEC);
+        modLoadingContext.registerConfig(ModConfig.Type.COMMON, ColorizeForgeConfig.SPEC);
     }
 
     private void onRightClickBlock(@NotNull PlayerInteractEvent.RightClickBlock event) {

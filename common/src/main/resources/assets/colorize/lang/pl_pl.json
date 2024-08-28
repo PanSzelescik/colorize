@@ -1,5 +1,30 @@
 {
   "gui.colorize.jei.name": "Colorize",
   "gui.colorize.jei.sneaking": "Wymaga skradania się",
-  "gui.colorize.jei.consume": "Zużywa ten przedmiot"
+  "gui.colorize.jei.consume": "Zużywa ten przedmiot",
+
+  "colorize.configuration.handlers": "Ustawienia bloków",
+  "colorize.configuration.sneaking": "Ustawienia skradania się",
+  "colorize.configuration.consume": "Ustawienia zużywania przedmiotu",
+
+  "colorize.configuration.banner": "Banner",
+  "colorize.configuration.bed": "Łóżko",
+  "colorize.configuration.candle": "Świeca",
+  "colorize.configuration.carpet": "Dywan",
+  "colorize.configuration.concrete": "Beton",
+  "colorize.configuration.concretePowder": "Cement",
+  "colorize.configuration.glazedTerracotta": "Glazurowana terakota",
+  "colorize.configuration.shulkerBox": "Shulkerowa skrzynia",
+  "colorize.configuration.stainedGlass": "Szkło",
+  "colorize.configuration.stainedGlassPane": "Szyba",
+  "colorize.configuration.terracotta": "Terakota",
+  "colorize.configuration.wool": "Wełna",
+  "colorize.configuration.mossyCobblestone": "Zamszony bruk",
+  "colorize.configuration.mossyCobblestoneSlab": "Zamszona brukowa płyta",
+  "colorize.configuration.mossyCobblestoneStairs": "Zamszone brukowe schody",
+  "colorize.configuration.mossyCobblestoneWall": "Zamszony brukowy murek",
+  "colorize.configuration.mossyStoneBricks": "Zamszone kamienne cegły",
+  "colorize.configuration.mossyStoneBrickSlab": "Zamszona kamienna ceglana płyta",
+  "colorize.configuration.mossyStoneBrickStairs": "Zamszone kamienne ceglane schody",
+  "colorize.configuration.mossyStoneBrickWall": "Zamszony kamienny ceglany murek"
 }
