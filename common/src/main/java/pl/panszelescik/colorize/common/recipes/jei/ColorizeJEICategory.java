@@ -4,7 +4,7 @@ import mezz.jei.api.constants.ModIds;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.drawable.IDrawableStatic;
-import mezz.jei.api.gui.ingredient.IRecipeSlotTooltipCallback;
+import mezz.jei.api.gui.ingredient.IRecipeSlotRichTooltipCallback;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
@@ -61,13 +61,13 @@ public class ColorizeJEICategory implements IRecipeCategory<ColorizeRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, ColorizeRecipe recipe, IFocusGroup focuses) {
-        IRecipeSlotTooltipCallback callback = (recipeSlotView, tooltip) -> {
+        IRecipeSlotRichTooltipCallback callback = (recipeSlotView, tooltip) -> {
             if (recipe.sneaking()) {
                 tooltip.add(SNEAKING);
             }
         };
-        IRecipeSlotTooltipCallback callback2 = (recipeSlotView, tooltip) -> {
-            callback.onTooltip(recipeSlotView, tooltip);
+        IRecipeSlotRichTooltipCallback callback2 = (recipeSlotView, tooltip) -> {
+            callback.onRichTooltip(recipeSlotView, tooltip);
             if (recipe.consume()) {
                 tooltip.add(CONSUME);
             }
@@ -76,16 +76,16 @@ public class ColorizeJEICategory implements IRecipeCategory<ColorizeRecipe> {
         builder.addSlot(RecipeIngredientRole.CATALYST, 1, 1)
                 .setSlotName("input")
                 .addIngredients(recipe.validBlocks())
-                .addTooltipCallback(callback);
+                .addRichTooltipCallback(callback);
 
         builder.addSlot(RecipeIngredientRole.INPUT, 37, 1)
                 .setSlotName("item")
                 .addIngredients(recipe.item())
-                .addTooltipCallback(callback2);
+                .addRichTooltipCallback(callback2);
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 1)
                 .setSlotName("output")
                 .addItemStack(recipe.result())
-                .addTooltipCallback(callback);
+                .addRichTooltipCallback(callback);
     }
 }
