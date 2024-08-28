@@ -37,6 +37,14 @@ public enum Colors {
         this.dyeColor = dyeColor;
     }
 
+    public @NotNull String getName() {
+        var dyeColor = this.getDyeColor();
+        if (dyeColor == null) {
+            return "";
+        }
+        return dyeColor.getName();
+    }
+
     public @Nullable DyeColor getDyeColor() {
         return this.dyeColor;
     }

@@ -3,12 +3,16 @@ package pl.panszelescik.colorize.common.api;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
+
+import java.util.Optional;
 
 public class RightClicker2BlockMap extends Object2ObjectOpenHashMap<RightClicker, Block> {
 
@@ -32,6 +36,16 @@ public class RightClicker2BlockMap extends Object2ObjectOpenHashMap<RightClicker
 
     public @NotNull Block put(@NotNull Colors color, @NotNull Block block) {
         this.put(RightClicker.of(color), block);
+        return block;
+    }
+
+    public @NotNull Optional<Block> put(@NotNull Colors color, @NotNull ResourceLocation resourceLocation) {
+        var block = BuiltInRegistries.BLOCK.getOptional(resourceLocation);
+        if (block.isEmpty()) {
+            return block;
+        }
+
+        this.put(RightClicker.of(color), block.get());
         return block;
     }
 
