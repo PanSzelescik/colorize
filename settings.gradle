@@ -13,6 +13,6 @@ include("common")
 include("fabric")
 include("forge")
 include("neoforged")
-include("quilt")
+//include("quilt")
 
 rootProject.name = "colorize"
