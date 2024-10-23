@@ -1,8 +1,7 @@
 modLoader = "javafml"
-loaderVersion = "[51,)"
-license = "All Rights Reserved"
+loaderVersion = "[53,)"
+license = "MIT License"
 issueTrackerURL="https://github.com/PanSzelescik/colorize/issues"
-updateJSONURL="https://raw.githubusercontent.com/PanSzelescik/colorize/main/forge.json"
 [[mods]]
 modId = "colorize"
 version = "${version}"
@@ -15,13 +14,13 @@ Right click on the dye on some blocks to color them!
 [[dependencies.colorize]]
 modId = "forge"
 mandatory = true
-versionRange = "[51.0.0,)"
+versionRange = "[53.0.0,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.21,)"
+versionRange = "[1.21.2,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]

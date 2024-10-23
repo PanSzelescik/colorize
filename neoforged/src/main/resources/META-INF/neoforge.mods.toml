@@ -1,8 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[1,)"
-license = "All Rights Reserved"
+license = "MIT License"
 issueTrackerURL="https://github.com/PanSzelescik/colorize/issues"
-updateJSONURL="https://raw.githubusercontent.com/PanSzelescik/colorize/main/neoforge.json"
 [[mods]]
 modId = "colorize"
 version = "${version}"
@@ -15,13 +14,13 @@ Right click on the dye on some blocks to color them!
 [[dependencies.colorize]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.0.0-beta,)"
+versionRange = "[21.2.0,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21,)"
+versionRange = "[1.21.2,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]

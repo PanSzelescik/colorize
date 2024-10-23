@@ -57,7 +57,7 @@ public class RightClicker {
 
     public @NotNull Ingredient asIngredient() {
         if (this.item != null) {
-            return Ingredient.of(new ItemStack(this.item));
+            return Ingredient.of(this.item);
         }
 
         if (this.tag != null) {
@@ -68,6 +68,6 @@ public class RightClicker {
             return ColorizeEventHandler.INSTANCE.getColorIngredient(this.color);
         }
 
-        return Ingredient.EMPTY;
+        return Ingredient.of();
     }
 }
