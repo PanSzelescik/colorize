@@ -8,8 +8,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
+import pl.panszelescik.colorize.common.IngredientUtils;
 
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 
@@ -55,7 +55,6 @@ public class ColorizeCommonTagEventHandler extends ColorizeEventHandler {
                 .filter(e -> e.getKey() == color)
                 .findFirst()
                 .stream()
-                .map(t -> Ingredient.of(t.getValue()))
-                .flatMap(i -> Arrays.stream(i.getItems())));
+                .flatMap(t -> IngredientUtils.getItemsInTag(t.getValue())));
     }
 }

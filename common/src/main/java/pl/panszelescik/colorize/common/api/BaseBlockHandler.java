@@ -110,8 +110,7 @@ public abstract class BaseBlockHandler {
                             .object2ObjectEntrySet()
                             .stream()
                             .filter(e -> e.getValue() != block)
-                            .map(Map.Entry::getValue)
-                            .map(ItemStack::new));
+                            .map(Map.Entry::getValue));
 
                     return new ColorizeRecipe(validBlocks, item, result, this.requireSneaking(), this.consumeItem());
                 });

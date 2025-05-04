@@ -6,6 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import pl.panszelescik.colorize.common.IngredientUtils;
 
 public class RightClicker {
 
@@ -61,7 +62,7 @@ public class RightClicker {
         }
 
         if (this.tag != null) {
-            return Ingredient.of(this.tag);
+            return IngredientUtils.createIngredientFromTag(this.tag);
         }
 
         if (this.color != null) {
