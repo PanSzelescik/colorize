@@ -4,6 +4,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
+import pl.panszelescik.colorize.common.IngredientUtils;
 import pl.panszelescik.colorize.common.api.ColorizeConfig;
 import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 import pl.panszelescik.colorize.common.api.Colors;
@@ -30,6 +31,6 @@ public class ColorizeForgeHandler extends ColorizeEventHandler {
 
     public @NotNull Ingredient getColorIngredient(@NotNull Colors color) {
         var dyeColor = color.getDyeColor();
-        return dyeColor == null ? Ingredient.EMPTY : Ingredient.of(dyeColor.getTag());
+        return dyeColor == null ? Ingredient.of() : IngredientUtils.createIngredientFromTag(dyeColor.getTag());
     }
 }
