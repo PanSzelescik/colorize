@@ -6,7 +6,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.handler.*;
@@ -84,7 +83,7 @@ public abstract class ColorizeEventHandler {
         return Optional.empty();
     }
 
-    public abstract @NotNull Ingredient getColorIngredient(@NotNull Colors color);
+    public abstract @NotNull List<ItemStack> getColorItemStacks(@NotNull Colors color);
 
     public @NotNull List<ColorizeRecipe> getRecipes() {
         return this.handlers

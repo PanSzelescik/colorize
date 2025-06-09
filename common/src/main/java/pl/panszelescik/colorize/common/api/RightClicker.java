@@ -3,10 +3,11 @@ package pl.panszelescik.colorize.common.api;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import pl.panszelescik.colorize.common.IngredientUtils;
+
+import java.util.List;
 
 public class RightClicker {
 
@@ -56,19 +57,19 @@ public class RightClicker {
         return this.item == null && this.tag == null && (this.color == null || this.color == Colors.CLEAR);
     }
 
-    public @NotNull Ingredient asIngredient() {
+    public @NotNull List<ItemStack> asStackList() {
         if (this.item != null) {
-            return Ingredient.of(this.item);
+            return List.of(new ItemStack(this.item));
         }
 
         if (this.tag != null) {
-            return IngredientUtils.createIngredientFromTag(this.tag);
+            return IngredientUtils.getItemStacksInTag(this.tag).toList();
         }
 
         if (this.color != null) {
-            return ColorizeEventHandler.INSTANCE.getColorIngredient(this.color);
+            return ColorizeEventHandler.INSTANCE.getColorItemStacks(this.color);
         }
 
-        return Ingredient.of();
+        return List.of();
     }
 }

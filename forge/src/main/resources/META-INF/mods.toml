@@ -26,6 +26,6 @@ side = "BOTH"
 [[dependencies.colorize]]
 modId = "jei"
 mandatory = false
-versionRange = "[19.21.1,)"
+versionRange = "[21.0.0,)"
 ordering = "NONE"
 side = "BOTH"

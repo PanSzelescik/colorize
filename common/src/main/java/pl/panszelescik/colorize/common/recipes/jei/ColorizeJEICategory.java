@@ -1,62 +1,34 @@
 package pl.panszelescik.colorize.common.recipes.jei;
 
-import mezz.jei.api.constants.ModIds;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.drawable.IDrawableStatic;
 import mezz.jei.api.gui.ingredient.IRecipeSlotRichTooltipCallback;
+import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.category.AbstractRecipeCategory;
+import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
-public class ColorizeJEICategory implements IRecipeCategory<ColorizeRecipe> {
+public class ColorizeJEICategory extends AbstractRecipeCategory<ColorizeRecipe> {
 
-    public static final RecipeType<ColorizeRecipe> RECIPE_TYPE = RecipeType.create("colorize", "colorize", ColorizeRecipe.class);
+    public static final IRecipeType<ColorizeRecipe> RECIPE_TYPE = IRecipeType.create("colorize", "colorize", ColorizeRecipe.class);
 
     private static final Component TITLE = Component.translatable("gui.colorize.jei.name");
     private static final Component SNEAKING = Component.translatable("gui.colorize.jei.sneaking").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY);
     private static final Component CONSUME = Component.translatable("gui.colorize.jei.consume").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY);
 
-    private static final String TEXTURE_GUI_PATH = "textures/jei/gui/";
-    private static final String TEXTURE_GUI_VANILLA = TEXTURE_GUI_PATH + "gui_vanilla.png";
-    private static final ResourceLocation RECIPE_GUI_VANILLA = ResourceLocation.fromNamespaceAndPath(ModIds.JEI_ID, TEXTURE_GUI_VANILLA);
-
-    private final IDrawableStatic background;
-    private final IDrawable icon;
-
     public ColorizeJEICategory(IGuiHelper guiHelper) {
-        // Use Anvil texture
-        this.background = guiHelper.createDrawable(RECIPE_GUI_VANILLA, 0, 168, 125, 18);
-        this.icon = guiHelper.createDrawableItemStack(new ItemStack(Items.PINK_DYE));
-    }
-
-    @Override
-    public @NotNull RecipeType<ColorizeRecipe> getRecipeType() {
-        return RECIPE_TYPE;
-    }
-
-    @Override
-    public @NotNull Component getTitle() {
-        return TITLE;
-    }
-
-    @Override
-    public @NotNull IDrawable getBackground() {
-        return this.background;
-    }
-
-    @Override
-    public @NotNull IDrawable getIcon() {
-        return this.icon;
+        super(
+                RECIPE_TYPE,
+                TITLE,
+                guiHelper.createDrawableItemLike(Items.PINK_DYE),
+                125,
+                18
+        );
     }
 
     @Override
@@ -73,19 +45,38 @@ public class ColorizeJEICategory implements IRecipeCategory<ColorizeRecipe> {
             }
         };
 
-        builder.addSlot(RecipeIngredientRole.CATALYST, 1, 1)
+        var leftInputs = recipe.validBlocks();
+        var rightInputs = recipe.item();
+        var outputs = recipe.result();
+
+        var leftInputSlot = builder.addSlot(RecipeIngredientRole.CRAFTING_STATION, 1, 1)
                 .setSlotName("input")
-                .addIngredients(recipe.validBlocks())
-                .addRichTooltipCallback(callback);
+                .addItemStacks(leftInputs)
+                .addRichTooltipCallback(callback)
+                .setStandardSlotBackground();
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 37, 1)
+        var rightInputSlot = builder.addSlot(RecipeIngredientRole.INPUT, 50, 1)
                 .setSlotName("item")
-                .addIngredients(recipe.item())
-                .addRichTooltipCallback(callback2);
+                .addItemStacks(rightInputs)
+                .addRichTooltipCallback(callback2)
+                .setStandardSlotBackground();
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 1)
+        var outputSlot = builder.addSlot(RecipeIngredientRole.OUTPUT, 108, 1)
                 .setSlotName("output")
-                .addItemStack(recipe.result())
-                .addRichTooltipCallback(callback);
+                .add(outputs)
+                .addRichTooltipCallback(callback)
+                .setStandardSlotBackground();
+
+        if (leftInputs.size() == rightInputs.size()) {
+            if (leftInputs.size() == 1) {
+                builder.createFocusLink(leftInputSlot, rightInputSlot, outputSlot);
+            }
+        }
+    }
+
+    @Override
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, ColorizeRecipe recipe, IFocusGroup focuses) {
+        builder.addRecipePlusSign().setPosition(27, 3);
+        builder.addRecipeArrow().setPosition(76, 1);
     }
 }

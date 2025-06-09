@@ -8,7 +8,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -105,12 +104,14 @@ public abstract class BaseBlockHandler {
                 .map(entry -> {
                     var block = entry.getValue();
                     var result = new ItemStack(block);
-                    var item = entry.getKey().asIngredient();
-                    var validBlocks = Ingredient.of(this.blocks
+                    var item = entry.getKey().asStackList();
+                    var validBlocks = this.blocks
                             .object2ObjectEntrySet()
                             .stream()
                             .filter(e -> e.getValue() != block)
-                            .map(Map.Entry::getValue));
+                            .map(Map.Entry::getValue)
+                            .map(ItemStack::new)
+                            .toList();
 
                     return new ColorizeRecipe(validBlocks, item, result, this.requireSneaking(), this.consumeItem());
                 });

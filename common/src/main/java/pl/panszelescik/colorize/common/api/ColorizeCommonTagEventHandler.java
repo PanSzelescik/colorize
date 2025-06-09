@@ -6,10 +6,10 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.IngredientUtils;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -48,13 +48,14 @@ public class ColorizeCommonTagEventHandler extends ColorizeEventHandler {
                 .map(Map.Entry::getKey);
     }
 
-    public @NotNull Ingredient getColorIngredient(@NotNull Colors color) {
-        return Ingredient.of(this.tags
+    public @NotNull List<ItemStack> getColorItemStacks(@NotNull Colors color) {
+        return this.tags
                 .object2ObjectEntrySet()
                 .stream()
                 .filter(e -> e.getKey() == color)
                 .findFirst()
                 .stream()
-                .flatMap(t -> IngredientUtils.getItemsInTag(t.getValue())));
+                .flatMap(t -> IngredientUtils.getItemStacksInTag(t.getValue()))
+                .toList();
     }
 }
