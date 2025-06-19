@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.neoforge;
+package pl.panszelescik.colorize.forge;
 
 import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.api.ColorizeCommonTagEventHandler;

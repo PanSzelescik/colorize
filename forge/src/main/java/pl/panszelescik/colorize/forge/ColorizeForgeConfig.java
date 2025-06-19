@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.neoforge;
+package pl.panszelescik.colorize.forge;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
