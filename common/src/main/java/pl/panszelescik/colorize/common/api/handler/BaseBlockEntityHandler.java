@@ -2,6 +2,7 @@ package pl.panszelescik.colorize.common.api.handler;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -26,12 +27,13 @@ public abstract class BaseBlockEntityHandler<T extends BlockEntity> extends Base
         var blockEntity = level.getBlockEntity(pos);
         if (this.clazz.isInstance(blockEntity)) {
             var tag = blockEntity.saveWithoutMetadata(level.registryAccess());
+            var components = blockEntity.collectComponents();
 
             super.replace(level, pos, state, stack, newState.getBlock().withPropertiesOf(state), player);
 
             var newBlockEntity = level.getBlockEntity(pos);
             if (this.clazz.isInstance(newBlockEntity)) {
-                newBlockEntity.loadWithComponents(tag, level.registryAccess());
+                newBlockEntity.applyComponents(components, DataComponentPatch.EMPTY);
                 newBlockEntity.setChanged();
                 return true;
             }
