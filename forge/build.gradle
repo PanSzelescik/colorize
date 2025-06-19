@@ -32,6 +32,7 @@ repositories {
 
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
+    annotationProcessor 'net.minecraftforge:eventbus-validator:7.0-beta.7'
     // Remove the next line if you don't want to depend on the API
     //modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
