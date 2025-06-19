@@ -1,9 +1,9 @@
 package pl.panszelescik.colorize.forge;
 
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.Colorize;
 
@@ -12,7 +12,7 @@ public class ColorizeForge {
 
     private final ColorizeForgeHandler handler = new ColorizeForgeHandler(ColorizeForgeConfig.CONFIG);
 
-    public ColorizeForge(ModLoadingContext modLoadingContext) {
+    public ColorizeForge(FMLJavaModLoadingContext modLoadingContext) {
         PlayerInteractEvent.RightClickBlock.BUS.addListener(this::onRightClickBlock);
 
         modLoadingContext.registerConfig(ModConfig.Type.COMMON, ColorizeForgeConfig.SPEC);
