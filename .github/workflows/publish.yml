@@ -58,12 +58,11 @@ jobs:
           loaders: |
             forge
           modrinth-game-versions: |
-            1.21.7
+            1.21.8
           curseforge-game-versions: |
-            1.21.7
+            1.21.8
           java: |
-            22
-            21
+            >=21
 
           retry-attempts: 2
           retry-delay: 10000
@@ -93,12 +92,11 @@ jobs:
           loaders: |
             neoforge
           modrinth-game-versions: |
-            1.21.7
+            1.21.8
           curseforge-game-versions: |
-            1.21.7
+            1.21.8
           java: |
-            22
-            21
+            >=21
 
           retry-attempts: 2
           retry-delay: 10000
@@ -129,12 +127,11 @@ jobs:
           loaders: |
             fabric
           modrinth-game-versions: |
-            >=1.21.7
+            >=1.21.8
           curseforge-game-versions: |
-            >=1.21.7
+            >=1.21.8
           java: |
-            22
-            21
+            >=21
 
           retry-attempts: 2
           retry-delay: 10000
@@ -165,12 +162,11 @@ jobs:
 #          loaders: |
 #            quilt
 #          modrinth-game-versions: |
-#            >=1.21.7
+#            >=1.21.8
 #          curseforge-game-versions: |
-#            >=1.21.7
+#            >=1.21.8
 #          java: |
-#            22
-#            21
+#            >=21
 #
 #          retry-attempts: 2
 #          retry-delay: 10000
