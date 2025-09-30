@@ -79,7 +79,7 @@ public abstract class BaseBlockHandler {
             if (this.consumeItem()) {
                 stack.shrink(1);
             }
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 level.playSound(null, pos, this.getSound(), SoundSource.BLOCKS, 1f, 1f);
             }
         }
