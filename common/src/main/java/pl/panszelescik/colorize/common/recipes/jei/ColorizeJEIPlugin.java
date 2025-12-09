@@ -1,4 +1,4 @@
-package pl.panszelescik.colorize.common.recipes.jei;
+/*package pl.panszelescik.colorize.common.recipes.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -29,4 +29,4 @@ public class ColorizeJEIPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         registration.addRecipes(ColorizeJEICategory.RECIPE_TYPE, ColorizeEventHandler.INSTANCE.getRecipes());
     }
-}
+}*/
