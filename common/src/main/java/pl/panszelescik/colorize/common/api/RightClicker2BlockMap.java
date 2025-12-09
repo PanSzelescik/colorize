@@ -4,7 +4,7 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMaps;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -39,8 +39,8 @@ public class RightClicker2BlockMap extends Object2ObjectOpenHashMap<RightClicker
         return block;
     }
 
-    public @NotNull Optional<Block> put(@NotNull Colors color, @NotNull ResourceLocation resourceLocation) {
-        var block = BuiltInRegistries.BLOCK.getOptional(resourceLocation);
+    public @NotNull Optional<Block> put(@NotNull Colors color, @NotNull Identifier identifier) {
+        var block = BuiltInRegistries.BLOCK.getOptional(identifier);
         if (block.isEmpty()) {
             return block;
         }

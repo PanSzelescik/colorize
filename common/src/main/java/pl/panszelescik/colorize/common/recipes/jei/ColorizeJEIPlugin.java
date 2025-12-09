@@ -4,17 +4,17 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 import pl.panszelescik.colorize.common.api.ColorizeEventHandler;
 
 @JeiPlugin
 public class ColorizeJEIPlugin implements IModPlugin {
 
-    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath("colorize", "jei");
+    private static final Identifier ID = Identifier.fromNamespaceAndPath("colorize", "jei");
 
     @Override
-    public @NotNull ResourceLocation getPluginUid() {
+    public @NotNull Identifier getPluginUid() {
         return ID;
     }
 

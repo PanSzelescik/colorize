@@ -58,9 +58,9 @@ jobs:
           loaders: |
             forge
           modrinth-game-versions: |
-            1.21.10
+            1.21.11
           curseforge-game-versions: |
-            1.21.10
+            1.21.11
           java: |
             >=21
 
@@ -92,9 +92,9 @@ jobs:
           loaders: |
             neoforge
           modrinth-game-versions: |
-            1.21.10
+            1.21.11
           curseforge-game-versions: |
-            1.21.10
+            1.21.11
           java: |
             >=21
 
@@ -127,9 +127,9 @@ jobs:
           loaders: |
             fabric
           modrinth-game-versions: |
-            >=1.21.10
+            >=1.21.11
           curseforge-game-versions: |
-            >=1.21.10
+            >=1.21.11
           java: |
             >=21
 
@@ -162,9 +162,9 @@ jobs:
 #          loaders: |
 #            quilt
 #          modrinth-game-versions: |
-#            >=1.21.10
+#            >=1.21.11
 #          curseforge-game-versions: |
-#            >=1.21.10
+#            >=1.21.11
 #          java: |
 #            >=21
 #

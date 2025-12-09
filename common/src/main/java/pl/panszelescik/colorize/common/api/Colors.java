@@ -1,7 +1,7 @@
 package pl.panszelescik.colorize.common.api;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -54,7 +54,7 @@ public enum Colors {
         if (dyeColor == null) {
             return null;
         }
-        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", "dyes/" + dyeColor.getName()));
+        return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "dyes/" + dyeColor.getName()));
     }
 
     public static @NotNull Colors getByDyeColor(@Nullable DyeColor dyeColor) {
