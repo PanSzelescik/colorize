@@ -41,7 +41,7 @@ dependencies {
     modRuntimeOnly "mezz.jei:jei-${jei_minecraft_version}-neoforge:${jei_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
 }
 
 processResources {
