@@ -19,14 +19,11 @@
   "entrypoints": {
     "main": [
       "pl.panszelescik.colorize.fabric.ColorizeFabric"
-    ],
-    "jei_mod_plugin": [
-      "pl.panszelescik.colorize.common.recipes.jei.ColorizeJEIPlugin"
     ]
   },
   "depends": {
     "fabric-api": "*",
-    "minecraft": ">=26.1",
+    "minecraft": ">=26.0",
     "java": ">=25"
   },
   "suggests": {

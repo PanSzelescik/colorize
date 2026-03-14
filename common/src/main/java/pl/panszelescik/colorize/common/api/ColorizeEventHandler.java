@@ -2,9 +2,9 @@ package pl.panszelescik.colorize.common.api;
 
 import it.unimi.dsi.fastutil.objects.ObjectImmutableList;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -77,8 +77,9 @@ public abstract class ColorizeEventHandler {
     }
 
     protected @NotNull Optional<Colors> getDyeColor(@NotNull ItemStack stack) {
-        if (stack.getItem() instanceof DyeItem dyeStack) {
-            return Optional.of(Colors.getByDyeColor(dyeStack.getDyeColor()));
+        var dyeColor = stack.get(DataComponents.DYE);
+        if (dyeColor != null) {
+            return Optional.of(Colors.getByDyeColor(dyeColor));
         }
         return Optional.empty();
     }
