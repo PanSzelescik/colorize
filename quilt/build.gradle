@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    modImplementation "org.quiltmc:quilt-loader:${rootProject.quilt_loader_version}"
+    implementation "org.quiltmc:quilt-loader:${rootProject.quilt_loader_version}"
     modApi "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${rootProject.quilt_fabric_api_version}"
     // Remove the next line if you don't want to depend on the API
     //modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
@@ -56,7 +56,7 @@ shadowJar {
     archiveClassifier = "dev-shadow"
 }
 
-remapJar {
+jar {
     injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar

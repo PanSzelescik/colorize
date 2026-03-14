@@ -20,10 +20,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up JDK 21
+      - name: Set up JDK 25
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
+          java-version: '25'
           distribution: 'temurin'
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@v4
@@ -58,11 +58,11 @@ jobs:
           loaders: |
             forge
           modrinth-game-versions: |
-            1.21.11
+            26.1
           curseforge-game-versions: |
-            1.21.11
+            26.1
           java: |
-            >=21
+            >=25
 
           retry-attempts: 2
           retry-delay: 10000
@@ -92,11 +92,11 @@ jobs:
           loaders: |
             neoforge
           modrinth-game-versions: |
-            1.21.11
+            26.1
           curseforge-game-versions: |
-            1.21.11
+            26.1
           java: |
-            >=21
+            >=25
 
           retry-attempts: 2
           retry-delay: 10000
@@ -127,11 +127,11 @@ jobs:
           loaders: |
             fabric
           modrinth-game-versions: |
-            >=1.21.11
+            >=26.1
           curseforge-game-versions: |
-            >=1.21.11
+            >=26.1
           java: |
-            >=21
+            >=25
 
           retry-attempts: 2
           retry-delay: 10000
@@ -162,11 +162,11 @@ jobs:
 #          loaders: |
 #            quilt
 #          modrinth-game-versions: |
-#            >=1.21.11
+#            >=26.1
 #          curseforge-game-versions: |
-#            >=1.21.11
+#            >=26.1
 #          java: |
-#            >=21
+#            >=25
 #
 #          retry-attempts: 2
 #          retry-delay: 10000

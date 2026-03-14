@@ -60,7 +60,7 @@ shadowJar {
     archiveClassifier = "dev-shadow"
 }
 
-remapJar {
+jar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
 }
