@@ -11,7 +11,7 @@ sourceSets.main.java.exclude "**/jei/**"
 
 dependencies {
     minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-    implementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    compileOnly "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     //api "mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}"
 }
 

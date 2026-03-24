@@ -11,9 +11,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Build specific module
 ./gradlew :common:build
 ./gradlew :fabric:build
+./gradlew :neoforged:build
 
 # Run Minecraft client with mod
 ./gradlew :fabric:runClient
+./gradlew :neoforged:runClient
 
 # Clean build
 ./gradlew clean build
@@ -28,8 +30,9 @@ No tests exist in this project.
 ### Module Structure
 
 - **`common/`** — Platform-agnostic mod logic. Compiles against vanilla MC + Fabric Loader (for mixin support only). Must never import loader-specific APIs.
-- **`fabric/`** — Fabric entrypoint. Registers `UseBlockCallback` and wires up the handler.
-- **`forge/`** and **`neoforged/`** — Commented-out placeholders; Forge/NeoForge not yet released for 26.1.
+- **`fabric/`** — Fabric entrypoint. Registers `UseBlockCallback` and wires up the handler. Working.
+- **`neoforged/`** — NeoForge entrypoint. Uses `net.neoforged.moddev` 2.0.141. Working.
+- **`forge/`** — Commented-out placeholder; Forge not yet released for 26.1.
 
 ### Key Abstractions
 
@@ -44,6 +47,6 @@ No tests exist in this project.
 ### Important Notes
 
 - **MC 26.1 is unobfuscated** — no Yarn mappings, all class/method names are official Mojang names. `DyeItem.getDyeColor()` (Yarn) → `stack.get(DataComponents.DYE)` (Mojang).
-- Build uses `net.fabricmc.fabric-loom` 1.15.5. Common module classes are bundled into the fabric jar via `jar { from project(":common").sourceSets.main.output }` — no shadow plugin needed.
+- Fabric uses `net.fabricmc.fabric-loom` 1.15.5. NeoForge uses `net.neoforged.moddev` 2.0.141. Common module classes are bundled into each platform jar via `jar { from project(":common").sourceSets.main.output }` — no shadow plugin needed.
 - **JEI integration is disabled** — no JEI release for 26.1 yet. Source files excluded via `sourceSets.main.java.exclude "**/jei/**"` in `common/build.gradle`. Re-enable when JEI publishes for 26.1.
 - `loom.platform` properties (Forge/NeoForge submodule gradle.properties) are gone — that was an architectury-loom concept, not used with native per-loader plugins.

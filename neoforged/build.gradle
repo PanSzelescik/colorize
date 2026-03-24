@@ -1,14 +1,50 @@
-// TODO: NeoForge dla Minecraft 26.1 nie jest jeszcze dostępny.
-// Gdy NeoForge zostanie wydany, skonfigurować ten moduł z ModDevGradle:
-//
-// plugins {
-//     id "net.neoforged.moddev"
-// }
-//
-// neoForge {
-//     version = rootProject.neoforge_version
-// }
-//
-// dependencies {
-//     implementation project(":common")
-// }
+plugins {
+    id "net.neoforged.moddev" version "2.0.141"
+}
+
+base {
+    archivesName = rootProject.archives_base_name + "-" + rootProject.minecraft_version + "-neoforge"
+}
+
+neoForge {
+    version = rootProject.neoforge_version
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+        }
+    }
+
+    mods {
+        colorize {
+            sourceSet(sourceSets.main)
+            sourceSet(project(':common').sourceSets.main)
+        }
+    }
+}
+
+dependencies {
+    implementation project(":common")
+}
+
+jar {
+    from project(":common").sourceSets.main.output
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": project.version
+    }
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
