@@ -6,6 +6,8 @@ repositories {
     maven { url "https://modmaven.dev" }
 }
 
+jar.manifest.attributes('Automatic-Module-Name': 'colorize.common')
+
 // JEI - wyłączone do czasu wydania wersji dla 26.1
 sourceSets.main.java.exclude "**/jei/**"
 
