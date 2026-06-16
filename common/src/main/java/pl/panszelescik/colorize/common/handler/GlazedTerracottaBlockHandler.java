@@ -19,22 +19,7 @@ public class GlazedTerracottaBlockHandler extends BaseBlockHandler {
     static {
         var map = new RightClicker2BlockMap(16);
 
-        map.put(Colors.WHITE, Blocks.WHITE_GLAZED_TERRACOTTA);
-        map.put(Colors.ORANGE, Blocks.ORANGE_GLAZED_TERRACOTTA);
-        map.put(Colors.MAGENTA, Blocks.MAGENTA_GLAZED_TERRACOTTA);
-        map.put(Colors.LIGHT_BLUE, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA);
-        map.put(Colors.YELLOW, Blocks.YELLOW_GLAZED_TERRACOTTA);
-        map.put(Colors.LIME, Blocks.LIME_GLAZED_TERRACOTTA);
-        map.put(Colors.PINK, Blocks.PINK_GLAZED_TERRACOTTA);
-        map.put(Colors.GRAY, Blocks.GRAY_GLAZED_TERRACOTTA);
-        map.put(Colors.LIGHT_GRAY, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA);
-        map.put(Colors.CYAN, Blocks.CYAN_GLAZED_TERRACOTTA);
-        map.put(Colors.PURPLE, Blocks.PURPLE_GLAZED_TERRACOTTA);
-        map.put(Colors.BLUE, Blocks.BLUE_GLAZED_TERRACOTTA);
-        map.put(Colors.BROWN, Blocks.BROWN_GLAZED_TERRACOTTA);
-        map.put(Colors.GREEN, Blocks.GREEN_GLAZED_TERRACOTTA);
-        map.put(Colors.RED, Blocks.RED_GLAZED_TERRACOTTA);
-        map.put(Colors.BLACK, Blocks.BLACK_GLAZED_TERRACOTTA);
+        map.putColors(Blocks.GLAZED_TERRACOTTA);
 
         GlAZED_TERRACOTTAS = map.freeze();
     }

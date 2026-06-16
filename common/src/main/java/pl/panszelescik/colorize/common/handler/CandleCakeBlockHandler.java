@@ -36,22 +36,7 @@ public class CandleCakeBlockHandler extends BaseBlockHandler {
         var map = new RightClicker2BlockMap(17);
 
         map.put(Colors.CLEAR, Blocks.CANDLE_CAKE);
-        map.put(Colors.WHITE, Blocks.WHITE_CANDLE_CAKE);
-        map.put(Colors.ORANGE, Blocks.ORANGE_CANDLE_CAKE);
-        map.put(Colors.MAGENTA, Blocks.MAGENTA_CANDLE_CAKE);
-        map.put(Colors.LIGHT_BLUE, Blocks.LIGHT_BLUE_CANDLE_CAKE);
-        map.put(Colors.YELLOW, Blocks.YELLOW_CANDLE_CAKE);
-        map.put(Colors.LIME, Blocks.LIME_CANDLE_CAKE);
-        map.put(Colors.PINK, Blocks.PINK_CANDLE_CAKE);
-        map.put(Colors.GRAY, Blocks.GRAY_CANDLE_CAKE);
-        map.put(Colors.LIGHT_GRAY, Blocks.LIGHT_GRAY_CANDLE_CAKE);
-        map.put(Colors.CYAN, Blocks.CYAN_CANDLE_CAKE);
-        map.put(Colors.PURPLE, Blocks.PURPLE_CANDLE_CAKE);
-        map.put(Colors.BLUE, Blocks.BLUE_CANDLE_CAKE);
-        map.put(Colors.BROWN, Blocks.BROWN_CANDLE_CAKE);
-        map.put(Colors.GREEN, Blocks.GREEN_CANDLE_CAKE);
-        map.put(Colors.RED, Blocks.RED_CANDLE_CAKE);
-        map.put(Colors.BLACK, Blocks.BLACK_CANDLE_CAKE);
+        map.putColors(Blocks.DYED_CANDLE_CAKE);
 
         CANDLE_CAKES = map.freeze();
     }

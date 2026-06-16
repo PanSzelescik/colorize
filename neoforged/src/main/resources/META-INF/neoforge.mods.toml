@@ -12,15 +12,9 @@ description = '''
 Right click on the dye on some blocks to color them!
 '''
 [[dependencies.colorize]]
-modId = "neoforge"
-type = "required"
-versionRange = "[21.11.0,)"
-ordering = "NONE"
-side = "BOTH"
-[[dependencies.colorize]]
 modId = "minecraft"
 type = "required"
-versionRange = "[26.1,)"
+versionRange = "[26.2,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]

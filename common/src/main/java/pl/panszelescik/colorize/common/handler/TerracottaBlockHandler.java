@@ -20,22 +20,7 @@ public class TerracottaBlockHandler extends BaseBlockHandler {
         var map = new RightClicker2BlockMap(17);
 
         map.put(Colors.CLEAR, Blocks.TERRACOTTA);
-        map.put(Colors.WHITE, Blocks.WHITE_TERRACOTTA);
-        map.put(Colors.ORANGE, Blocks.ORANGE_TERRACOTTA);
-        map.put(Colors.MAGENTA, Blocks.MAGENTA_TERRACOTTA);
-        map.put(Colors.LIGHT_BLUE, Blocks.LIGHT_BLUE_TERRACOTTA);
-        map.put(Colors.YELLOW, Blocks.YELLOW_TERRACOTTA);
-        map.put(Colors.LIME, Blocks.LIME_TERRACOTTA);
-        map.put(Colors.PINK, Blocks.PINK_TERRACOTTA);
-        map.put(Colors.GRAY, Blocks.GRAY_TERRACOTTA);
-        map.put(Colors.LIGHT_GRAY, Blocks.LIGHT_GRAY_TERRACOTTA);
-        map.put(Colors.CYAN, Blocks.CYAN_TERRACOTTA);
-        map.put(Colors.PURPLE, Blocks.PURPLE_TERRACOTTA);
-        map.put(Colors.BLUE, Blocks.BLUE_TERRACOTTA);
-        map.put(Colors.BROWN, Blocks.BROWN_TERRACOTTA);
-        map.put(Colors.GREEN, Blocks.GREEN_TERRACOTTA);
-        map.put(Colors.RED, Blocks.RED_TERRACOTTA);
-        map.put(Colors.BLACK, Blocks.BLACK_TERRACOTTA);
+        map.putColors(Blocks.DYED_TERRACOTTA);
 
         TERRACOTTAS = map.freeze();
     }

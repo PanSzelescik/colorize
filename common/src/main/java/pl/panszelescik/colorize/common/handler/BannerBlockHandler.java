@@ -28,22 +28,7 @@ public class BannerBlockHandler extends BaseBlockEntityHandler<BannerBlockEntity
     static {
         var map = new RightClicker2BlockMap(16);
 
-        map.put(Colors.WHITE, Blocks.WHITE_BANNER);
-        map.put(Colors.ORANGE, Blocks.ORANGE_BANNER);
-        map.put(Colors.MAGENTA, Blocks.MAGENTA_BANNER);
-        map.put(Colors.LIGHT_BLUE, Blocks.LIGHT_BLUE_BANNER);
-        map.put(Colors.YELLOW, Blocks.YELLOW_BANNER);
-        map.put(Colors.LIME, Blocks.LIME_BANNER);
-        map.put(Colors.PINK, Blocks.PINK_BANNER);
-        map.put(Colors.GRAY, Blocks.GRAY_BANNER);
-        map.put(Colors.LIGHT_GRAY, Blocks.LIGHT_GRAY_BANNER);
-        map.put(Colors.CYAN, Blocks.CYAN_BANNER);
-        map.put(Colors.PURPLE, Blocks.PURPLE_BANNER);
-        map.put(Colors.BLUE, Blocks.BLUE_BANNER);
-        map.put(Colors.BROWN, Blocks.BROWN_BANNER);
-        map.put(Colors.GREEN, Blocks.GREEN_BANNER);
-        map.put(Colors.RED, Blocks.RED_BANNER);
-        map.put(Colors.BLACK, Blocks.BLACK_BANNER);
+        map.putColors(Blocks.BANNER);
 
         BANNERS = map.freeze();
     }

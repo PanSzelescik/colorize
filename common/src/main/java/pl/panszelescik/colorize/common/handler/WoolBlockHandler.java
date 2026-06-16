@@ -19,22 +19,7 @@ public class WoolBlockHandler extends WoollyBlockHandler {
     static {
         var map = new RightClicker2BlockMap(16);
 
-        map.put(Colors.WHITE, Blocks.WHITE_WOOL);
-        map.put(Colors.ORANGE, Blocks.ORANGE_WOOL);
-        map.put(Colors.MAGENTA, Blocks.MAGENTA_WOOL);
-        map.put(Colors.LIGHT_BLUE, Blocks.LIGHT_BLUE_WOOL);
-        map.put(Colors.YELLOW, Blocks.YELLOW_WOOL);
-        map.put(Colors.LIME, Blocks.LIME_WOOL);
-        map.put(Colors.PINK, Blocks.PINK_WOOL);
-        map.put(Colors.GRAY, Blocks.GRAY_WOOL);
-        map.put(Colors.LIGHT_GRAY, Blocks.LIGHT_GRAY_WOOL);
-        map.put(Colors.CYAN, Blocks.CYAN_WOOL);
-        map.put(Colors.PURPLE, Blocks.PURPLE_WOOL);
-        map.put(Colors.BLUE, Blocks.BLUE_WOOL);
-        map.put(Colors.BROWN, Blocks.BROWN_WOOL);
-        map.put(Colors.GREEN, Blocks.GREEN_WOOL);
-        map.put(Colors.RED, Blocks.RED_WOOL);
-        map.put(Colors.BLACK, Blocks.BLACK_WOOL);
+        map.putColors(Blocks.WOOL);
 
         WOOLS = map.freeze();
     }

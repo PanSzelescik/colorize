@@ -55,22 +55,7 @@ public class BedBlockHandler extends WoollyBlockHandler {
     static {
         var map = new RightClicker2BlockMap(16);
 
-        map.put(Colors.WHITE, Blocks.WHITE_BED);
-        map.put(Colors.ORANGE, Blocks.ORANGE_BED);
-        map.put(Colors.MAGENTA, Blocks.MAGENTA_BED);
-        map.put(Colors.LIGHT_BLUE, Blocks.LIGHT_BLUE_BED);
-        map.put(Colors.YELLOW, Blocks.YELLOW_BED);
-        map.put(Colors.LIME, Blocks.LIME_BED);
-        map.put(Colors.PINK, Blocks.PINK_BED);
-        map.put(Colors.GRAY, Blocks.GRAY_BED);
-        map.put(Colors.LIGHT_GRAY, Blocks.LIGHT_GRAY_BED);
-        map.put(Colors.CYAN, Blocks.CYAN_BED);
-        map.put(Colors.PURPLE, Blocks.PURPLE_BED);
-        map.put(Colors.BLUE, Blocks.BLUE_BED);
-        map.put(Colors.BROWN, Blocks.BROWN_BED);
-        map.put(Colors.GREEN, Blocks.GREEN_BED);
-        map.put(Colors.RED, Blocks.RED_BED);
-        map.put(Colors.BLACK, Blocks.BLACK_BED);
+        map.putColors(Blocks.BED);
 
         BEDS = map.freeze();
     }

@@ -6,9 +6,11 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ColorCollection;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -47,6 +49,12 @@ public class RightClicker2BlockMap extends Object2ObjectOpenHashMap<RightClicker
 
         this.put(RightClicker.of(color), block.get());
         return block;
+    }
+
+    public void putColors(@NotNull ColorCollection<Block> colorCollection) {
+        for (var dyeColor : DyeColor.values()) {
+            this.put(Colors.getByDyeColor(dyeColor), colorCollection.pick(dyeColor));
+        }
     }
 
     public @NotNull @Unmodifiable Object2ObjectMap<RightClicker, Block> freeze() {
