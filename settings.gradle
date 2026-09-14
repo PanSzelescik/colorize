@@ -13,7 +13,7 @@ plugins {
 
 include("common")
 include("fabric")
-//include("forge")
-//include("neoforged")
+include("forge")
+include("neoforged")
 
 rootProject.name = "colorize"
