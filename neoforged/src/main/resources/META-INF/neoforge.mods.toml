@@ -14,12 +14,12 @@ Right click on the dye on some blocks to color them!
 [[dependencies.colorize]]
 modId = "minecraft"
 type = "required"
-versionRange = "[26.2,)"
+versionRange = "[26.3,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.colorize]]
 modId = "jei"
 type = "optional"
-versionRange = "[25.0.0,)"
+versionRange = "[30.0.0,)"
 ordering = "NONE"
 side = "BOTH"

@@ -40,6 +40,8 @@ public abstract class ColorizeEventHandler {
                 new TerracottaBlockHandler(),
                 new WallBannerBlockHandler(),
                 new WoolBlockHandler(),
+                new WoolSlabBlockHandler(),
+                new WoolStairsBlockHandler(),
 
                 new MossyCobblestoneHandler(),
                 new MossyCobblestoneSlabHandler(),

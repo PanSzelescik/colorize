@@ -11,6 +11,7 @@ import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Items;
+import org.jspecify.annotations.NonNull;
 import pl.panszelescik.colorize.common.recipes.ColorizeRecipe;
 
 public class ColorizeJEICategory extends AbstractRecipeCategory<ColorizeRecipe> {
@@ -25,15 +26,15 @@ public class ColorizeJEICategory extends AbstractRecipeCategory<ColorizeRecipe> 
         super(
                 RECIPE_TYPE,
                 TITLE,
-                guiHelper.createDrawableItemLike(Items.PINK_DYE),
+                guiHelper.createDrawableItemLike(Items.DYE.pink()),
                 125,
                 18
         );
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, ColorizeRecipe recipe, IFocusGroup focuses) {
-        IRecipeSlotRichTooltipCallback callback = (recipeSlotView, tooltip) -> {
+    public void setRecipe(IRecipeLayoutBuilder builder, ColorizeRecipe recipe, @NonNull IFocusGroup focuses) {
+        IRecipeSlotRichTooltipCallback callback = (_, tooltip) -> {
             if (recipe.sneaking()) {
                 tooltip.add(SNEAKING);
             }
@@ -75,8 +76,8 @@ public class ColorizeJEICategory extends AbstractRecipeCategory<ColorizeRecipe> 
     }
 
     @Override
-    public void createRecipeExtras(IRecipeExtrasBuilder builder, ColorizeRecipe recipe, IFocusGroup focuses) {
-        builder.addRecipePlusSign().setPosition(27, 3);
-        builder.addRecipeArrow().setPosition(76, 1);
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, @NonNull ColorizeRecipe recipe, @NonNull IFocusGroup focuses) {
+        builder.addRecipePlusSignWidget().setPosition(27, 3);
+        builder.addRecipeArrowWidget().setPosition(76, 1);
     }
 }

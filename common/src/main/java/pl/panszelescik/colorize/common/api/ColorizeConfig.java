@@ -25,7 +25,9 @@ public interface ColorizeConfig {
             "Stained Glass",
             "Stained Glass Pane",
             "Terracotta",
-            "Wool"
+            "Wool",
+            "Wool Stairs",
+            "Wool Slab",
     };
     String[] sneakingTrueKeys = new String[] {
             "Mossy Cobblestone",

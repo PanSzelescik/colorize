@@ -58,9 +58,9 @@ jobs:
           loaders: |
             forge
           modrinth-game-versions: |
-            26.2
+            26.3
           curseforge-game-versions: |
-            26.2
+            26.3
           java: |
             >=25
 
@@ -92,9 +92,9 @@ jobs:
           loaders: |
             neoforge
           modrinth-game-versions: |
-            26.2
+            26.3
           curseforge-game-versions: |
-            26.2
+            26.3
           java: |
             >=25
 
@@ -127,9 +127,9 @@ jobs:
           loaders: |
             fabric
           modrinth-game-versions: |
-            >=26.2
+            >=26.3
           curseforge-game-versions: |
-            >=26.2
+            >=26.3
           java: |
             >=25
 
