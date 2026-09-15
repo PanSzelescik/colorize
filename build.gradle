@@ -5,6 +5,10 @@ plugins {
 subprojects {
     apply plugin: "java"
 
+    repositories {
+        maven { url "https://modmaven.dev" }
+    }
+
     base {
         archivesName = rootProject.archives_base_name
     }
