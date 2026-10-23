@@ -34,7 +34,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
       - name: Publish Forge to CurseForge and Modrinth
-        uses: Kir-Antipov/mc-publish@v3.3
+        uses: Kir-Antipov/mc-publish@v3
         with:
           modrinth-id: 4sQDl6he
           modrinth-featured: true
@@ -68,7 +68,7 @@ jobs:
           retry-delay: 10000
           fail-mode: fail
       - name: Publish NeoForge to CurseForge and Modrinth
-        uses: Kir-Antipov/mc-publish@v3.3
+        uses: Kir-Antipov/mc-publish@v3
         with:
           modrinth-id: 4sQDl6he
           modrinth-featured: true
@@ -102,7 +102,7 @@ jobs:
           retry-delay: 10000
           fail-mode: fail
       - name: Publish Fabric to CurseForge and Modrinth
-        uses: Kir-Antipov/mc-publish@v3.3
+        uses: Kir-Antipov/mc-publish@v3
         with:
           modrinth-id: 4sQDl6he
           modrinth-featured: true
