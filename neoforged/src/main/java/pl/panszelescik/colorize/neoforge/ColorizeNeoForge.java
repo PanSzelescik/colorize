@@ -16,7 +16,7 @@ public class ColorizeNeoForge {
     public ColorizeNeoForge(ModContainer modContainer) {
         NeoForge.EVENT_BUS.addListener(this::onRightClickBlock);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, ColorizeNeoForgeConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.SYNCED, ColorizeNeoForgeConfig.SPEC);
     }
 
     private void onRightClickBlock(@NotNull PlayerInteractEvent.RightClickBlock event) {
